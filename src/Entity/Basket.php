@@ -1,14 +1,18 @@
 <?php
 
-namespace Basket;
+namespace Entity;
 
 class Basket
 {
+   // ATTRIBUTS 
+   
    private $titre;
    private $produitId;
    private $configId;
    private $quantite;
    private $prix;
+   
+   // GETTERS ET SETTERS
    
    public function getTitre() {
        return $this->titre;
@@ -54,4 +58,7 @@ class Basket
        $this->prix = $prix;
        return $this;
    }
+   
+    // AUTRES FONCTIONS
+   
 }
