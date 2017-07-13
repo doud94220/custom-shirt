@@ -36,6 +36,7 @@ $app->register(new SwiftmailerServiceProvider());
 $app['twig'] = $app->extend('twig', function ($twig, $app) {
     // add custom globals, filters, tags, ...
     $twig->addGlobal('user_manager', $app['user.manager']); // Global est une fonction de TWIG
+    $twig->addGlobal('basket_manager', $app['basket.manager']);
     return $twig;
 });
 
@@ -58,11 +59,19 @@ $app->register
 
 $app->register(new SessionServiceProvider()); //Permet d'utiliser $app['session']
 
+/* Déclaration des MANAGERS */
+
 $app['user.manager'] = function () use ($app)
 {
     return new UserManager($app['session']);
 };
 
+
+$app['basket.manager'] = function() use ($app)
+{
+   return new BasketManager($app['session']);
+};
+            
 
 $app['index.controller'] = function () use ($app) {
 
@@ -75,6 +84,7 @@ $app['produit.repository'] = function () use ($app) {
     return new ProduitRepository($app['db']);
 
 };
+
 
 /* Déclaration des contrôleurs en service */
 /* FRONT */
@@ -105,7 +115,12 @@ $app['custom.controller'] = function() use ($app)
 };
 
 
-
+// Controleur du panier
+$app['basket.controller'] = function() use ($app)
+{
+    return new BasketController($app);
+};
+            
 /* Déclaration des repositories en service */
 
 $app['custom.repository'] = function() use ($app)

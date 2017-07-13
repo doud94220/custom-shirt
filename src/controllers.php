@@ -8,6 +8,12 @@ use Symfony\Component\HttpFoundation\Response;
 
 /*********************FRONT****************************/
 
+
+// Route du panier (basket en UK) en front
+$app
+       ->match('/basket', 'basket.controller:consultAction')
+       ->bind('basket');
+
 /*HOMEPAGE*/
 
 $app
