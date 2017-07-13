@@ -22,116 +22,128 @@ class User
     private $dos;
     
     
-    /**********GETTERS****************/
+     /**********GETTERS****************/
     
-    function getId_user() {
+    public function getId_user() {
         return $this->id_user;
     }
 
-    function getTaille() {
+    public function getTaille() {
         return $this->taille;
     }
 
-    function getPoids() {
+    public function getPoids() {
         return $this->poids;
     }
 
-    function getTour_cou() {
+    public function getTour_cou() {
         return $this->tour_cou;
     }
 
-    function getTour_poitrine() {
+    public function getTour_poitrine() {
         return $this->tour_poitrine;
     }
 
-    function getTour_taille() {
+    public function getTour_taille() {
         return $this->tour_taille;
     }
 
-    function getTour_bassin() {
+    public function getTour_bassin() {
         return $this->tour_bassin;
     }
 
-    function getManche_droite() {
+    public function getManche_droite() {
         return $this->manche_droite;
     }
 
-    function getManche_gauche() {
+    public function getManche_gauche() {
         return $this->manche_gauche;
     }
 
-    function getPoignet_droit() {
+    public function getPoignet_droit() {
         return $this->poignet_droit;
     }
 
-    function getPoignet_gauche() {
+    public function getPoignet_gauche() {
         return $this->poignet_gauche;
     }
 
-    function getCarrure() {
+    public function getCarrure() {
         return $this->carrure;
     }
 
-    function getDos() {
+    public function getDos() {
         return $this->dos;
     }
 
     /**********SETTERS****************/
     
-    function setId_user($id_user) {
+    public function setId_user($id_user) {
         $this->id_user = $id_user;
+        return $this;
     }
 
-    function setTaille($taille) {
+    public function setTaille($taille) {
         $this->taille = $taille;
+        return $this;
     }
 
-    function setPoids($poids) {
+    public function setPoids($poids) {
         $this->poids = $poids;
+        return $this;
     }
 
-    function setTour_cou($tour_cou) {
+    public function setTour_cou($tour_cou) {
         $this->tour_cou = $tour_cou;
+        return $this;
     }
 
-    function setTour_poitrine($tour_poitrine) {
+    public function setTour_poitrine($tour_poitrine) {
         $this->tour_poitrine = $tour_poitrine;
+        return $this;
     }
 
-    function setTour_taille($tour_taille) {
+    public function setTour_taille($tour_taille) {
         $this->tour_taille = $tour_taille;
+        return $this;
     }
 
-    function setTour_bassin($tour_bassin) {
+    public function setTour_bassin($tour_bassin) {
         $this->tour_bassin = $tour_bassin;
+        return $this;
     }
 
-    function setManche_droite($manche_droite) {
+    public function setManche_droite($manche_droite) {
         $this->manche_droite = $manche_droite;
+        return $this;
     }
 
-    function setManche_gauche($manche_gauche) {
+    public function setManche_gauche($manche_gauche) {
         $this->manche_gauche = $manche_gauche;
+        return $this;
     }
 
-    function setPoignet_droit($poignet_droit) {
+    public function setPoignet_droit($poignet_droit) {
         $this->poignet_droit = $poignet_droit;
+        return $this;
     }
 
-    function setPoignet_gauche($poignet_gauche) {
+    public function setPoignet_gauche($poignet_gauche) {
         $this->poignet_gauche = $poignet_gauche;
+        return $this;
     }
 
-    function setCarrure($carrure) {
+    public function setCarrure($carrure) {
         $this->carrure = $carrure;
+        return $this;
     }
 
-    function setDos($dos) {
+    public function setDos($dos) {
         $this->dos = $dos;
+        return $this;
     }
 
-
-            
+      
             
             
 }

@@ -2,10 +2,9 @@
 
 namespace Entity;
 
-
-class Config 
+class Custom 
 {
-    
+
     private $id_config;
     
     private $tissu_id;

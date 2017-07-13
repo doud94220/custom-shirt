@@ -1,10 +1,12 @@
 <?php
 
+use Repository\CustomRepository;
+use Service\UserManager;
 use Silex\Application;
 use Silex\Provider\AssetServiceProvider;
-use Silex\Provider\TwigServiceProvider;
-use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\HttpFragmentServiceProvider;
+use Silex\Provider\ServiceControllerServiceProvider;
+use Silex\Provider\TwigServiceProvider;
 
 $app = new Application();
 $app->register(new ServiceControllerServiceProvider());
@@ -41,11 +43,20 @@ $app['user.manager'] = function () use ($app)
     return new UserManager($app['session']);
 };
 
-
 /* Déclaration des contrôleurs en service */
+
+$app['custom.controller'] = function() use ($app)
+{
+    return new CustomController($app);
+};
+
 
 
 /* Déclaration des repositories en service */
+$app['custom.repository'] = function() use ($app)
+{
+    return new CustomRepository($app);
+};
 
 
 return $app;
