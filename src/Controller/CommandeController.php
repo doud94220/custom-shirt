@@ -2,6 +2,7 @@
 namespace Controller;
 
 use Entity\Commande;
+use Repository\CommandeRepository;
 /**
  * Description of CommandeController
  *
@@ -15,10 +16,10 @@ class CommandeController extends ControllerAbstract
      * 
      */
     public function showAction($id){
-        $commandes = $this->app['commande.repository']->findAllById($id);
+        $commandes = $this->app['commande.repository']->findAllById($user_id);
         
         return $this->render(
-            'user/profil.html.twig',
+            'user/profile.html.twig',
             ['commandes' => $commandes]
         );
     }
