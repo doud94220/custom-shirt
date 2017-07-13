@@ -1,10 +1,15 @@
 <?php
 
+use Controller\CommandeController;
+use Controller\Admin\CommandeController as AdminCommandeController;
+use Service\UserManager;
 use Silex\Application;
 use Silex\Provider\AssetServiceProvider;
-use Silex\Provider\TwigServiceProvider;
-use Silex\Provider\ServiceControllerServiceProvider;
+use Silex\Provider\DoctrineServiceProvider;
 use Silex\Provider\HttpFragmentServiceProvider;
+use Silex\Provider\ServiceControllerServiceProvider;
+use Silex\Provider\SessionServiceProvider;
+use Silex\Provider\TwigServiceProvider;
 
 $app = new Application();
 $app->register(new ServiceControllerServiceProvider());
@@ -43,7 +48,13 @@ $app['user.manager'] = function () use ($app)
 
 
 /* Déclaration des contrôleurs en service */
+/* FRONT */
+$app['commande.controller'] = function () use ($app)
+{
+    return new CommandeController($app);
+};
 
+/* ADMIN */
 
 /* Déclaration des repositories en service */
 
