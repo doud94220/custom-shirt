@@ -22,11 +22,6 @@ class Produit
     private $couleur;
 
     /**
-     * @var type
-     */
-    private $photos = [];
-
-    /**
      * @var string
      */
     private $titre;
@@ -115,15 +110,15 @@ class Produit
     /**
      * @param type $photo
      */
-    public function setPhotos(array $photos)
+    public function setPhotos($photos)
     {
         $this->photos = $photos;
     }
 
-    public function addPhoto(Photo $photo)
-    {
-        $this->photos[] = $photo;
-    }
+    ##public function addPhoto(Photo $photo)
+    ##{
+    ##    $this->photos[] = $photo;
+    ##}
 
     /**
      * @return string
@@ -204,5 +199,5 @@ class Produit
     {
         $this->prix = $prix;
     }
-    
+
 }

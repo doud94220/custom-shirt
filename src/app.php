@@ -5,6 +5,13 @@ use Silex\Provider\AssetServiceProvider;
 use Silex\Provider\TwigServiceProvider;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\HttpFragmentServiceProvider;
+use Silex\Provider\DoctrineServiceProvider;
+use Silex\Provider\SessionServiceProvider;
+use Controller\IndexController;
+use Service\UserManager;
+
+
+
 
 $app = new Application();
 $app->register(new ServiceControllerServiceProvider());
@@ -39,6 +46,18 @@ $app->register(new SessionServiceProvider()); //Permet d'utiliser $app['session'
 $app['user.manager'] = function () use ($app)
 {
     return new UserManager($app['session']);
+};
+
+$app['index.controller'] = function () use ($app) {
+
+    return new IndexController($app);
+
+};
+
+$app['produit.repository'] = function () use ($app) {
+
+    return new ProduitRepository($app['db']);
+
 };
 
 
