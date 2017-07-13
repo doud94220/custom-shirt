@@ -1,0 +1,18 @@
+{% extends "layout.html.twig" %}
+
+
+{% for productOrConfig in productsAndConfigs %}
+
+    {% if id_config is defined %} {# Si le produit est une chemise en demi-mesure #}
+        
+        <th>
+            <td>
+            <td>
+            <td>
+        </th>
+        
+    {% else %} {# Si le produit est du prêt à porter #}
+
+    {% endif %}
+
+{% endfor %}

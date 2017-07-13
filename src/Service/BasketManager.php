@@ -16,7 +16,7 @@ class BasketManager
 {
     private $session;
       
-    //Méthode putProductToBasket() qui met en session les infos du PRODUIT choisi
+    //Méthode putProductToBasket($produit) qui met en session les infos du PRODUIT choisi
     public function putProductToBasket($produit)
     {
         //Initialisation variable basket
@@ -41,8 +41,8 @@ class BasketManager
         $this->session->set('basket', $productsAndConfigs[]);
         
     }//Fin putProductToBasket()
-         
-    //Méthode putConfigToBasket() qui met en session les infos de la CONFIG choisi
+  
+    //Méthode putConfigToBasket($config) qui met en session les infos de la CONFIG choisi
     public function putConfigToBasket($config)
     {
         //Initialisation variable basket
