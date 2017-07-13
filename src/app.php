@@ -13,10 +13,18 @@ use Silex\Application;
 use Silex\Provider\AssetServiceProvider;
 use Silex\Provider\DoctrineServiceProvider;
 use Silex\Provider\HttpFragmentServiceProvider;
+
+use Controller\IndexController;
+
+
+
+
+
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\SwiftmailerServiceProvider;
 use Silex\Provider\TwigServiceProvider;
+
 
 $app = new Application();
 $app->register(new ServiceControllerServiceProvider());
@@ -53,6 +61,19 @@ $app->register(new SessionServiceProvider()); //Permet d'utiliser $app['session'
 $app['user.manager'] = function () use ($app)
 {
     return new UserManager($app['session']);
+};
+
+
+$app['index.controller'] = function () use ($app) {
+
+    return new IndexController($app);
+
+};
+
+$app['produit.repository'] = function () use ($app) {
+
+    return new ProduitRepository($app['db']);
+
 };
 
 /* Déclaration des contrôleurs en service */
