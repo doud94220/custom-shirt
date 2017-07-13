@@ -1,5 +1,7 @@
 <?php
 
+
+use Repository\CustomRepository;
 use Controller\Admin\CommandeController as AdminCommandeController;
 use Controller\CommandeController;
 use Controller\DetailCommandeController;
@@ -53,7 +55,6 @@ $app['user.manager'] = function () use ($app)
     return new UserManager($app['session']);
 };
 
-
 /* Déclaration des contrôleurs en service */
 /* FRONT */
 $app['commande.controller'] = function () use ($app)
@@ -77,11 +78,23 @@ $app['admin.commande.controller'] = function () use ($app)
     return new CommandeController($app);
 };
 
+$app['custom.controller'] = function() use ($app)
+{
+    return new CustomController($app);
+};
+
+
 
 /* Déclaration des repositories en service */
+
+$app['custom.repository'] = function() use ($app)
+{
+    return new CustomRepository($app);
+
 $app['commande.repository'] = function () use ($app)
 {
     return new CommandeRepository($app['db']);
+
 };
 
 $app['detail.commande.repository'] = function () use ($app)

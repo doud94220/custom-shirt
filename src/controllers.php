@@ -1,19 +1,24 @@
 <?php
 
+use Controller\CustomController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 //Request::setTrustedProxies(array('127.0.0.1'));
 
 /*********************FRONT****************************/
+
+/*HOMEPAGE*/
+
 $app
     ->get('/', 'index.controller:indexAction')
     ->bind('homepage')// nom de la route
 ;
 
+$app
+    ->get('/custom', 'custom.controller:indexAction')
+    ->bind('custom')
+    ;
 
 
 
@@ -21,9 +26,9 @@ $app
 
 
 
-/******************UTIILISATEUR ***********************/
 
 /* UTILISATEUR */
+
 
 $app
     ->match('/inscription', 'user.controller:registerAction')
@@ -77,6 +82,7 @@ $admin
     ->value('id', null) // id est optionnel et vaut null par défaut
     ->bind('admin_edit_commande')
 ;
+
 
 //-------------------------------------------------------------------------//
 $app->error(function (\Exception $e, Request $request, $code) use ($app) {
