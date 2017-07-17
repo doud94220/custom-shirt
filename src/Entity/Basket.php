@@ -89,6 +89,6 @@ class Basket
 //                      a) appeler readBasket() et afficher dans un tableau les infos PANIER (on y accède avec action=consult dans le GET) en appelant la vue basket\index.html.twig
 //                      b) Faire la vue basket\index.html.twig
 //                      c) rajouter dans le tableau fait ci-dessus des liens la MODIFICATION et SUPPRESSION des produits du panier
-//             d) Gérer la SUPPRESSION d'un produit du panier
-//e) Gérer la MODIF d'un produit du panier           
-//f) rajouter un bouton paiement qui va prendre les DATA en session et "aller vers le paiement"
+//                      d) Gérer la SUPPRESSION d'un produit du panier
+//                      e) Gérer la MODIF d'un produit du panier           
+//             f) rajouter un bouton paiement qui va prendre les DATA en session et "aller vers le paiement"

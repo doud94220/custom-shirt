@@ -65,10 +65,50 @@ class BasketController extends ControllerAbstract
                         
                         //Je mets le nouveau panier 'allégé' en session
                         $this->session->set('basket', $newProductsAndConfigs[]);
+                        
+                        //Je redirige vers la page consultation panier
+                        return $this->redirectRoute('basket_consult');
                    }
                 }
            }
+        }
     }//Fin deleteAction()
     
+    
+    //Fonction pour changer la quantité d'un produit dans le panier
+    public function editAction($idProduitEnSession, $operationSurPanier)
+    {
+        if(!empty($_GET)) //Si y'a quelque chose dans le get
+        {
+           if(!empty($_GET['action'])) //Si y'a bien une action dans le get
+           {
+                if ($_GET['action'] == 'edit') //Le visiteur veut modifier (la quantité) d' un produit du panier
+                {
+                   if (!empty($_GET['$idProduitEnSession'])) //Si y'a bien un id (celui du produit dans le tableau de produits en session)
+                   {
+                        //Je recupère le basket de la session
+                        $productsAndConfigs[] = $this->app['basket.manager']->readBasket();
+
+                        if ($operationSurPanier == '+') //Si le visiteur a cliqué sur '+'
+                        {
+                            //J'incrémente la quantité du produit passé en arg de la fonction
+                            $productsAndConfigs[$idProduitEnSession]->setQuantité = $productsAndConfigs[$idProduitEnSession]->getQuantité + 1;
+                        }
+                        else //Si le visiteur a cliqué sur '-'
+                        {
+                            //Je décrémente la quantité du produit passé en arg de la fonction
+                            $productsAndConfigs[$idProduitEnSession]->setQuantité = $productsAndConfigs[$idProduitEnSession]->getQuantité - 1; 
+                        }
+
+                        //Je mets le nouveau panier en session
+                        $this->session->set('basket', $productsAndConfigs[]);
+                       
+                        //Je redirige vers la page consultation panier
+                        return $this->redirectRoute('basket_consult');
+                   }
+                }
+           }
+        }
+    }//Fin editAction()
     
 }//Fin BasketController

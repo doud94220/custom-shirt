@@ -16,13 +16,16 @@
             <td>Titre</td>
             <td>Prix</td>
             <td>Quantité</td>
+            <td colspan="2">Modifier la quantité</td>
+            <td>Retirer le produit du panier</td>
         </th>
         <tr>
             <td>{{ productOrConfig.titre }}</td>
             <td>{{ productOrConfig.prix }}</td>
             <td>{{ productOrConfig.quantite }}</td>
-            <td><a href={{ path('basket_edit',{id:productOrConfig.id}) }}>Modifier la quantité</a></td>
-            <td><a href={{ path('delete_edit', loop.index) }}>Retirer le produit du panier</a></td>
+            <td><a href={{ path('basket_edit', loop.index, '+') }}>+</a></td>
+            <td><a href={{ path('basket_edit', loop.index, '-') }}>-</a></td>
+            <td><a href={{ path('delete_edit', loop.index) }}>Retirer le produit</a></td>
         </tr>
         
     {% else %} {# Si on est dans le cas d'un produit => prêt à porter #}
@@ -31,15 +34,23 @@
             <td>Titre</td>
             <td>Prix</td>
             <td>Quantité</td>
+            <td colspan="2">Modifier la quantité</td>
+            <td>Retirer le produit du panier</td>
         </th>
         <tr>
             <td>{{ productOrConfig.titre }}</td>
             <td>{{ productOrConfig.prix }}</td>
             <td>{{ productOrConfig.quantite }}</td>
-            <td><a href={{ path('basket_edit',{id:productOrConfig.id}) }}>Modifier la quantité</a></td>
-            <td><a href={{ path('delete_edit', loop.index) }}>Retirer le produit du panier</a></td>
+            <td><a href={{ path('basket_edit', loop.index, '+') }}>+</a></td>
+            <td><a href={{ path('basket_edit', loop.index, '-') }}>-</a></td>
+            <td><a href={{ path('delete_edit', loop.index) }}>Retirer le produit</a></td>
         </tr>
         
     {% endif %}
-
+    
 {% endfor %}
+
+{#
+    Lien vers le paiement
+#}
+<a href="VOIR AVEC JULIEN PASILLASSON">Passer au paiement</a>
