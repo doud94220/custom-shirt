@@ -1,12 +1,38 @@
 <?php
-
-
-
 namespace Entity;
-
 
 class User 
 {
+    /**
+     *
+     * @var string 
+     */
+    private $lastname;
+    
+    /**
+     *
+     * @var string
+     */
+    private $firstname;
+    
+    /**
+     *
+     * @var string
+     */
+    private $email;
+    
+    /**
+     *
+     * @var string
+     */
+    private $password;
+    
+    /**
+     *
+     * @var string 
+     */
+    private $role = 'user';
+    
     private $id_user;
     
     private $taille;
@@ -76,6 +102,48 @@ class User
     public function getDos() {
         return $this->dos;
     }
+    
+    
+    /**
+     * 
+     * @return string
+     */
+    public function getLastname() {
+        return $this->lastname;
+    }
+
+    /**
+     * 
+     * @return string
+     */
+    public function getFirstname() {
+        return $this->firstname;
+    }
+
+    /**
+     * 
+     * @return string
+     */
+    public function getEmail() {
+        return $this->email;
+    }
+
+    /**
+     * 
+     * @return string
+     */
+    public function getPassword() {
+        return $this->password;
+    }
+
+    /**
+     * 
+     * @return string
+     */
+    public function getRole() {
+        return $this->role;
+    }
+
 
     /**********SETTERS****************/
     
@@ -144,95 +212,12 @@ class User
         return $this;
     }
 
-      
-            
-            
-=======
-namespace Entity;
-
-class User {
-    /**
-     *
-     * @var int 
-     */
-    private $id;
-    
-    /**
-     *
-     * @var string 
-     */
-    private $lastname;
-    
-    /**
-     *
-     * @var string
-     */
-    private $firstname;
-    
-    /**
-     *
-     * @var string
-     */
-    private $email;
-    
-    /**
-     *
-     * @var string
-     */
-    private $password;
-    
-    /**
-     *
-     * @var string 
-     */
-    private $role = 'user';
-    
     /**
      * 
      * @return int
      */
     public function getId() {
         return $this->id;
-    }
-
-    /**
-     * 
-     * @return string
-     */
-    public function getLastname() {
-        return $this->lastname;
-    }
-
-    /**
-     * 
-     * @return string
-     */
-    public function getFirstname() {
-        return $this->firstname;
-    }
-
-    /**
-     * 
-     * @return string
-     */
-    public function getEmail() {
-        return $this->email;
-    }
-
-    /**
-     * 
-     * @return string
-     */
-    public function getPassword() {
-        return $this->password;
-    }
-
-    /**
-     * 
-     * @return string
-     */
-    public function getRole() {
-        return $this->role;
     }
 
     /**
@@ -310,6 +295,4 @@ class User {
     public function isAdmin(){
         return $this->role == 'admin';
     }
-
-
 }
