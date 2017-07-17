@@ -1,25 +1,23 @@
 <?php
 
-
-use Repository\CustomRepository;
 use Controller\Admin\CommandeController as AdminCommandeController;
+use Controller\BasketController;
 use Controller\CommandeController;
+use Controller\CustomController;
 use Controller\DetailCommandeController;
+use Controller\IndexController;
 use Controller\UserController;
 use Repository\CommandeRepository;
+use Repository\CustomRepository;
 use Repository\DetailCommandeRepository;
+use Repository\ProduitRepository;
+use Repository\UserRepository;
+use Service\BasketManager;
 use Service\UserManager;
 use Silex\Application;
 use Silex\Provider\AssetServiceProvider;
 use Silex\Provider\DoctrineServiceProvider;
 use Silex\Provider\HttpFragmentServiceProvider;
-
-use Controller\IndexController;
-
-
-
-
-
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\SwiftmailerServiceProvider;
@@ -126,6 +124,7 @@ $app['basket.controller'] = function() use ($app)
 $app['custom.repository'] = function() use ($app)
 {
     return new CustomRepository($app);
+};
 
 $app['commande.repository'] = function () use ($app)
 {
