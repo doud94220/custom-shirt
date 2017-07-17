@@ -1,9 +1,6 @@
 <?php
 
-
-
 namespace Entity;
-
 
 class User 
 {
@@ -144,13 +141,10 @@ class User
         return $this;
     }
 
-      
-            
-            
-=======
-namespace Entity;
-
-class User {
+    
+    
+    
+    
     /**
      *
      * @var int 

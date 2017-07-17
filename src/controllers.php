@@ -16,14 +16,14 @@ $app
 ;
 
 $app
-    ->get('/custom', 'custom.controller:indexAction')
-    ->bind('custom')
-    ;
+    ->get('/custom', 'custom.controller:listTissu')
+    ->bind('etape_1_tissu')
+;
 
-
-
-
-
+$app
+   ->get('/custom_bouton', 'custom.controller:listBouton')
+   ->bind('etape_2_bouton')
+;
 
 
 /* UTILISATEUR */
@@ -68,12 +68,6 @@ $admin->before(function () use ($app){
 // auront le préfixe /admin
 $app->mount('/admin', $admin);
 
-
-$app->get('/', function () use ($app) {
-    return $app['twig']->render('index.html.twig', array());
-})
-->bind('homepage')
-;
 
 
 $admin

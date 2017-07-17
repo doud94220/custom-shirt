@@ -1,4 +1,7 @@
 <?php
+
+use Entity\Couleur;
+use Entity\Produit;
 /**
  * Created by PhpStorm.
  * User: Etudiant
@@ -7,9 +10,6 @@
  */
 
 namespace Repository;
-
-use Entity\Couleur;
-use Entity\Type;
 
 class ProduitRepository extends RepositoryAbstract
 {
@@ -28,7 +28,7 @@ class ProduitRepository extends RepositoryAbstract
 SELECT p.*, c.couleur, t.type, t.categorie_id
 FROM produit p
 JOIN couleur c ON p.couleur_id = c.id
-JOIN type p ON p.type_id = t.id
+JOIN type t ON p.type_id = t.id
 EOS;
 
         $dbProduits = $this->db->fetchAll($query);

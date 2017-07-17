@@ -25,6 +25,27 @@ class UserRepository extends RepositoryAbstract
         
         $this->persist($data, $where);
     }
+ 
+    public function saveMeasures(User $user)
+    {
+        $data=[
+                'id_user' => $user->getUser(),
+                'tour_cou' => $user->getTour_cou(),
+                'taille' => $user->getTaille(),
+                'poids' => $user->getPoids(),
+                'tour_poitrine' => $user->getTour_poitrine(),
+                'tour_taille' => $user->getTour_taille(),
+                'tour_bassin' => $user->getTour_bassin(),
+                'manche_droite' => $user->getManche_droite(),
+                'manche_gauche' => $user->getManche_gauche(),
+                'poignet_droit' => $user->getPoignet_droit(),
+                'poignet_gauche' => $user->getPoignet_gauche(),
+                'carrure' => $user->getCarrure(),
+                'dos' => $user->getDos()            
+            ];
+        $this->persist($data);
+    }
+
     
     public function findByEmail($email){
         $dbUser = $this->db->fetchAssoc(
@@ -39,6 +60,11 @@ class UserRepository extends RepositoryAbstract
         return null;
     }
     
+    
+    
+    
+    
+    // Hydratation de l'objet User
     public function buildFromArray($dbUser){
         $user = new User();
         
