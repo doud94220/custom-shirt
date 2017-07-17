@@ -14,6 +14,7 @@ use Silex\Provider\AssetServiceProvider;
 use Silex\Provider\DoctrineServiceProvider;
 use Silex\Provider\HttpFragmentServiceProvider;
 use Service\BasketManager;
+use Controller\BasketController;
 use Controller\IndexController;
 
 

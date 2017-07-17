@@ -1,56 +1,51 @@
 {% extends "layout.html.twig" %}
 
+
 {#
     Faudra ajouter plus tard :
     - affectation productOrConfig en config ou produit
     - lien au click sur produit pour avoir tous les details
 #}
 
-{% for productOrConfig in productsAndConfigs %} {# On boucle sur le tableau de produits et configs #}
 
-    {# Le if else va p'etre etre retiré (si mêmes champs pour config et produit) #}
+{% block content %}
+    {% for productOrConfig in basket %} {# On boucle sur le tableau 'basket' qui contient des de produits et configs #}
+
+        {# Le if else va p'etre etre retiré (si mêmes champs pour config et produit) #}
+
+        {% if productOrConfig.id_config is defined %} {# Si on est dans le cas d'une config => cad une chemise en demi-mesure #}
+
+                    
+
+        {% else %} {# Si on est dans le cas d'un produit => prêt à porter #}
+
+            <table>    
+                <th>
+                    <td>Titre</td>
+                    <td>Prix</td>
+                    <td>Quantité</td>
+                    <td colspan="2">Modifier la quantité</td>
+                    <td>Retirer le produit du panier</td>
+                </th>
+                <tr>
+                    <td>{{ productOrConfig.titre }}</td>
+                    <td>{{ productOrConfig.prix }}</td>
+                    <td>3</td> {# ATTENTION VALEUR EN DUR #}
+                    <td><a href={{ path('basket_increment', {"id": loop.index}) }}> + </a></td>
+                    <td><a href={{ path('basket_decrement', {"id": loop.index}) }}> - </a></td>
+                    <td><a href={{ path('basket_delete', {"id": loop.index}) }}> Retirer le produit </a></td>
+                </tr>
+            </table>
+
+        {% endif %}
+
+    {% endfor %}
+
     
-    {% if id_config is defined %} {# Si on est dans le cas d'une config => cad une chemise en demi-mesure #}
-        
-        <th>
-            <td>Titre</td>
-            <td>Prix</td>
-            <td>Quantité</td>
-            <td colspan="2">Modifier la quantité</td>
-            <td>Retirer le produit du panier</td>
-        </th>
-        <tr>
-            <td>{{ productOrConfig.titre }}</td>
-            <td>{{ productOrConfig.prix }}</td>
-            <td>{{ productOrConfig.quantite }}</td>
-            <td><a href={{ path('basket_edit', loop.index, '+') }}>+</a></td>
-            <td><a href={{ path('basket_edit', loop.index, '-') }}>-</a></td>
-            <td><a href={{ path('delete_edit', loop.index) }}>Retirer le produit</a></td>
-        </tr>
-        
-    {% else %} {# Si on est dans le cas d'un produit => prêt à porter #}
+    {#
+        Lien vers le paiement
+    #}
+    <a href="VOIR AVEC JULIEN PASILLASSON">Passer au paiement</a>
 
-        <th>
-            <td>Titre</td>
-            <td>Prix</td>
-            <td>Quantité</td>
-            <td colspan="2">Modifier la quantité</td>
-            <td>Retirer le produit du panier</td>
-        </th>
-        <tr>
-            <td>{{ productOrConfig.titre }}</td>
-            <td>{{ productOrConfig.prix }}</td>
-            <td>{{ productOrConfig.quantite }}</td>
-            <td><a href={{ path('basket_edit', loop.index, '+') }}>+</a></td>
-            <td><a href={{ path('basket_edit', loop.index, '-') }}>-</a></td>
-            <td><a href={{ path('delete_edit', loop.index) }}>Retirer le produit</a></td>
-        </tr>
-        
-    {% endif %}
     
-{% endfor %}
-
-{#
-    Lien vers le paiement
-#}
-<a href="VOIR AVEC JULIEN PASILLASSON">Passer au paiement</a>
+{% endblock %}

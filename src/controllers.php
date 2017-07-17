@@ -15,8 +15,12 @@ $app
        ->bind('basket_consult');
 
 $app
-       ->match('/basket/edit/{id}', 'basket.controller:editAction')
-       ->bind('basket_edit');
+       ->match('/basket/incrementBasket/{id}', 'basket.controller:incrementtAction')
+       ->bind('basket_increment');
+
+$app
+       ->match('/basket/decrementBasket/{id}', 'basket.controller:decrementAction')
+       ->bind('basket_decrement');
 
 $app
        ->match('/basket/delete/{id}', 'basket.controller:deleteAction')
