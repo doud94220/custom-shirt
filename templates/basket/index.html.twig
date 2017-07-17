@@ -1,18 +1,45 @@
 {% extends "layout.html.twig" %}
 
+{#
+    Faudra ajouter plus tard :
+    - affectation productOrConfig en config ou produit
+    - lien au click sur produit pour avoir tous les details
+#}
 
-{% for productOrConfig in productsAndConfigs %}
+{% for productOrConfig in productsAndConfigs %} {# On boucle sur le tableau de produits et configs #}
 
-    {% if id_config is defined %} {# Si le produit est une chemise en demi-mesure #}
+    {# Le if else va p'etre etre retiré (si mêmes champs pour config et produit) #}
+    
+    {% if id_config is defined %} {# Si on est dans le cas d'une config => cad une chemise en demi-mesure #}
         
         <th>
-            <td>
-            <td>
-            <td>
+            <td>Titre</td>
+            <td>Prix</td>
+            <td>Quantité</td>
         </th>
+        <tr>
+            <td>{{ productOrConfig.titre }}</td>
+            <td>{{ productOrConfig.prix }}</td>
+            <td>{{ productOrConfig.quantite }}</td>
+            <td><a href={{ path('basket_edit',{id:productOrConfig.id}) }}>Modifier la quantité</a></td>
+            <td><a href={{ path('delete_edit', loop.index) }}>Retirer le produit du panier</a></td>
+        </tr>
         
-    {% else %} {# Si le produit est du prêt à porter #}
+    {% else %} {# Si on est dans le cas d'un produit => prêt à porter #}
 
+        <th>
+            <td>Titre</td>
+            <td>Prix</td>
+            <td>Quantité</td>
+        </th>
+        <tr>
+            <td>{{ productOrConfig.titre }}</td>
+            <td>{{ productOrConfig.prix }}</td>
+            <td>{{ productOrConfig.quantite }}</td>
+            <td><a href={{ path('basket_edit',{id:productOrConfig.id}) }}>Modifier la quantité</a></td>
+            <td><a href={{ path('delete_edit', loop.index) }}>Retirer le produit du panier</a></td>
+        </tr>
+        
     {% endif %}
 
 {% endfor %}

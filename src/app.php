@@ -126,6 +126,7 @@ $app['basket.controller'] = function() use ($app)
 $app['custom.repository'] = function() use ($app)
 {
     return new CustomRepository($app);
+};
 
 $app['commande.repository'] = function () use ($app)
 {

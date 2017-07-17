@@ -14,6 +14,14 @@ $app
        ->match('/basket', 'basket.controller:consultAction')
        ->bind('basket');
 
+$app
+       ->match('/basket/edit/{id}', 'basket.controller:editAction')
+       ->bind('basket_edit');
+
+$app
+       ->match('/basket/delete/{id}', 'basket.controller:deleteAction')
+       ->bind('basket_delete');
+
 /*HOMEPAGE*/
 
 $app
