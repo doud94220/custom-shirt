@@ -11,18 +11,37 @@ use Repository\CommandeRepository;
 class CommandeController extends ControllerAbstract
 {
     /**
-     * Cette fonction prend en paramètre l'id de l'utilisateur
-     * elle sert à afficher les commandes (en cours et passées) de l'utilisateur connecté
-     * 
+     * Cette méthode sert à afficher les commandes (en cours et passées) de l'utilisateur connecté
+     * elle récupère l'utilisateur connecté grâce à la session et passe à la vue les commandes associées
      */
-    public function showAction($id){
-        $commandes = $this->app['commande.repository']->findAllById($user_id);
+    public function showAction(){
+        $user = $this->app['user.manager']->getUser();
+        $commandes = $this->app['commande.repository']->findAllByUser($user);
         
         return $this->render(
             'user/profile.html.twig',
             ['commandes' => $commandes]
         );
     }
+    
+    /**
+     * cette méthode sert à créer une commande à partir des éléments contenus dans le panier en session
+     */
+    public function createAction(){
+        
+    }
+    
+    /**
+     * cette méthode
+     */
+    public function followAction(){
+        
+    }
+    
+    public function deleteAction(){
+        
+    }
+    
     
     /**
      * Cette fonction sert à déclencher le paiement lorsque l'utilisateur valide son panier

@@ -104,7 +104,7 @@ $app['user.controller'] = function () use ($app){
 /* ADMIN */
 $app['admin.commande.controller'] = function () use ($app)
 {
-    return new CommandeController($app);
+    return new AdminCommandeController($app);
 };
 
 $app['custom.controller'] = function() use ($app)

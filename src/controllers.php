@@ -55,6 +55,20 @@ $app
     ->bind('profile')
 ;
 
+$app
+    ->get('/profile', 'commande.controller:showAction')
+    ->bind('profile_commandes')
+;
+
+$app
+    ->get('/profile/suivi_commandes', 'commande.controller:followAction')
+    ->bind('suivi_commande')
+;
+
+$app
+    ->match('/profile/delete_commande', 'commande.controller:deleteAction')
+    ->bind('delete_commande')
+;
 
 
 
@@ -81,16 +95,27 @@ $app->get('/', function () use ($app) {
 ->bind('homepage')
 ;
 
+$admin
+    ->get('/commandes', 'admin.commande.controller:listAction')
+    ->bind('admin_commandes')
+;
 
 $admin
     ->match('/commande/edit{id_commande}', 'admin.commande.controller:editAction')
-    ->value('id', null) // id est optionnel et vaut null par défaut
     ->bind('admin_edit_commande')
 ;
 
+$admin
+    ->match('/commande/delete{id_commande}', 'admin.commande.controller:deleteAction')
+    ->bind('admin_delete_commande')
+;
 
+$admin
+    ->get('/commande/details{id_commande}', 'admin.details_commande.controller:listAction')
+    ->bind('admin_details_commande')
+;
 //-------------------------------------------------------------------------//
-$app->error(function (\Exception $e, Request $request, $code) use ($app) {
+$app->error(function (Exception $e, Request $request, $code) use ($app) {
     if ($app['debug']) {
         return;
     }

@@ -3,58 +3,189 @@ namespace Entity;
 
 class User 
 {
-    /**
-     *
-     * @var string 
-     */
-    private $lastname;
+    /********* INSCRIPTION ***********/
     
     /**
-     *
+     * @var int 
+     */
+    private $id_user;
+    
+    /**
      * @var string
      */
-    private $firstname;
+    private $prenom;
     
     /**
-     *
+     * @var string 
+     */
+    private $nom;
+    
+    /**
+     * @var DateTime 
+     */
+    private $date_naissance;
+    
+    /**
      * @var string
      */
     private $email;
     
     /**
-     *
      * @var string
      */
     private $password;
     
     /**
-     *
+     * @var string
+     */
+    private $adresse;
+    
+    /**
+     * @var string
+     */
+    private $complement_adresse;
+    
+    /**
+     * @var int
+     */
+    private $code_postal;
+    
+    /**
+     * @var string
+     */
+    private $ville;
+    
+    /**
+     * @var int
+     */
+    private $tel;
+    
+    /**
+     * @var string
+     */
+    private $sexe;
+    
+    /**
      * @var string 
      */
-    private $role = 'user';
+    private $statut = 'user';
     
-    private $id_user;
-    
+    /********* MESURES *********/
+    /**
+     * @var int
+     */
     private $taille;
+    
+    /**
+     * @var int
+     */
     private $poids;
+    
+    /**
+     * @var int
+     */
     private $tour_cou;
+    
+    /**
+     * @var int
+     */
     private $tour_poitrine;
+    
+    /**
+     * @var int
+     */
     private $tour_taille;
+    
+    /**
+     * @var int
+     */
     private $tour_bassin;
+    
+    /**
+     * @var int
+     */
     private $manche_droite;
+    
+    /**
+     * @var int
+     */
     private $manche_gauche;
+    
+    /**
+     * @var int
+     */
     private $poignet_droit;
+    
+    /**
+     * @var int
+     */
     private $poignet_gauche;
+    
+    /**
+     * @var int
+     */
     private $carrure;
+    
+    /**
+     * @var int
+     */
     private $dos;
     
     
-     /**********GETTERS****************/
+     /************ GETTERS ***************/
     
     public function getId_user() {
         return $this->id_user;
     }
+    
+    public function getPrenom() {
+        return $this->prenom;
+    }
 
+    public function getNom() {
+        return $this->nom;
+    }
+
+    public function getDate_naissance() {
+        return $this->date_naissance;
+    }
+
+    public function getEmail() {
+        return $this->email;
+    }
+
+    public function getPassword() {
+        return $this->password;
+    }
+
+    public function getAdresse() {
+        return $this->adresse;
+    }
+
+    public function getComplement_adresse() {
+        return $this->complement_adresse;
+    }
+
+    public function getCode_postal() {
+        return $this->code_postal;
+    }
+
+    public function getVille() {
+        return $this->ville;
+    }
+
+    public function getTel() {
+        return $this->tel;
+    }
+
+    public function getSexe() {
+        return $this->sexe;
+    }
+
+    public function getStatut() {
+        return $this->statut;
+    }
+ 
     public function getTaille() {
         return $this->taille;
     }
@@ -103,155 +234,45 @@ class User
         return $this->dos;
     }
     
-    
-    /**
-     * 
-     * @return string
-     */
-    public function getLastname() {
-        return $this->lastname;
-    }
-
-    /**
-     * 
-     * @return string
-     */
-    public function getFirstname() {
-        return $this->firstname;
-    }
-
-    /**
-     * 
-     * @return string
-     */
-    public function getEmail() {
-        return $this->email;
-    }
-
-    /**
-     * 
-     * @return string
-     */
-    public function getPassword() {
-        return $this->password;
-    }
-
-    /**
-     * 
-     * @return string
-     */
-    public function getRole() {
-        return $this->role;
-    }
-
-
     /**********SETTERS****************/
     
+    /**
+     * @param int $id_user
+     * @return User
+     */
     public function setId_user($id_user) {
         $this->id_user = $id_user;
         return $this;
     }
-
-    public function setTaille($taille) {
-        $this->taille = $taille;
-        return $this;
-    }
-
-    public function setPoids($poids) {
-        $this->poids = $poids;
-        return $this;
-    }
-
-    public function setTour_cou($tour_cou) {
-        $this->tour_cou = $tour_cou;
-        return $this;
-    }
-
-    public function setTour_poitrine($tour_poitrine) {
-        $this->tour_poitrine = $tour_poitrine;
-        return $this;
-    }
-
-    public function setTour_taille($tour_taille) {
-        $this->tour_taille = $tour_taille;
-        return $this;
-    }
-
-    public function setTour_bassin($tour_bassin) {
-        $this->tour_bassin = $tour_bassin;
-        return $this;
-    }
-
-    public function setManche_droite($manche_droite) {
-        $this->manche_droite = $manche_droite;
-        return $this;
-    }
-
-    public function setManche_gauche($manche_gauche) {
-        $this->manche_gauche = $manche_gauche;
-        return $this;
-    }
-
-    public function setPoignet_droit($poignet_droit) {
-        $this->poignet_droit = $poignet_droit;
-        return $this;
-    }
-
-    public function setPoignet_gauche($poignet_gauche) {
-        $this->poignet_gauche = $poignet_gauche;
-        return $this;
-    }
-
-    public function setCarrure($carrure) {
-        $this->carrure = $carrure;
-        return $this;
-    }
-
-    public function setDos($dos) {
-        $this->dos = $dos;
-        return $this;
-    }
-
+    
     /**
-     * 
-     * @return int
-     */
-    public function getId() {
-        return $this->id;
-    }
-
-    /**
-     * 
-     * @param int $id
+     * @param string $prenom
      * @return User
      */
-    public function setId($id) {
-        $this->id = $id;
+    public function setPrenom($prenom) {
+        $this->prenom = $prenom;
         return $this;
     }
 
     /**
-     * 
-     * @param string $lastname
+     * @param string $nom
      * @return User
      */
-    public function setLastname($lastname) {
-        $this->lastname = $lastname;
+    public function setNom($nom) {
+        $this->nom = $nom;
         return $this;
     }
 
     /**
-     * 
-     * @param string $firstname
+     * @param DateTime $date_naissance
      * @return User
      */
-    public function setFirstname($firstname) {
-        $this->firstname = $firstname;
+    public function setDate_naissance(date $date_naissance) {
+        $this->date_naissance = $date_naissance;
         return $this;
     }
 
     /**
-     * 
      * @param string $email
      * @return User
      */
@@ -261,7 +282,6 @@ class User
     }
 
     /**
-     * 
      * @param string $password
      * @return User
      */
@@ -271,28 +291,192 @@ class User
     }
 
     /**
-     * 
-     * @param string $role
+     * @param string $adresse
      * @return User
      */
-    public function setRole($role) {
-        $this->role = $role;
+    public function setAdresse($adresse) {
+        $this->adresse = $adresse;
+        return $this;
+    }
+
+    /**
+     * @param string $complement_adresse
+     * @return User
+     */
+    public function setComplement_adresse($complement_adresse) {
+        $this->complement_adresse = $complement_adresse;
+        return $this;
+    }
+
+    /**
+     * @param int $code_postal
+     * @return User
+     */
+    public function setCode_postal($code_postal) {
+        $this->code_postal = $code_postal;
+        return $this;
+    }
+
+    /**
+     * @param string $ville
+     * @return User
+     */
+    public function setVille($ville) {
+        $this->ville = $ville;
+        return $this;
+    }
+
+    /**
+     * @param int $tel
+     * @return User
+     */
+    public function setTel($tel) {
+        $this->tel = $tel;
+        return $this;
+    }
+
+    /**
+     * @param string $sexe
+     * @return User
+     */
+    public function setSexe($sexe) {
+        $this->sexe = $sexe;
+        return $this;
+    }
+
+    /**
+     * @param string $statut
+     * @return User
+     */
+    public function setStatut($statut) {
+        $this->statut = $statut;
         return $this;
     }
     
     /**
-     * 
+     * @param int $taille
+     * @return User
+     */
+    public function setTaille($taille) {
+        $this->taille = $taille;
+        return $this;
+    }
+
+    /**
+     * @param int $poids
+     * @return User
+     */
+    public function setPoids($poids) {
+        $this->poids = $poids;
+        return $this;
+    }
+
+    /**
+     * @param int $tour_cou
+     * @return User
+     */
+    public function setTour_cou($tour_cou) {
+        $this->tour_cou = $tour_cou;
+        return $this;
+    }
+
+    /**
+     * @param int $tour_poitrine
+     * @return User
+     */
+    public function setTour_poitrine($tour_poitrine) {
+        $this->tour_poitrine = $tour_poitrine;
+        return $this;
+    }
+
+    /**
+     * @param int $tour_taille
+     * @return User
+     */
+    public function setTour_taille($tour_taille) {
+        $this->tour_taille = $tour_taille;
+        return $this;
+    }
+
+    /** 
+     * @param int $tour_bassin
+     * @return User
+     */
+    public function setTour_bassin($tour_bassin) {
+        $this->tour_bassin = $tour_bassin;
+        return $this;
+    }
+
+    /**
+     * @param int $manche_droite
+     * @return User
+     */
+    public function setManche_droite($manche_droite) {
+        $this->manche_droite = $manche_droite;
+        return $this;
+    }
+
+    /**
+     * @param int $manche_gauche
+     * @return User
+     */
+    public function setManche_gauche($manche_gauche) {
+        $this->manche_gauche = $manche_gauche;
+        return $this;
+    }
+
+    /**
+     * @param int $poignet_droit
+     * @return User
+     */
+    public function setPoignet_droit($poignet_droit) {
+        $this->poignet_droit = $poignet_droit;
+        return $this;
+    }
+
+    /**
+     * @param int $poignet_gauche
+     * @return User
+     */
+    public function setPoignet_gauche($poignet_gauche) {
+        $this->poignet_gauche = $poignet_gauche;
+        return $this;
+    }
+
+    /**
+     * @param int $carrure
+     * @return User
+     */
+    public function setCarrure($carrure) {
+        $this->carrure = $carrure;
+        return $this;
+    }
+
+    /**
+     * @param int $dos
+     * @return User
+     */
+    public function setDos($dos) {
+        $this->dos = $dos;
+        return $this;
+    }
+
+    
+    /******** RECUPERATION DU NOM COMPLET *******/
+    /**
      * @return string
      */
     public function getFullName(){
-        return $this->firstname . ' ' . $this->lastname;
+        return $this->prenom . ' ' . $this->nom;
     }
     
+    
+    /********** VERIFICATION DU STATUT **********/
     /**
      * 
      * @return bool
      */
     public function isAdmin(){
-        return $this->role == 'admin';
+        return $this->statut == 'admin';
     }
 }
