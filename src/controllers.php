@@ -88,6 +88,12 @@ $app
     ->bind('delete_commande')
 ;
 
+// A CONFIRMER dans dossier templates/user/modif.html.twig
+$app
+    ->match('modif', 'user.modif: ')
+    ->bind ('modif')
+
+
 
 
 /********************* ADMIN **************************/
