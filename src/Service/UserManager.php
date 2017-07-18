@@ -70,7 +70,7 @@ class UserManager
             return $this->session->get('user')->getFullName();
         }
         return '';
-    }
+    } 
     
     /**
      * 
@@ -84,5 +84,11 @@ class UserManager
         return $this->session->has('user') && $this->session->get('user')->isAdmin();
     }
     
-    
+    /*
+     * Créé par Edouard pour recuperer le panier (basket en Uk) en session
+     */
+    public function getBasket() //
+    {
+        return $this->session->has('basket');
+    }
 }
