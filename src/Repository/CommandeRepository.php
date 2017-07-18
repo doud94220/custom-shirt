@@ -33,7 +33,7 @@ EOS;
         
         $dbCommandes = $this->db->fetchAll(
             $query,
-            [':id_user' => $id_user]
+            [':id_user' => $user->getId_user()]
         );
         $commandes = []; // le tableau dans lequel vont être stockées les entités Article
         
@@ -60,7 +60,7 @@ EOS;
         foreach($dbCommandes as $dbCommande){
             $commande = $this->buildFromArray($dbCommande);
             
-            $sommandes[] = $commande;
+            $commandes[] = $commande;
         }
         
         return $commandes;

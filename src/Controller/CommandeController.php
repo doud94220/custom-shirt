@@ -17,7 +17,13 @@ class CommandeController extends ControllerAbstract
     public function showAction(){
         $user = $this->app['user.manager']->getUser();
         $commandes = $this->app['commande.repository']->findAllByUser($user);
-        
+        var_dump($commandes);
+        if(is_null($commandes)){
+            return $this->render('');
+        }
+        else{
+            
+        }
         return $this->render(
             'user/profile.html.twig',
             ['commandes' => $commandes]

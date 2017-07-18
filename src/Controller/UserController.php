@@ -126,10 +126,14 @@ class UserController extends ControllerAbstract
     
     public function showProfile(){
         $user = $this->app['user.manager']->getUser();
+        $commandes = $this->app['commande.repository']->findAllByUser($user);
         
         return $this->render(
             'user/profile.html.twig',
-            ['user' => $user] 
+            [
+                'user' => $user,
+                'commandes' => $commandes
+                ] 
         );
     }
 }
