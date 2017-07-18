@@ -18,6 +18,7 @@ use Silex\Application;
 use Silex\Provider\AssetServiceProvider;
 use Silex\Provider\DoctrineServiceProvider;
 use Silex\Provider\HttpFragmentServiceProvider;
+
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\SwiftmailerServiceProvider;
@@ -98,7 +99,11 @@ $app['detail.commande.controller'] = function () use ($app){
 $app['user.controller'] = function () use ($app){
     return new UserController($app);
 };
-
+// Controleur du panier
+$app['basket.controller'] = function() use ($app)
+{
+    return new BasketController($app);
+};
 
 
 /* ADMIN */
@@ -112,12 +117,6 @@ $app['custom.controller'] = function() use ($app)
     return new CustomController($app);
 };
 
-
-// Controleur du panier
-$app['basket.controller'] = function() use ($app)
-{
-    return new BasketController($app);
-};
             
 /* Déclaration des repositories en service */
 

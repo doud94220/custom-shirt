@@ -12,7 +12,20 @@ use Symfony\Component\HttpFoundation\Response;
 // Route du panier (basket en UK) en front
 $app
        ->match('/basket', 'basket.controller:consultAction')
-       ->bind('basket');
+       ->bind('basket_consult');
+
+$app
+       ->match('/basket/incrementBasket/{idProduitEnSession}', 'basket.controller:incrementAction')
+       //->value('idProduitEnSession')
+       ->bind('basket_increment');
+
+$app
+       ->match('/basket/decrementBasket/{idProduitEnSession}', 'basket.controller:decrementAction')
+       ->bind('basket_decrement');
+
+$app
+       ->match('/basket/delete/{idProduitEnSession}', 'basket.controller:deleteAction')
+       ->bind('basket_delete');
 
 /*HOMEPAGE*/
 
