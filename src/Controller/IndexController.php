@@ -88,8 +88,8 @@ class IndexController extends ControllerAbstract
                 $req .= " ORDER BY p.prix DESC";
             }
 
-            if(($_GET['nb_resultat'])) {
-                $req .= " LIMIT " . $_GET['nb_resultat'];
+            if(!empty($_GET['nombre'])) {
+                $req .= " LIMIT " . $_GET['nombre'];
             }
 
 
@@ -104,7 +104,8 @@ class IndexController extends ControllerAbstract
             $produits[] = $produit;
         }
 echo ceil(count($produits)/3);
-echo ceil($req);
+        echo($req);
+
         return $this->render('produit/produit_list.html.twig', ['produits' => $produits]);
         //return $this->app->json($results);
 
