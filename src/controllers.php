@@ -27,6 +27,7 @@ $app
        ->match('/basket/delete/{idProduitEnSession}', 'basket.controller:deleteAction')
        ->bind('basket_delete');
 
+
 /*HOMEPAGE*/
 
 $app
@@ -35,6 +36,11 @@ $app
 ;
 
 $app
+
+    ->get('/ajax_api', 'index.controller:ajaxApi')
+    ->bind('ajax_api')// nom de la route
+;
+
     ->get('/custom', 'custom.controller:listTissu')
     ->bind('etape_1_tissu')
 ;
@@ -100,8 +106,6 @@ $admin->before(function () use ($app){
 // toutes les routes définies dans le groupe admin
 // auront le préfixe /admin
 $app->mount('/admin', $admin);
-
-
 
 $app->get('/', function () use ($app) {
     return $app['twig']->render('index.html.twig', array());

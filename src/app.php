@@ -148,6 +148,7 @@ $app['bouton.repository'] = function() use ($app)
 $app['tissu.repository'] = function() use ($app)
 {
     return new TissuRepository($app['db']);
+
 };
 
 $app['commande.repository'] = function () use ($app)
