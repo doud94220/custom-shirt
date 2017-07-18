@@ -12,7 +12,21 @@ use Symfony\Component\HttpFoundation\Response;
 // Route du panier (basket en UK) en front
 $app
        ->match('/basket', 'basket.controller:consultAction')
-       ->bind('basket');
+       ->bind('basket_consult');
+
+$app
+       ->match('/basket/incrementBasket/{idProduitEnSession}', 'basket.controller:incrementAction')
+       //->value('idProduitEnSession')
+       ->bind('basket_increment');
+
+$app
+       ->match('/basket/decrementBasket/{idProduitEnSession}', 'basket.controller:decrementAction')
+       ->bind('basket_decrement');
+
+$app
+       ->match('/basket/delete/{idProduitEnSession}', 'basket.controller:deleteAction')
+       ->bind('basket_delete');
+
 
 /*HOMEPAGE*/
 
@@ -22,18 +36,22 @@ $app
 ;
 
 $app
-    ->get('/custom', 'custom.controller:indexAction')
-    ->bind('custom')
-    ;
 
+    ->get('/ajax_api', 'index.controller:ajaxApi')
+    ->bind('ajax_api')// nom de la route
+;
 
+    ->get('/custom', 'custom.controller:listTissu')
+    ->bind('etape_1_tissu')
+;
 
-
-
+$app
+   ->get('/custom_bouton', 'custom.controller:listBouton')
+   ->bind('etape_2_bouton')
+;
 
 
 /* UTILISATEUR */
-
 
 $app
     ->match('/inscription', 'user.controller:registerAction')
@@ -88,7 +106,6 @@ $admin->before(function () use ($app){
 // auront le préfixe /admin
 $app->mount('/admin', $admin);
 
-
 $app->get('/', function () use ($app) {
     return $app['twig']->render('index.html.twig', array());
 })
@@ -114,6 +131,7 @@ $admin
     ->get('/commande/details{id_commande}', 'admin.details_commande.controller:listAction')
     ->bind('admin_details_commande')
 ;
+
 //-------------------------------------------------------------------------//
 $app->error(function (Exception $e, Request $request, $code) use ($app) {
     if ($app['debug']) {

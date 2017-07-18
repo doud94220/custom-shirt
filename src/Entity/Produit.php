@@ -51,6 +51,11 @@ class Produit
      */
     private $prix;
 
+    /*
+     * $var int //RAJOUTE PAR EDOUARD
+     */
+    private $quantite;
+
     /**
      * @return int
      */
@@ -65,6 +70,8 @@ class Produit
     public function setId($id)
     {
         $this->id = $id;
+
+        return $this;
     }
 
     /**
@@ -81,6 +88,8 @@ class Produit
     public function setType(Type $type)
     {
         $this->type = $type;
+
+        return $this;
     }
 
     /**
@@ -97,28 +106,27 @@ class Produit
     public function setCouleur(Couleur $couleur)
     {
         $this->couleur = $couleur;
+
+        return $this;
     }
 
     /**
      * @return type
      */
-    public function getPhotos()
+    public function getPhoto()
     {
-        return $this->photos;
+        return $this->photo;
     }
 
     /**
      * @param type $photo
      */
-    public function setPhotos($photos)
+    public function setPhoto($photo)
     {
-        $this->photos = $photos;
-    }
+        $this->photo = $photo;
 
-    ##public function addPhoto(Photo $photo)
-    ##{
-    ##    $this->photos[] = $photo;
-    ##}
+        return $this;
+    }
 
     /**
      * @return string
@@ -134,6 +142,8 @@ class Produit
     public function setTitre($titre)
     {
         $this->titre = $titre;
+
+        return $this;
     }
 
     /**
@@ -150,6 +160,8 @@ class Produit
     public function setDescription($description)
     {
         $this->description = $description;
+
+        return $this;
     }
 
     /**
@@ -166,6 +178,8 @@ class Produit
     public function setReference($reference)
     {
         $this->reference = $reference;
+
+        return $this;
     }
 
     /**
@@ -182,6 +196,8 @@ class Produit
     public function setSexe($sexe)
     {
         $this->sexe = $sexe;
+
+        return $this;
     }
 
     /**
@@ -198,6 +214,16 @@ class Produit
     public function setPrix($prix)
     {
         $this->prix = $prix;
+
+        return $this;
     }
 
+    public function getQuantite() {
+        return $this->quantite;
+    }
+
+    public function setQuantite($quantite) {
+        $this->quantite = $quantite;
+    }
+    
 }

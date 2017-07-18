@@ -33,7 +33,8 @@ class CommandeController extends ControllerAbstract
      */
     public function commandByState($etat){
         $commandes = $this->app['commande.repository']->findAllByState($etat);
-        
+
+       
         return $this->render(
             'admin/commande/list.html.twig',
             ['commandes' => $commandes]
