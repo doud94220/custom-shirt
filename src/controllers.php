@@ -1,6 +1,7 @@
 <?php
 
 use Controller\CustomController;
+use Controller\UserController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -50,6 +51,30 @@ $app
    ->bind('etape_2_bouton')
 ;
 
+$app
+   ->get('/custom_col', 'custom.controller:listCol')
+   ->bind('etape_3_col')
+;
+
+$app
+   ->match('/custom_poidstaille', 'user.controller:fillMeasureWeightHeight')
+   ->bind('etape_4_poidtaille')
+;
+
+$app
+   ->match('/custom_tronc', 'user.controller:fillMeasureTronc')
+   ->bind('etape_4_tronc')
+;
+
+$app
+   ->match('/custom_bras', 'user.controller:fillMeasureBras')
+   ->bind('etape_4_bras')
+;
+
+$app
+   ->match('/custom_carrure', 'user.controller:fillMeasureCarrure')
+   ->bind('etape_4_carrure')
+;
 
 /* UTILISATEUR */
 

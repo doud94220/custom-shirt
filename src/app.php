@@ -8,6 +8,7 @@ use Controller\DetailCommandeController;
 use Controller\IndexController;
 use Controller\UserController;
 use Repository\BoutonRepository;
+use Repository\ColRepository;
 use Repository\CommandeRepository;
 use Repository\CustomRepository;
 use Repository\DetailCommandeRepository;
@@ -84,11 +85,6 @@ $app['index.controller'] = function () use ($app) {
 
 };
 
-$app['produit.repository'] = function () use ($app) {
-
-    return new ProduitRepository($app['db']);
-
-};
 
 
 $app['basket.manager'] = function() use ($app)
@@ -167,10 +163,21 @@ $app['tissu.repository'] = function() use ($app)
     return new TissuRepository($app['db']);
 };
 
+$app['col.repository'] = function() use ($app)
+{
+    return new ColRepository($app['db']);
+};
+
+
 $app['commande.repository'] = function () use ($app)
 {
     return new CommandeRepository($app['db']);
 
+};
+
+$app['produit.repository'] = function () use ($app) {
+
+    return new ProduitRepository($app['db']);
 };
 
 $app['detail.commande.repository'] = function () use ($app)
