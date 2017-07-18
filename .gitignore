@@ -4,7 +4,6 @@
 <<<<<<< HEAD
 /var/
 var/cache/profiler/index.csv
-src/Controller/UserController.php
 =======
 /var/
 >>>>>>> master
