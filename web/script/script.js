@@ -2,8 +2,8 @@ $(function() {
 
     // var produitId = 0;
 
-    $('.request').change(function () {
-
+    $('.request').change(function (e) {
+        e.preventDefault();
         $.ajax({
             url: ajaxApiUrl,
             method: "GET",
@@ -15,7 +15,7 @@ $(function() {
                 sexe: $("#sexe").val(),
                 prix: $("#prix").val(),
                 range: $("#range").val(),
-                nb_resultat: $('.nb_resultat').val()
+                nombre: $('#nombre').val()
             }
         })
 
@@ -27,29 +27,6 @@ $(function() {
 
     });
 
-    $('.nb_resultat').click(function () {
-
-        $.ajax({
-            url: ajaxApiUrl,
-            method: "GET",
-            data: {
-                categorie: $("#categorie").val(),
-                type: $("#type").val(),
-                couleur: $("#couleur").val(),
-                taille: $("#taille").val(),
-                sexe: $("#sexe").val(),
-                prix: $("#prix").val(),
-                range: $("#range").val(),
-                nb_resultat: $('.nb_resultat').val()
-            }
-        })
-
-            .done(function (data) {
-                console.log(data);
-                $('.display').html(data);
-            })
-
-    });
 })
 /*
             var content = '';
