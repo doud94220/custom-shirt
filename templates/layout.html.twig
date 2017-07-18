@@ -66,19 +66,18 @@
                     {% if user_manager.user %}
                         <li>
 
-                            <a href="{{ path('profile', {user:user_manager.user}) }}">{{ user_manager.userName }}</a>
-
+                            <a href="{{ path('profile', {user:user_manager.user}) }}"><span class="glyphicon glyphicon-user"></span> {{ user_manager.userName }}</a>
 
                         </li>
                         <li>
-                            <a href="{{ path('logout') }}">Se déconnecter</a>
+                            <a href="{{ path('logout') }}"><span class="glyphicon glyphicon-log-out"></span> Se déconnecter</a>
                         </li>
                     {% else %}
                         <li>
                             <a href="{{ path('register') }}">Créer un compte</a>
                         </li>
                         <li>
-                            <a href="{{ path('login') }}">Se connecter</a>
+                            <a href="{{ path('login') }}"><span class="glyphicon glyphicon-log-in"></span> Se connecter</a>
                         </li>
                     {% endif %}
                 </ul>
