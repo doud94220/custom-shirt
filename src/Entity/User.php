@@ -1,4 +1,5 @@
 <?php
+
 namespace Entity;
 
 class User 
@@ -343,6 +344,7 @@ class User
         $this->sexe = $sexe;
         return $this;
     }
+
 
     /**
      * @param string $statut

@@ -1,6 +1,14 @@
 {% extends "layout.html.twig" %}
 
+{% block title 'Accueil' %}
+    {# équivaut à 
+    {%block title %} Accueil {% endblock %}#}
+    
 {% block content %}
+
+    <h1>Accueil</h1>
+    {# {% include 'custom/tissu.html.twig' %} #}
+
     {% if user_manager.admin %}
         <h1>Hello Admin</h1>
     {% elseif user_manager.user %}
@@ -8,4 +16,12 @@
     {% else %}
     <h1>Hello visiteur</h1>
     {% endif %}
+
+{% endblock %}
+
+{% block javascripts %}
+       {{ parent() }} {# reprend le contenu du bloc qu'on surcharge, ici le parent sera le js dans layout.html #} 
+       <script>
+           // mon js spécifique à cette page
+       </script>    
 {% endblock %}

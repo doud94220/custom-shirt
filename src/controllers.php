@@ -35,14 +35,14 @@ $app
 ;
 
 $app
-    ->get('/custom', 'custom.controller:indexAction')
-    ->bind('custom')
-    ;
+    ->get('/custom', 'custom.controller:listTissu')
+    ->bind('etape_1_tissu')
+;
 
-
-
-
-
+$app
+   ->get('/custom_bouton', 'custom.controller:listBouton')
+   ->bind('etape_2_bouton')
+;
 
 
 /* UTILISATEUR */
@@ -100,6 +100,7 @@ $admin->before(function () use ($app){
 // toutes les routes définies dans le groupe admin
 // auront le préfixe /admin
 $app->mount('/admin', $admin);
+
 
 
 $app->get('/', function () use ($app) {

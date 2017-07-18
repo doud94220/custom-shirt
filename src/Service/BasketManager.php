@@ -16,6 +16,7 @@ class BasketManager
 {
     private $session;
     
+
     //Constructeur qui initialise la session
     public function __construct(Session $session)
     {
@@ -32,8 +33,10 @@ class BasketManager
            $basket = new Basket();
            
            //Y placer un tableau de produit(s) et config(s)
+
            $productsAndConfigs = [];
            $basket = $productsAndConfigs;
+
         }
         else //Si y'a un panier
         {
@@ -60,9 +63,11 @@ class BasketManager
            
            //Y placer un tableau de produit(s) et config(s)
 
+
           $productsAndConfigs = array();
 
           $basket = $productsAndConfigs;
+
         }
         else //Si y'a un panier
         {
@@ -81,7 +86,9 @@ class BasketManager
     //Méthode readBasket() qui retourne le contenu du panier
     public function readBasket()
     {
+
         if(!$this->session->has('basket')) //Si y'a pas de panier
+
         {
             return null;
         }
@@ -90,6 +97,5 @@ class BasketManager
             return $this->session->get('basket');
         }
     }
-
 
 }//Fin BasketManager
