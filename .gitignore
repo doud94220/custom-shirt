@@ -1,3 +1,6 @@
 /vendor/
 /nbproject/
 /.idea/
+/var/
+var/cache/profiler/index.csv
+src/Controller/UserController.php

@@ -12,17 +12,17 @@ class UserController extends ControllerAbstract
         
         if(!empty($_POST)){
             $user
-                ->setNom($_POST['nom'])
-                ->setPrenom($_POST['prenom'])
+                ->setLastname($_POST['lastname'])
+                ->setFirstname($_POST['firstname'])
                 ->setEmail($_POST['email'])
             ;
             
-            if(empty($_POST['nom'])){
-                $errors['nom'] = 'Le nom est obligatoire';
+            if(empty($_POST['lastname'])){
+                $errors['lastname'] = 'Le nom est obligatoire';
             }
             
-            if(empty($_POST['prenom'])){
-                $errors['prenom'] = 'Le prénom est obligatoire';
+            if(empty($_POST['firstname'])){
+                $errors['firstname'] = 'Le prénom est obligatoire';
             }
             
             if(empty($_POST['email'])){
@@ -31,22 +31,6 @@ class UserController extends ControllerAbstract
                 $errors['email'] = "L'e-mail n'est pas valide";
             }elseif(!empty($this->app['user.repository']->findByEmail($_POST['email']))){
                 $errors['email'] = 'Cet email est déjà utilisé';
-            }
-            
-            if(empty($_POST['adresse'])){
-                $errors['adresse'] = "L'adresse est obligatoire";
-            }
-            
-            if(empty($_POST['code_postal'])){
-                $errors['code_postal'] = "Le code postal est obligatoire";
-            }
-            
-            if(empty($_POST['tel'])){
-                $errors['tel'] = "Le téléphone est obligatoire";
-            }
-            
-            if(empty($_POST['ville'])){
-                $errors['ville'] = "La ville est obligatoire";
             }
             
             if(empty($_POST['password'])){
@@ -112,14 +96,5 @@ class UserController extends ControllerAbstract
         $this->app['user.manager']->logout();
         
         return $this->redirectRoute('homepage');
-    }
-    
-    public function showProfile(){
-        $user = $this->app['user.manager']->getUser();
-        
-        return $this->render(
-            'user/profile.html.twig',
-            ['user' => $user] 
-        );
     }
 }
