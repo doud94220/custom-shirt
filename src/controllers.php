@@ -53,7 +53,6 @@ $app
 
 /* UTILISATEUR */
 
-
 $app
     ->match('/inscription', 'user.controller:registerAction')
     ->bind('register')
@@ -132,6 +131,7 @@ $admin
     ->get('/commande/details{id_commande}', 'admin.details_commande.controller:listAction')
     ->bind('admin_details_commande')
 ;
+
 //-------------------------------------------------------------------------//
 $app->error(function (Exception $e, Request $request, $code) use ($app) {
     if ($app['debug']) {

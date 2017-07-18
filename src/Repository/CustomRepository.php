@@ -4,7 +4,6 @@ namespace Repository;
 
 use Entity\Custom;
 
-
 class CustomRepository extends RepositoryAbstract
 {
    public function getTable()

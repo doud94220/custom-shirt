@@ -55,7 +55,7 @@ class Produit
      * $var int //RAJOUTE PAR EDOUARD
      */
     private $quantite;
-        
+
     /**
      * @return int
      */

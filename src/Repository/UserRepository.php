@@ -1,4 +1,5 @@
 <?php
+
 namespace Repository;
 
 use Entity\User;
@@ -59,22 +60,25 @@ class UserRepository extends RepositoryAbstract
             'SELECT * FROM user WHERE email = :email',
             [':email' => $email]
         );
-        
-        if(!empty($dbUser)){
+
+        if (!empty($dbUser)) {
             return $this->buildFromArray($dbUser);
         }
-        
+
         return null;
     }
-    
-    
-    
-    
-    
-    // Hydratation de l'objet User
-    public function buildFromArray($dbUser){
+
+    /**
+     * @param array $dbUser
+     * @return User
+     */
+    public function buildFromArray(array $dbUser)
+    {
         $user = new User();
-        
+
+        public function buildFromArray($dbUser){
+        $user = new User();
+
         $user
             ->setId_user($dbUser['id_user'])
             ->setNom($dbUser['nom'])
@@ -89,7 +93,7 @@ class UserRepository extends RepositoryAbstract
             ->setSexe($dbUser['sexe'])
             ->setStatut($dbUser['statut'])
         ;
-        
+
         return $user;
     }
 }

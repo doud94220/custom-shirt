@@ -93,8 +93,6 @@ class IndexController extends ControllerAbstract
             }
 
 
-
-
         }
 
         $results = $this->app['db']->fetchAll($req);
@@ -112,4 +110,5 @@ echo ceil($req);
 
 
     }
+
 }

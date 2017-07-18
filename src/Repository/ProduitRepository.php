@@ -14,9 +14,6 @@ use Entity\Type;
  * Time: 11:11
  */
 
-
-
-
 class ProduitRepository extends RepositoryAbstract
 {
 
@@ -107,6 +104,7 @@ EOS;
 
         $produit
             ->setId($dbProduit['id'])
+
             ->setTitre($dbProduit['titre'])
             ->setType($type)
             ->setCouleur($couleur)

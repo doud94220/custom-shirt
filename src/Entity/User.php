@@ -235,17 +235,14 @@ class User
         return $this->dos;
     }
     
+
     /**********SETTERS****************/
     
-    /**
-     * @param int $id_user
-     * @return User
-     */
     public function setId_user($id_user) {
         $this->id_user = $id_user;
         return $this;
     }
-    
+
     /**
      * @param string $prenom
      * @return User
@@ -355,115 +352,69 @@ class User
         return $this;
     }
     
-    /**
-     * @param int $taille
-     * @return User
-     */
+  /* Mesures */
+  
     public function setTaille($taille) {
         $this->taille = $taille;
         return $this;
     }
 
-    /**
-     * @param int $poids
-     * @return User
-     */
     public function setPoids($poids) {
         $this->poids = $poids;
         return $this;
     }
 
-    /**
-     * @param int $tour_cou
-     * @return User
-     */
     public function setTour_cou($tour_cou) {
         $this->tour_cou = $tour_cou;
         return $this;
     }
 
-    /**
-     * @param int $tour_poitrine
-     * @return User
-     */
     public function setTour_poitrine($tour_poitrine) {
         $this->tour_poitrine = $tour_poitrine;
         return $this;
     }
 
-    /**
-     * @param int $tour_taille
-     * @return User
-     */
     public function setTour_taille($tour_taille) {
         $this->tour_taille = $tour_taille;
         return $this;
     }
 
-    /** 
-     * @param int $tour_bassin
-     * @return User
-     */
     public function setTour_bassin($tour_bassin) {
         $this->tour_bassin = $tour_bassin;
         return $this;
     }
 
-    /**
-     * @param int $manche_droite
-     * @return User
-     */
     public function setManche_droite($manche_droite) {
         $this->manche_droite = $manche_droite;
         return $this;
     }
 
-    /**
-     * @param int $manche_gauche
-     * @return User
-     */
     public function setManche_gauche($manche_gauche) {
         $this->manche_gauche = $manche_gauche;
         return $this;
     }
 
-    /**
-     * @param int $poignet_droit
-     * @return User
-     */
     public function setPoignet_droit($poignet_droit) {
         $this->poignet_droit = $poignet_droit;
         return $this;
     }
 
-    /**
-     * @param int $poignet_gauche
-     * @return User
-     */
     public function setPoignet_gauche($poignet_gauche) {
         $this->poignet_gauche = $poignet_gauche;
         return $this;
     }
 
-    /**
-     * @param int $carrure
-     * @return User
-     */
     public function setCarrure($carrure) {
         $this->carrure = $carrure;
         return $this;
     }
 
-    /**
-     * @param int $dos
-     * @return User
-     */
     public function setDos($dos) {
         $this->dos = $dos;
         return $this;
     }
 
-    
+
     /******** RECUPERATION DU NOM COMPLET *******/
     /**
      * @return string
@@ -474,6 +425,7 @@ class User
     
     
     /********** VERIFICATION DU STATUT **********/
+  
     /**
      * 
      * @return bool
