@@ -12,9 +12,8 @@ class UserController extends ControllerAbstract
         
         if(!empty($_POST)){
             $user
-                ->setPrenom($_POST['prenom'])
-                ->setNom($_POST['nom'])
-                ->setDate_naissance($_POST['date_naissance'])
+                ->setLastname($_POST['lastname'])
+                ->setFirstname($_POST['firstname'])
                 ->setEmail($_POST['email'])
             ;
             
