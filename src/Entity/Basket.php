@@ -91,4 +91,4 @@ class Basket
 //                      c) rajouter dans le tableau fait ci-dessus des liens la MODIFICATION et SUPPRESSION des produits du panier
 //                      d) Gérer la SUPPRESSION d'un produit du panier
 //                      e) Gérer la MODIF d'un produit du panier           
-//             f) rajouter un bouton paiement qui va prendre les DATA en session et "aller vers le paiement"
+//                      f) rajouter un bouton paiement qui va prendre les DATA en session et "aller vers le paiement"

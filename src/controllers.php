@@ -15,15 +15,16 @@ $app
        ->bind('basket_consult');
 
 $app
-       ->match('/basket/incrementBasket/{id}', 'basket.controller:incrementtAction')
+       ->match('/basket/incrementBasket/{idProduitEnSession}', 'basket.controller:incrementAction')
+       //->value('idProduitEnSession')
        ->bind('basket_increment');
 
 $app
-       ->match('/basket/decrementBasket/{id}', 'basket.controller:decrementAction')
+       ->match('/basket/decrementBasket/{idProduitEnSession}', 'basket.controller:decrementAction')
        ->bind('basket_decrement');
 
 $app
-       ->match('/basket/delete/{id}', 'basket.controller:deleteAction')
+       ->match('/basket/delete/{idProduitEnSession}', 'basket.controller:deleteAction')
        ->bind('basket_delete');
 
 /*HOMEPAGE*/

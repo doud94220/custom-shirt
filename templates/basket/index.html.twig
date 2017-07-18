@@ -9,43 +9,62 @@
 
 
 {% block content %}
-    {% for productOrConfig in basket %} {# On boucle sur le tableau 'basket' qui contient des de produits et configs #}
 
-        {# Le if else va p'etre etre retiré (si mêmes champs pour config et produit) #}
+    <!-- CSS TEMPORAIRE EN DUR pour tableau ci-dessous -->
+    <style>
+            table, td
+            {
+                    border:solid 1px black;
+                    background: grey;
+            }
+            td
+            {
+                    background: #BBDEFB; /* bleu clair */
+            }
+    </style>
+    
+    <h2>Voici votre panier :</h2><br><br>
+    
+    <table>  
+        <tr>
+            <th>Titre</th>
+            <th>Prix</th>
+            <th>Quantité</th>
+            <th colspan="2">Modifier la quantité</th>
+            <th>Retirer le produit du panier</th>
+         </tr>
+         
+        {% for productOrConfig in basket %} {# On boucle sur le tableau 'basket' qui contient des de produits et configs #}
 
-        {% if productOrConfig.id_config is defined %} {# Si on est dans le cas d'une config => cad une chemise en demi-mesure #}
+            {# Le if else va p'etre etre retiré (si mêmes champs pour config et produit) #}
 
-                    
+            {% if productOrConfig.id_config is defined %} {# Si on est dans le cas d'une config => cad une chemise en demi-mesure #}
 
-        {% else %} {# Si on est dans le cas d'un produit => prêt à porter #}
 
-            <table>    
-                <th>
-                    <td>Titre</td>
-                    <td>Prix</td>
-                    <td>Quantité</td>
-                    <td colspan="2">Modifier la quantité</td>
-                    <td>Retirer le produit du panier</td>
-                </th>
+
+            {% else %} {# Si on est dans le cas d'un produit => prêt à porter #}
+
                 <tr>
                     <td>{{ productOrConfig.titre }}</td>
                     <td>{{ productOrConfig.prix }}</td>
-                    <td>3</td> {# ATTENTION VALEUR EN DUR #}
-                    <td><a href={{ path('basket_increment', {"id": loop.index}) }}> + </a></td>
-                    <td><a href={{ path('basket_decrement', {"id": loop.index}) }}> - </a></td>
-                    <td><a href={{ path('basket_delete', {"id": loop.index}) }}> Retirer le produit </a></td>
+                    <td>{{ productOrConfig.quantite }}</td>
+                    <td><a href={{ path('basket_increment', {idProduitEnSession: loop.index -1}) }}> + </a></td>
+                    <td><a href={{ path('basket_decrement', {idProduitEnSession: loop.index -1}) }}> - </a></td>
+                    <td><a href={{ path('basket_delete', {idProduitEnSession: loop.index -1}) }}> Retirer le produit </a></td>
                 </tr>
-            </table>
 
-        {% endif %}
+            {% endif %}
 
-    {% endfor %}
+        {% endfor %}
+    
+    </table><br><br>
 
     
     {#
         Lien vers le paiement
     #}
-    <a href="VOIR AVEC JULIEN PASILLASSON">Passer au paiement</a>
+    <hr>
+    <a href="urlPageJulien">Passer au paiement</a>
 
     
 {% endblock %}
