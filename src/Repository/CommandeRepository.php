@@ -47,8 +47,9 @@ EOS;
     
     public function findAll(){
         $query = <<<EOS
-SELECT *
-FROM commande
+SELECT c.*
+FROM commande c
+JOIN user u ON c.user_id = u.id_user 
 ORDER BY id_commande DESC
 EOS;
         
