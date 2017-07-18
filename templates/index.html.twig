@@ -1,7 +1,22 @@
 {% extends "layout.html.twig" %}
 
+{% block title 'Accueil' %}
+    {# équivaut à 
+    {%block title %} Accueil {% endblock %}#}
+    
 {% block content %}
 
+ <h1>Accueil</h1>
+    {# {% include 'custom/tissu.html.twig' %} #}
+
+    {% if user_manager.admin %}
+        <h1>Hello Admin</h1>
+    {% elseif user_manager.user %}
+        <h1>Hello user</h1>
+    {% else %}
+    <h1>Hello visiteur</h1>
+    {% endif %}
+    
     <div class="container">
         <div class="row">
             <div class="col-sm-2">

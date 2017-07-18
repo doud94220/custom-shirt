@@ -1,4 +1,12 @@
 <?php
+
+namespace Repository;
+
+use Entity\Couleur;
+use Entity\Produit;
+use Entity\Categorie;
+use Entity\Type;
+
 /**
  * Created by PhpStorm.
  * User: Etudiant
@@ -6,12 +14,8 @@
  * Time: 11:11
  */
 
-namespace Repository;
 
-use Entity\Categorie;
-use Entity\Couleur;
-use Entity\Produit;
-use Entity\Type;
+
 
 class ProduitRepository extends RepositoryAbstract
 {

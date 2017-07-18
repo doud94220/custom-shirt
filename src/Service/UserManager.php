@@ -70,7 +70,7 @@ class UserManager
             return $this->session->get('user')->getFullName();
         }
         return '';
-    }
+    } 
     
     /**
      * 

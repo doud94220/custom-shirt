@@ -5,7 +5,7 @@ use DateTime;
 
 /**
  * Description of Commande
- * Classe de l'entité commande
+ * Classe de l'entitÃ© commande
  * @author Julien
  */
 class Commande 
@@ -121,7 +121,7 @@ class Commande
      * @param DateTime $date_commande
      * @return Commande
      */
-    public function setDate_commande(date $date_commande) {
+    public function setDate_commande(DateTime $date_commande) {
         $this->date_commande = $date_commande;
         return $this;
     }
