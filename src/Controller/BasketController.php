@@ -67,7 +67,7 @@ class BasketController extends ControllerAbstract
             $this->addFlashMessage('Votre panier est vide !');
 
             //Je redirige vers la page d'acceuil
-            return $this->redirectRoute('homepage');
+            return $this->redirectRoute('basket_consult');
         }    
         
     }//Fin consultAction()
@@ -76,19 +76,20 @@ class BasketController extends ControllerAbstract
     //Fonction pour supprimer un produit du panier
     public function deleteAction($idProduitEnSession)
     {
+        echo "je vais supprimer le produit en position" . $idProduitEnSession . "dans le panier";
+
         //Je recupère le basket de la session
         $productsAndConfigs = $this->app['basket.manager']->readBasket();
 
         //Je retire le produit à supprimer
-            	echo '<pre>'; print_r($productsAndConfigs); echo '</pre><br><br>';	
-        //$newProductsAndConfigs = array_splice($productsAndConfigs, $idProduitEnSession, 1);
-
+        unset($productsAndConfigs[$idProduitEnSession]);
+                
         //Je mets le nouveau panier 'allégé d'un produit' en session
         $this->session->set('basket', $productsAndConfigs);
 
         //Je redirige vers la page consultation panier
-        //return $this->redirectRoute('basket_consult');
-         
+        return $this->redirectRoute('basket_consult');
+
     }//Fin deleteAction()
     
     
@@ -99,7 +100,7 @@ class BasketController extends ControllerAbstract
         $productsAndConfigs = $this->app['basket.manager']->readBasket();		
 
         //J'incrémente la quantité du produit passé en arg de la fonction
-        $productsAndConfigs[$idProduitEnSession]->setQuantite($productsAndConfigs[$idProduitEnSession]->getQuantite() + 1);	
+        $productsAndConfigs[$idProduitEnSession]->setQuantite($productsAndConfigs[$idProduitEnSession]->getQuantite() + 1);
                 
         //Je mets le nouveau panier en session
         $this->session->set('basket', $productsAndConfigs);

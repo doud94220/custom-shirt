@@ -48,9 +48,9 @@
                     <td>{{ productOrConfig.titre }}</td>
                     <td>{{ productOrConfig.prix }}</td>
                     <td>{{ productOrConfig.quantite }}</td>
-                    <td><a href={{ path('basket_increment', {idProduitEnSession: loop.index -1}) }}> + </a></td>
-                    <td><a href={{ path('basket_decrement', {idProduitEnSession: loop.index -1}) }}> - </a></td>
-                    <td><a href={{ path('basket_delete', {idProduitEnSession: loop.index -1}) }}> Retirer le produit </a></td>
+                    <td><a href={{ path('basket_increment', {idProduitEnSession: loop.index0}) }}> + </a></td> {# loop.index0 permet de commencer à numéroter à 0 et non 1 #}
+                    <td><a href={{ path('basket_decrement', {idProduitEnSession: loop.index0}) }}> - </a></td>
+                    <td><a href={{ path('basket_delete', {idProduitEnSession: loop.index0}) }}> Retirer le produit </a></td>
                 </tr>
 
             {% endif %}
