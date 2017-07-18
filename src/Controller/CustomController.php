@@ -38,7 +38,7 @@ class CustomController extends ControllerAbstract
         );
     }
     
-      public function listCol()
+    public function listCol()
     {
         $cols = $this->app['col.repository']->findAllCol();
         
@@ -51,6 +51,18 @@ class CustomController extends ControllerAbstract
         );
     }
     
+    public function listCoupe()
+    {
+        $coupes = $this->app['coupe.repository']->findAllCoupe();
+        
+        return $this->render
+        (
+                'custom/coupe.html.twig',
+                [
+                    'coupe' => $coupes
+                ]
+        );
+    }
 
 
     public function fillMeasure_tissu()

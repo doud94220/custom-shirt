@@ -76,10 +76,6 @@ class UserRepository extends RepositoryAbstract
     public function buildFromArray(array $dbUser)
     {
         $user = new User();
-
-        public function buildFromArray($dbUser){
-        $user = new User();
-
         $user
             ->setId_user($dbUser['id_user'])
             ->setNom($dbUser['nom'])

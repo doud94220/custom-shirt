@@ -41,7 +41,7 @@ $app
     ->get('/ajax_api', 'index.controller:ajaxApi')
     ->bind('ajax_api')// nom de la route
 ;
-
+$app
     ->get('/custom', 'custom.controller:listTissu')
     ->bind('etape_1_tissu')
 ;
@@ -57,18 +57,23 @@ $app
 ;
 
 $app
+   ->get('/custom_coupe', 'custom.controller:listCoupe')
+   ->bind('etape_4_coupe')
+;
+
+$app
    ->match('/custom_poidstaille', 'user.controller:fillMeasureWeightHeight')
-   ->bind('etape_4_poidtaille')
+   ->bind('etape_5_poidtaille')
 ;
 
 $app
    ->match('/custom_tronc', 'user.controller:fillMeasureTronc')
-   ->bind('etape_4_tronc')
+   ->bind('etape_5_tronc')
 ;
 
 $app
    ->match('/custom_bras', 'user.controller:fillMeasureBras')
-   ->bind('etape_4_bras')
+   ->bind('etape_5_bras')
 ;
 
 $app
