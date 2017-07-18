@@ -51,6 +51,11 @@ class Produit
      */
     private $prix;
 
+    /*
+     * $var int //RAJOUTE PAR EDOUARD
+     */
+    private $quantite;
+        
     /**
      * @return int
      */
@@ -213,4 +218,12 @@ class Produit
         return $this;
     }
 
+    public function getQuantite() {
+        return $this->quantite;
+    }
+
+    public function setQuantite($quantite) {
+        $this->quantite = $quantite;
+    }
+    
 }
