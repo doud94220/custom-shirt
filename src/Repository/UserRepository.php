@@ -1,52 +1,61 @@
 <?php
-/**
- * Created by Formateur
- * Date: 07/07/2017
- * Time: 12:25
- */
 
 namespace Repository;
 
 use Entity\User;
 
-
-/**
- * Class UserRepository
- * @package Repository
- */
 class UserRepository extends RepositoryAbstract
 {
-    public function getTable()
-    {
+    public function getTable() {
         return 'user';
     }
-
-    public function save(User $user)
-    {
+    
+    public function save(User $user){
         $data = [
             'prenom' => $user->getPrenom(),
             'nom' => $user->getNom(),
-            'date_naissance' => $user->getDateNaissance(),
+            'date_naissance'=> $user->getDate_naissance(),
             'email' => $user->getEmail(),
             'password' => $user->getPassword(),
             'adresse' => $user->getAdresse(),
-            'complement_adresse' => $user->getComplementAdresse(),
-            'code_postal' => $user->getCodePostal(),
+            'complement_adresse' => $user->getComplement_adresse(),
+            'code_postal' => $user->getCode_postal(),
             'ville' => $user->getVille(),
             'tel' => $user->getTel(),
-            'sexe' => $user->getSexe()
+            'sexe' => $user->getSexe(),
+            'statut' => $user->getStatut()
         ];
-
-        $where = !empty($user->getId())
-            ? ['id' => $user->getId()]
+        
+        $where = !empty($user->getId_user())
+            ? ['id' => $user->getId_user()]
             : null
         ;
-
+        
         $this->persist($data, $where);
     }
-
-    public function findByEmail($email)
+ 
+    public function saveMeasures(User $user)
     {
+        $data=[
+                'id_user' => $user->getUser(),
+                'tour_cou' => $user->getTour_cou(),
+                'taille' => $user->getTaille(),
+                'poids' => $user->getPoids(),
+                'tour_poitrine' => $user->getTour_poitrine(),
+                'tour_taille' => $user->getTour_taille(),
+                'tour_bassin' => $user->getTour_bassin(),
+                'manche_droite' => $user->getManche_droite(),
+                'manche_gauche' => $user->getManche_gauche(),
+                'poignet_droit' => $user->getPoignet_droit(),
+                'poignet_gauche' => $user->getPoignet_gauche(),
+                'carrure' => $user->getCarrure(),
+                'dos' => $user->getDos()            
+            ];
+        $this->persist($data);
+    }
+
+    
+    public function findByEmail($email){
         $dbUser = $this->db->fetchAssoc(
             'SELECT * FROM user WHERE email = :email',
             [':email' => $email]
@@ -86,13 +95,5 @@ class UserRepository extends RepositoryAbstract
         ;
 
         return $user;
-    }
-
-
-
-
-
-
-
     }
 }

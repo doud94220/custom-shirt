@@ -10,6 +10,35 @@ class CustomController extends ControllerAbstract
 {
     // Récupération des choix de configuration de l'utilisateur 
     // On garde cette configuration en base pour pouvoir la partager
+    
+    public function listTissu()
+    {
+       $tissus = $this->app['tissu.repository']->findAllTissu();
+//       var_dump($tissus);
+       return $this->render
+       (
+               'custom/tissu.html.twig',
+               [
+                   'tissus' => $tissus
+               ]
+       );
+
+    }
+    
+    public function listBouton()
+    {
+        $boutons = $this->app['bouton.repository']->findAllBouton();
+        
+        return $this->render
+        (
+                'custom/bouton.html.twig',
+                [
+                    'boutons' => $boutons
+                ]
+        );
+    }
+    
+    
 
     public function fillMeasure_tissu()
     {
@@ -21,10 +50,13 @@ class CustomController extends ControllerAbstract
         {
             $custom->setTissu_id($_GET['tissu_id']);
             $custom = $this->app['custom.repository']->save($custom);
-        
+            
+            $customManager = $this->app('custom.manager');
+            $customManager->setTissu($_GET['tissu_id']);
+            
             return $this->render
             (
-                'custom/bouton.html.twig'
+                'custom/tissu.html.twig'
             );
         }
         else
@@ -45,9 +77,12 @@ class CustomController extends ControllerAbstract
             $custom->setButton_id($_GET['bouton_id']);
             $custom = $this->app['custom.repository']->save($custom);
             
+            $customManager = $this->app('custom.manager');
+            $customManager->setBouton($_GET['bouton_id']);
+            
             return $this->render
             (
-                'custom/bouton.html.twig'
+                'custom/bouton.html.twig' //à modif
             );
         }
         else
@@ -66,6 +101,10 @@ class CustomController extends ControllerAbstract
         {
             $custom->setCol($_GET['col']);
             $custom = $this->app['custom.repository']->save($custom);
+            
+
+            $customManager = $this->app('custom.manager');
+            $customManager->setCol($_GET['col_id']);
             
             return $this->render
             (
@@ -88,6 +127,10 @@ class CustomController extends ControllerAbstract
         {
             $custom->setCoupe($_GET['coupe']);
             $custom = $this->app['custom.repository']->save($custom);
+            
+            $customManager = $this->app('custom.manager');
+            $customManager->setCoupe($_GET['coupe_id']);
+            
             return $this->render
             (
                 'custom/coupe.html.twig'
@@ -103,83 +146,7 @@ class CustomController extends ControllerAbstract
 
 
 
-//            $user
-//                  ->setTaille($_POST['taille'])
-//                  ->setPoids($_POST['poids'])
-//                  ->setTour_cou($_POST['tour_cou'])
-//                  ->setTour_poitrine($_POST['tour_poitrine'])
-//                  ->setTour_taille($_POST['tour_taille'])
-//                  ->setTour_bassin($_POST['tour_bassin'])
-//                  ->setManche_droite($_POST['manche_droite'])
-//                  ->setManche_gauche($_POST['manche_gauche'])
-//                  ->setPoignet_droit($_POST['poignet_droit'])
-//                  ->setPoignet_gauche($_POST['poignet_gauche'])
-//                  ->SetCarrure($_POST['carrure'])
-//                  ->setDos($_POST['dos'])
-//                    ;  
-//            
-//            foreach ($_POST as $key => $value)
-//            {
-//                    $_POST[$key] = strip_tags(trim($value));
-//                    $_POST[$key] = htmlentities($value);
-//                    $_POST[$key] = addslashes($value);
-//                    $_POST[$key] = htmlspecialchars($value);
-//		
-//                if(!is_numeric($_POST['taille']))   
-//                {
-//                    $errors['taille'] = 'Merci de ne renseigner que des chiffres';
-//                }
-//                  if(!is_numeric($_POST['taille']))   
-//                {
-//                    $errors['poids'] = 'Merci de ne renseigner que des chiffres';
-//                }
-//                  if(!is_numeric($_POST['taille']))   
-//                {
-//                    $errors['tour_cou'] = 'Merci de ne renseigner que des chiffres';
-//                }
-//                  if(!is_numeric($_POST['tour_poitrine']))   
-//                {
-//                    $errors['tour_poitrine'] = 'Merci de ne renseigner que des chiffres';
-//                }
-//                  if(!is_numeric($_POST['tour_taille']))   
-//                {
-//                    $errors['tour_taille'] = 'Merci de ne renseigner que des chiffres';
-//                }
-//                  if(!is_numeric($_POST['tour_bassin']))   
-//                {
-//                    $errors['tour_bassin'] = 'Merci de ne renseigner que des chiffres';
-//                }
-//                  if(!is_numeric($_POST['manche_droite']))   
-//                {
-//                    $errors['manche_droite'] = 'Merci de ne renseigner que des chiffres';
-//                }
-//                  if(!is_numeric($_POST['manche_gauche']))   
-//                {
-//                    $errors['manche_gauche'] = 'Merci de ne renseigner que des chiffres';
-//                }
-//                  if(!is_numeric($_POST['manche_gauche']))   
-//                {
-//                    $errors['manche_gauche'] = 'Merci de ne renseigner que des chiffres';
-//                }
-//                  if(!is_numeric($_POST['poignet_droit']))   
-//                {
-//                    $errors['poignet_droit'] = 'Merci de ne renseigner que des chiffres';
-//                }
-//                  if(!is_numeric($_POST['poignet_gauche']))   
-//                {
-//                    $errors['poignet_gauche'] = 'Merci de ne renseigner que des chiffres';
-//                }
-//                
-//                else
-//                {
-//                    $this->addFlashMessage('Vos mesures ont bien été enregistré!');
-//                    return $this->redirectRoute('produits', ['id' => $id]);
-//                }
-//                
-//          }
-            
          
-            
 
 
    // Champs à vide si utilisateur non connecté via un champs hidden

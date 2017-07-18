@@ -1,5 +1,127 @@
 {% extends "layout.html.twig" %}
 
+{% block title 'Accueil' %}
+    {# équivaut à 
+    {%block title %} Accueil {% endblock %}#}
+    
 {% block content %}
- <h1>Hello</h1>
+
+ <h1>Accueil</h1>
+    {# {% include 'custom/tissu.html.twig' %} #}
+
+    {% if user_manager.admin %}
+        <h1>Hello Admin</h1>
+    {% elseif user_manager.user %}
+        <h1>Hello user</h1>
+    {% else %}
+    <h1>Hello visiteur</h1>
+    {% endif %}
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2">
+                <form action="">
+                    <div class="form-group">
+                        <label for="categorie">Categorie</label>
+                        <select name="categorie" id="categorie" class="form-control request">
+                            <option value="">Coisissez une catégorie</option>
+                            <option value="chemise-pret-a-porter">Chemise prêt-à-porter</option>
+                            <option value="chemise-sur-mesure">Chemises sur-mesure</option>
+                            <option value="accessoire">Accessoires</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="type">Type</label>
+                        <select name="type" id="type" class="form-control request">
+                            <option value="">Coisissez un type</option>
+                            <option value="cintre">Cintré</option>
+                            <option value="m_longue">Manche longue</option>
+                            <option value="m_courte">Manche courte</option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="couleur">Couleur</label>
+                        <select name="couleur" id="couleur" class="form-control request">
+                            <option value="">Coisissez une couleur</option>
+                            <option value="noir">Noir</option>
+                            <option value="blanc">Blanc</option>
+                            <option value="vert">Vert</option>
+                            <option value="gris">Gris</option>
+                            <option value="bleu">Bleu</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="taille">Taille</label>
+                        <select name="taille" id="taille" class="form-control request">
+                            <option value="">Coisissez une taille</option>
+                            <option value="XS">XS</option>
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sexe">Public</label>
+                        <select name="sexe" id="sexe" class="form-control request">
+                            <option value="">Coisissez votre sexe</option>
+                            <option value="m">Homme</option>
+                            <option value="f">Femme</option>
+                            <option value="mixte">Mixte</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="prix">Prix</label>
+                        <select name="prix" id="prix" class="form-control request">
+                            <option value="">Coisissez un prix</option>
+                            <option value="50">0€ - 50€</option>
+                            <option value="100">50€ - 100€</option>
+                            <option value="150">100€ - 150€</option>
+                            <option value="200">150€ - 200€</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-9 col-sm-offset-1 container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <select name="range" id="range" class="form-control request">
+                                    <option value="">Trier par</option>
+                                    <option value="price_up">Prix croissant</option>
+                                    <option value="price_down">Prix décroissant</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-sm-offset-5">
+                            <div class="form-group">
+                                <span>Résultats par page <span><a href="" class="nb_resultat">10</a>  -  <a href="" class="nb_resultat">30</a>  -  <a href="" class="nb_resultat">50</a>  -  <a href="" class="nb_resultat">200</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                <div class="col-sm-12 display">
+               {% include 'produit/produit_list.html.twig' %}
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        var ajaxApiUrl = "{{ path('ajax_api') }}";
+    </script>
+    <script src="{{ asset('script/script.js') }}"></script>
 {% endblock %}

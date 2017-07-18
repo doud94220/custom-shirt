@@ -17,7 +17,7 @@
         </script>
         #}
         
-         <meta charset="utf-8">
+        <meta charset="utf-8">
         
         <meta http-equiv="X-UA-compatible" content="IE-edge">
         {# Les balises méta "http-equiv" qui envoie des informations supplémentaires via le protocole HTTP #}
@@ -36,23 +36,79 @@
     </head>
     <body>
 
+        {% if user_manager.admin %}
+            <nav class="navbar navbar-inverse">
+                <div class="container">
+                    <a class="navbar-brand">Menu admin</a>
+                    <ul class="nav navbar-nav">
+                        <li>
+
+                            {#<a href="{{ path('admin_produits') }}">Gestion produits</a>#}
+                        </li>
+                        <li>
+                            {#<a href="{{ path('admin_users') }}">Gestion utilisateurs</a>#}
+
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_commandes') }}">Gestion commandes</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        {% endif %}
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <a class="navbar-brand" href="{{path('homepage')}}">Custom Shirt</a>
+                {# affiche le rendu de la route category_menu 
+                {{ render(url('category_menu')) }}#}
+                <ul class="nav navbar-nav navbar-right">
+                    {# voir l'ajout de la globale user_manager dans twig dans src/app.php #}
+                    {% if user_manager.user %}
+                        <li>
+
+                            <a href="{{ path('profile', {user:user_manager.user}) }}">{{ user_manager.userName }}</a>
 
 
+                        </li>
+                        <li>
+                            <a href="{{ path('logout') }}">Se déconnecter</a>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a href="{{ path('register') }}">Créer un compte</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('login') }}">Se connecter</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+        <div class="container">
+            {# bloc d'affichage des messages flash #}
+            {% for type, flashes in app.session.flashbag.all %}
+                {% for flash in flashes %}
+                    {% if type == 'error' %}
+                        {% set type = 'danger' %}
+                    {% endif %}
+                    <div class="alert alert-{{ type }}">
+                        {{ flash|raw }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+            {% block content %}{% endblock %}
+        </div>
+        
+    
+        {# Import js boostrap et jQuery #}
+        {% block javascripts %}
 
-
-            
-    {% block content %}{% endblock %}
-
-
-
-
-             {# Import js boostrap et jQuery #}
-            {% block javascripts %}
              <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
             <!-- Latest compiled and minified JavaScript -->
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
         {% endblock %}
-        
+
     </body>
 </html>

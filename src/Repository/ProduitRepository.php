@@ -1,15 +1,18 @@
 <?php
+
+namespace Repository;
+
+use Entity\Couleur;
+use Entity\Produit;
+use Entity\Categorie;
+use Entity\Type;
+
 /**
  * Created by PhpStorm.
  * User: Etudiant
  * Date: 13/07/2017
  * Time: 11:11
  */
-
-namespace Repository;
-
-use Entity\Couleur;
-use Entity\Type;
 
 class ProduitRepository extends RepositoryAbstract
 {
@@ -25,10 +28,11 @@ class ProduitRepository extends RepositoryAbstract
     public function findAll()
     {
         $query = <<<EOS
-SELECT p.*, c.couleur, t.type, t.categorie_id
+SELECT p.*, t.type, c.couleur, t.categorie_id, cat.categorie 
 FROM produit p
-JOIN couleur c ON p.couleur_id = c.id
-JOIN type p ON p.type_id = t.id
+JOIN type t ON p.type_id=t.id
+JOIN categorie cat ON cat.id=t.categorie_id
+JOIN couleur c ON p.couleur_id=c.id
 EOS;
 
         $dbProduits = $this->db->fetchAll($query);
@@ -44,13 +48,15 @@ EOS;
 
     }
 
-    public function find($id)
+    public function findById($id)
     {
         $query = <<<EOS
-SELECT p.*, c.couleur, t.type, t.categorie_id
+SELECT p.*, t.type, c.couleur, t.categorie_id, cat.categorie 
 FROM produit p
-JOIN couleur c ON p.couleur_id = c.id
-JOIN type p ON p.type_id = t.id
+JOIN type t ON p.type_id=t.id
+JOIN categorie cat ON cat.id=t.categorie_id
+JOIN couleur c ON p.couleur_id=c.id
+WHERE p.id = :id
 EOS;
 
         $dbProduit = $this->db->fetchAssoc(
@@ -74,31 +80,39 @@ EOS;
     {
         $produit = new Produit();
 
-        $couleur = new Couleur();
+        $type = new Type;
 
-        $type = new Type();
+        $couleur = new Couleur;
+
+        $category = new Categorie;
+
+        $type
+            ->setId($dbProduit['type_id'])
+            ->setCategorie($category)
+            ->setType($dbProduit['type'])
+        ;
 
         $couleur
             ->setId($dbProduit['couleur_id'])
             ->setCouleur($dbProduit['couleur'])
         ;
 
-        $type
-            ->setId($dbArticle['type_id'])
-            ->setType($dbArticle['type'])
-            ->setCategorie($dbArticle['categorie_id'])
+        $category
+            ->setId($dbProduit['categorie_id'])
+            ->setTitle($dbProduit['categorie'])
         ;
 
         $produit
             ->setId($dbProduit['id'])
-            ->setCategory($type)
-            ->setAuthor($couleur)
-            ->setTitle($dbProduit['titre'])
-            ->setHeader($dbProduit['description'])
-            ->setContent($dbProduit['reference'])
-            ->setContent($dbProduit['photo'])
-            ->setContent($dbProduit['sexe'])
-            ->setContent($dbProduit['prix'])
+
+            ->setTitre($dbProduit['titre'])
+            ->setType($type)
+            ->setCouleur($couleur)
+            ->setDescription($dbProduit['description'])
+            ->setReference($dbProduit['reference'])
+            ->setPhoto($dbProduit['photo'])
+            ->setSexe($dbProduit['sexe'])
+            ->setPrix($dbProduit['prix'])
         ;
 
         return $produit;

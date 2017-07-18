@@ -1,0 +1,29 @@
+{% extends "layout.html.twig" %} 
+{% block title 'Customisation' %}
+    
+
+{% block content %}
+    <h1> Choix de votre tissu </h1>
+    <form method="post" action="{#{{ path('bouton.html.twig')}}#}">
+        <div class="form-group">
+           <table class="table">
+               <tr>
+                   <th>Description</th>
+                   <th>Photo</th>
+                   <th>Prix</th> 
+                   <th width="200px"></th>
+               </tr>
+            {% for tissu in tissus %}
+               <tr>
+                   <td>{{ tissu.description }} </td>
+                   <td><img src="{{ tissu.photo }}" alt="" width="200"/> </td>
+                   <td>{{ tissu.prix }} € </td>                   
+               </tr>
+            {% endfor %}   
+           </table>
+        </div>
+        <button type="submit" class="btn btn-primary" > Etape suivante </button>
+    
+    </form>
+
+{% endblock %}
