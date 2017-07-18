@@ -9,6 +9,25 @@ use Symfony\Component\HttpFoundation\Response;
 
 /*********************FRONT****************************/
 
+
+// Route du panier (basket en UK) en front
+$app
+       ->match('/basket', 'basket.controller:consultAction')
+       ->bind('basket_consult');
+
+$app
+       ->match('/basket/incrementBasket/{idProduitEnSession}', 'basket.controller:incrementAction')
+       //->value('idProduitEnSession')
+       ->bind('basket_increment');
+
+$app
+       ->match('/basket/decrementBasket/{idProduitEnSession}', 'basket.controller:decrementAction')
+       ->bind('basket_decrement');
+
+$app
+       ->match('/basket/delete/{idProduitEnSession}', 'basket.controller:deleteAction')
+       ->bind('basket_delete');
+
 /*HOMEPAGE*/
 
 $app
@@ -74,6 +93,20 @@ $app
     ->bind('profile')
 ;
 
+$app
+    ->get('/profile', 'commande.controller:showAction')
+    ->bind('profile_commandes')
+;
+
+$app
+    ->get('/profile/suivi_commandes', 'commande.controller:followAction')
+    ->bind('suivi_commande')
+;
+
+$app
+    ->match('/profile/delete_commande', 'commande.controller:deleteAction')
+    ->bind('delete_commande')
+;
 
 
 
@@ -95,15 +128,33 @@ $app->mount('/admin', $admin);
 
 
 
+$app->get('/', function () use ($app) {
+    return $app['twig']->render('index.html.twig', array());
+})
+->bind('homepage')
+;
+
+$admin
+    ->get('/commandes', 'admin.commande.controller:listAction')
+    ->bind('admin_commandes')
+;
+
 $admin
     ->match('/commande/edit{id_commande}', 'admin.commande.controller:editAction')
-    ->value('id', null) // id est optionnel et vaut null par défaut
     ->bind('admin_edit_commande')
 ;
 
+$admin
+    ->match('/commande/delete{id_commande}', 'admin.commande.controller:deleteAction')
+    ->bind('admin_delete_commande')
+;
 
+$admin
+    ->get('/commande/details{id_commande}', 'admin.details_commande.controller:listAction')
+    ->bind('admin_details_commande')
+;
 //-------------------------------------------------------------------------//
-$app->error(function (\Exception $e, Request $request, $code) use ($app) {
+$app->error(function (Exception $e, Request $request, $code) use ($app) {
     if ($app['debug']) {
         return;
     }
