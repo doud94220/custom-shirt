@@ -51,8 +51,7 @@ class CustomController extends ControllerAbstract
         );
     }
     
-    
-    
+
 
     public function fillMeasure_tissu()
     {
@@ -116,6 +115,7 @@ class CustomController extends ControllerAbstract
             $custom->setCol($_GET['col']);
             $custom = $this->app['custom.repository']->save($custom);
             
+
             $customManager = $this->app('custom.manager');
             $customManager->setCol($_GET['col_id']);
             
@@ -156,6 +156,7 @@ class CustomController extends ControllerAbstract
 
     } 
 }    
+
 
 
    // Champs à vide si utilisateur non connecté via un champs hidden

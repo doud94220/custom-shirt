@@ -1,6 +1,5 @@
 <?php
 
-
 use Controller\Admin\CommandeController as AdminCommandeController;
 use Controller\BasketController;
 use Controller\CommandeController;
@@ -88,18 +87,30 @@ $app['index.controller'] = function () use ($app) {
 
 
 
-/* Déclaration des contrôleurs en service */
-/* FRONT */
-
-$app['basket.controller'] = function() use ($app)
+$app['basket.manager'] = function() use ($app)
 {
-    return new BasketController($app);
+   return new BasketManager($app['session']);
+};
+            
+
+$app['index.controller'] = function () use ($app) {
+
+    return new IndexController($app);
+
+};
+
+$app['produit.repository'] = function () use ($app) {
+
+    return new ProduitRepository($app['db']);
+
 };
 
 
+/* Déclaration des contrôleurs en service */
+/* FRONT */
 $app['commande.controller'] = function () use ($app)
 {
-    return new CommandeController($app);
+    return new AdminCommandeController($app);
 };
 
 $app['detail.commande.controller'] = function () use ($app){
@@ -109,15 +120,21 @@ $app['detail.commande.controller'] = function () use ($app){
 $app['user.controller'] = function () use ($app){
     return new UserController($app);
 };
-// Controleur du panier
+
 $app['basket.controller'] = function() use ($app)
 {
     return new BasketController($app);
 };
 
+$app['detail.commande.controller'] = function () use ($app){
+    return new DetailCommandeController($app);
+};
+
+$app['user.controller'] = function () use ($app){
+    return new UserController($app);
+};
 
 /* ADMIN */
-
 $app['admin.commande.controller'] = function () use ($app)
 {
     return new AdminCommandeController($app);

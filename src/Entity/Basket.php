@@ -67,6 +67,7 @@ class Basket
 
 
 
+
 //    SPECIFICATION BASKET/PANIER :
 //			0) Creer 3 fichiers : 
 //				- Entity\Basket.php 'attribys et Getters/Setters'
@@ -92,3 +93,4 @@ class Basket
 //                      d) Gérer la SUPPRESSION d'un produit du panier
 //                      e) Gérer la MODIF d'un produit du panier           
 //                      f) rajouter un bouton paiement qui va prendre les DATA en session et "aller vers le paiement"
+

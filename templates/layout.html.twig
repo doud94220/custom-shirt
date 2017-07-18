@@ -35,6 +35,7 @@
         
     </head>
     <body>
+
         {% if user_manager.admin %}
             <nav class="navbar navbar-inverse">
                 <div class="container">
@@ -65,19 +66,18 @@
                     {% if user_manager.user %}
                         <li>
 
-                            <a href="{{ path('profile', {user:user_manager.user}) }}">{{ user_manager.userName }}</a>
-
+                            <a href="{{ path('profile', {user:user_manager.user}) }}"><span class="glyphicon glyphicon-user"></span> {{ user_manager.userName }}</a>
 
                         </li>
                         <li>
-                            <a href="{{ path('logout') }}">Se déconnecter</a>
+                            <a href="{{ path('logout') }}"><span class="glyphicon glyphicon-log-out"></span> Se déconnecter</a>
                         </li>
                     {% else %}
                         <li>
                             <a href="{{ path('register') }}">Créer un compte</a>
                         </li>
                         <li>
-                            <a href="{{ path('login') }}">Se connecter</a>
+                            <a href="{{ path('login') }}"><span class="glyphicon glyphicon-log-in"></span> Se connecter</a>
                         </li>
                     {% endif %}
                 </ul>
@@ -106,6 +106,8 @@
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
             <!-- Latest compiled and minified JavaScript -->
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
         {% endblock %}
+
     </body>
 </html>
