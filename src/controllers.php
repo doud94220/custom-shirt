@@ -11,8 +11,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 // Route du panier (basket en UK) en front
 $app
-       ->match('/basket', 'basket.controller:consultAction')
-       ->bind('basket');
+    ->match('/basket', 'basket.controller:consultAction')
+    ->bind('basket');
 
 /*HOMEPAGE*/
 
@@ -22,11 +22,19 @@ $app
 ;
 
 $app
+    ->get('/ajax_api', 'index.controller:ajaxApi')
+    ->bind('ajax_api')// nom de la route
+;
+
+$app
+    ->get('/template/{id}', 'index.controller:idAction')
+    ->bind('show_product')// nom de la route
+;
+
+$app
     ->get('/custom', 'custom.controller:indexAction')
     ->bind('custom')
     ;
-
-
 
 
 
@@ -73,14 +81,6 @@ $admin->before(function () use ($app){
 // toutes les routes définies dans le groupe admin
 // auront le préfixe /admin
 $app->mount('/admin', $admin);
-
-
-$app->get('/', function () use ($app) {
-    return $app['twig']->render('index.html.twig', array());
-})
-->bind('homepage')
-;
-
 
 $admin
     ->match('/commande/edit{id_commande}', 'admin.commande.controller:editAction')

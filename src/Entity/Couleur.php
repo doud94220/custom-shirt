@@ -36,6 +36,8 @@ class Couleur
     public function setId($id)
     {
         $this->id = $id;
+
+        return $this;
     }
 
     /**
@@ -52,6 +54,8 @@ class Couleur
     public function setCouleur($couleur)
     {
         $this->couleur = $couleur;
+
+        return $this;
     }
 
 

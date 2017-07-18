@@ -8,6 +8,8 @@ use Controller\DetailCommandeController;
 use Controller\UserController;
 use Repository\CommandeRepository;
 use Repository\DetailCommandeRepository;
+use Repository\ProduitRepository;
+use Service\BasketManager;
 use Service\UserManager;
 use Silex\Application;
 use Silex\Provider\AssetServiceProvider;
@@ -123,9 +125,9 @@ $app['basket.controller'] = function() use ($app)
             
 /* Déclaration des repositories en service */
 
-$app['custom.repository'] = function() use ($app)
-{
+$app['custom.repository'] = function() use ($app) {
     return new CustomRepository($app);
+};
 
 $app['commande.repository'] = function () use ($app)
 {

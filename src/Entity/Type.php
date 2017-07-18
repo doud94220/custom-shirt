@@ -18,7 +18,7 @@ class Type
     private $id;
 
     /**
-     * @var int
+     * @var type
      */
     private $categorie;
 
@@ -41,6 +41,8 @@ class Type
     public function setId($id)
     {
         $this->id = $id;
+
+        return $this;
     }
 
     /**
@@ -54,9 +56,11 @@ class Type
     /**
      * @param Type $categorie
      */
-    public function setCategorie($categorie)
+    public function setCategorie(Categorie $categorie)
     {
         $this->categorie = $categorie;
+
+        return $this;
     }
 
     /**
@@ -73,6 +77,8 @@ class Type
     public function setType($type)
     {
         $this->type = $type;
+
+        return $this;
     }
 
 
