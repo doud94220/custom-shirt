@@ -2,7 +2,6 @@
 namespace Controller;
 
 use Entity\User;
-use Service\UserManager;
 
 class UserController extends ControllerAbstract
 {
@@ -92,9 +91,189 @@ class UserController extends ControllerAbstract
         );
     }
     
-    public function logoutAction(){
+    public function logoutAction()
+    {
         $this->app['user.manager']->logout();
         
         return $this->redirectRoute('homepage');
     }
-}
+/*************************************************************/    
+/*********************PRISE DE MESURE*************************/
+/*************************************************************/
+    
+    // Mesure Taille & Poids
+    public function fillMeasureWeightHeight()
+    {
+        $user = new User();
+        $errors = [];
+        
+        if(!empty($_POST))
+        {    
+            $user
+                  ->setTaille($_POST['taille'])
+                  ->setPoids($_POST['poids'])
+                  ;  
+            
+                if(!is_numeric($_POST['taille']))   
+                {
+                    $errors['taille'] = 'Merci de ne renseigner que des chiffres';
+                }
+                
+                if(!is_numeric($_POST['poids']))   
+                {
+                    $errors['poids'] = 'Merci de ne renseigner que des chiffres';
+                }
+                  
+                else
+                {
+                    $this->addFlashMessage('Vos mesures ont bien été enregistré!');
+                    //return
+                }
+        }
+        
+        return $this->render
+        (
+            'custom/mesure_etape1.html.twig',
+            [
+                'user' => $user
+            ]
+        );
+    }
+    
+    // Mesure Mesure Tronc (Cou, poitrine, taille, bassin)
+    public function fillMeasureTronc()
+    {
+        $user = new User();
+        $errors = [];
+        
+        if(!empty($_POST))
+        {    
+            $user
+                  ->setTour_cou($_POST['tour_cou'])
+                  ->setTour_poitrine($_POST['tour_poitrine'])
+                  ->setTour_taille($_POST['tour_taille'])
+                  ->setTour_bassin($_POST['tour_bassin'])
+                  ;
+                  
+                if(!is_numeric($_POST['tour_cou']))   
+                {
+                    $errors['tour_cou'] = 'Merci de ne renseigner que des chiffres';
+                }
+                
+                if(!is_numeric($_POST['tour_poitrine']))   
+                {
+                    $errors['tour_poitrine'] = 'Merci de ne renseigner que des chiffres';
+                }
+                
+                if(!is_numeric($_POST['tour_taille']))   
+                {
+                    $errors['tour_taille'] = 'Merci de ne renseigner que des chiffres';
+                }
+                
+                if(!is_numeric($_POST['tour_bassin']))   
+                {
+                    $errors['tour_bassin'] = 'Merci de ne renseigner que des chiffres';
+                }
+                
+                else
+                {
+                    $this->addFlashMessage('Vos mesures ont bien été enregistré!');
+                    //return
+                }
+        }
+        return $this->render
+        (
+            'custom/mesure_etape2.html.twig',
+            [
+                'user' => $user
+            ]
+        );
+    }
+    // Mesure Mesure Tronc (Cou, poitrine, taille, bassin)
+    public function fillMeasureBras()
+    {
+        $user = new User();
+        $errors = [];
+        
+        if(!empty($_POST))
+        {    
+            $user
+                  ->setManche_droite($_POST['manche_droite'])
+                  ->setManche_gauche($_POST['manche_gauche'])
+                  ->setPoignet_droit($_POST['poignet_droit'])
+                  ->setPoignet_gauche($_POST['poignet_gauche'])
+                  ; 
+
+                if(!is_numeric($_POST['manche_droite']))   
+                {
+                    $errors['manche_droite'] = 'Merci de ne renseigner que des chiffres';
+                }
+                if(!is_numeric($_POST['manche_gauche']))   
+                {
+                    $errors['manche_gauche'] = 'Merci de ne renseigner que des chiffres';
+                }
+                if(!is_numeric($_POST['manche_gauche']))   
+                {
+                    $errors['manche_gauche'] = 'Merci de ne renseigner que des chiffres';
+                }
+                if(!is_numeric($_POST['poignet_droit']))   
+                {
+                    $errors['poignet_droit'] = 'Merci de ne renseigner que des chiffres';
+                }
+                if(!is_numeric($_POST['poignet_gauche']))   
+                {
+                    $errors['poignet_gauche'] = 'Merci de ne renseigner que des chiffres';
+                }
+                
+                else
+                {
+                    $this->addFlashMessage('Vos mesures ont bien été enregistré!');
+                }
+        }
+        return $this->render
+        (
+            'custom/mesure_etape3.html.twig',
+            [
+                'user' => $user
+            ]
+        );        
+    } 
+    
+    // Mesure Mesure dos (Carrure et Dos)
+    public function fillMeasureCarrure()
+    {
+        $user = new User();
+        $errors = [];
+        
+        if(!empty($_POST))
+        {    
+            $user
+                ->SetCarrure($_POST['carrure'])
+                ->setDos($_POST['dos'])
+                ;
+            
+             if(!is_numeric($_POST['carrure']))   
+                {
+                    $errors['carrure'] = 'Merci de ne renseigner que des chiffres';
+                }
+                if(!is_numeric($_POST['dos']))   
+                {
+                    $errors['dos'] = 'Merci de ne renseigner que des chiffres';
+                }
+                
+                else
+                {
+                    $this->addFlashMessage('Vos mesures ont bien été enregistré!');
+                }
+        }
+        return $this->render
+        (
+            'custom/mesure_etape4.html.twig',
+            [
+                'user' => $user
+            ]
+        );
+    }
+
+}  // Fermeture de la class UserController              
+               

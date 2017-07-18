@@ -33,14 +33,27 @@ class CustomController extends ControllerAbstract
         (
                 'custom/bouton.html.twig',
                 [
-                    'boutons' => $boutons
+                    'boutons' => $boutons   
+                ]
+        );
+    }
+    
+      public function listCol()
+    {
+        $cols = $this->app['col.repository']->findAllCol();
+        
+        return $this->render
+        (
+                'custom/col.html.twig',
+                [
+                    'cols' => $cols
                 ]
         );
     }
     
     
     
-    
+
     public function fillMeasure_tissu()
     {
         $custom = new Custom();
@@ -143,86 +156,6 @@ class CustomController extends ControllerAbstract
 
     } 
 }    
-
-
-
-//            $user
-//                  ->setTaille($_POST['taille'])
-//                  ->setPoids($_POST['poids'])
-//                  ->setTour_cou($_POST['tour_cou'])
-//                  ->setTour_poitrine($_POST['tour_poitrine'])
-//                  ->setTour_taille($_POST['tour_taille'])
-//                  ->setTour_bassin($_POST['tour_bassin'])
-//                  ->setManche_droite($_POST['manche_droite'])
-//                  ->setManche_gauche($_POST['manche_gauche'])
-//                  ->setPoignet_droit($_POST['poignet_droit'])
-//                  ->setPoignet_gauche($_POST['poignet_gauche'])
-//                  ->SetCarrure($_POST['carrure'])
-//                  ->setDos($_POST['dos'])
-//                    ;  
-//            
-//            foreach ($_POST as $key => $value)
-//            {
-//                    $_POST[$key] = strip_tags(trim($value));
-//                    $_POST[$key] = htmlentities($value);
-//                    $_POST[$key] = addslashes($value);
-//                    $_POST[$key] = htmlspecialchars($value);
-//		
-//                if(!is_numeric($_POST['taille']))   
-//                {
-//                    $errors['taille'] = 'Merci de ne renseigner que des chiffres';
-//                }
-//                  if(!is_numeric($_POST['taille']))   
-//                {
-//                    $errors['poids'] = 'Merci de ne renseigner que des chiffres';
-//                }
-//                  if(!is_numeric($_POST['taille']))   
-//                {
-//                    $errors['tour_cou'] = 'Merci de ne renseigner que des chiffres';
-//                }
-//                  if(!is_numeric($_POST['tour_poitrine']))   
-//                {
-//                    $errors['tour_poitrine'] = 'Merci de ne renseigner que des chiffres';
-//                }
-//                  if(!is_numeric($_POST['tour_taille']))   
-//                {
-//                    $errors['tour_taille'] = 'Merci de ne renseigner que des chiffres';
-//                }
-//                  if(!is_numeric($_POST['tour_bassin']))   
-//                {
-//                    $errors['tour_bassin'] = 'Merci de ne renseigner que des chiffres';
-//                }
-//                  if(!is_numeric($_POST['manche_droite']))   
-//                {
-//                    $errors['manche_droite'] = 'Merci de ne renseigner que des chiffres';
-//                }
-//                  if(!is_numeric($_POST['manche_gauche']))   
-//                {
-//                    $errors['manche_gauche'] = 'Merci de ne renseigner que des chiffres';
-//                }
-//                  if(!is_numeric($_POST['manche_gauche']))   
-//                {
-//                    $errors['manche_gauche'] = 'Merci de ne renseigner que des chiffres';
-//                }
-//                  if(!is_numeric($_POST['poignet_droit']))   
-//                {
-//                    $errors['poignet_droit'] = 'Merci de ne renseigner que des chiffres';
-//                }
-//                  if(!is_numeric($_POST['poignet_gauche']))   
-//                {
-//                    $errors['poignet_gauche'] = 'Merci de ne renseigner que des chiffres';
-//                }
-//                
-//                else
-//                {
-//                    $this->addFlashMessage('Vos mesures ont bien été enregistré!');
-//                    return $this->redirectRoute('produits', ['id' => $id]);
-//                }
-//                
-//          }
-            
-         
-            
 
 
    // Champs à vide si utilisateur non connecté via un champs hidden
