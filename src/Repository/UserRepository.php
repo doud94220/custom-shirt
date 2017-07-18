@@ -38,9 +38,9 @@ class UserRepository extends RepositoryAbstract
     {
         $data=[
                 'id_user' => $user->getUser(),
-                'tour_cou' => $user->getTour_cou(),
                 'taille' => $user->getTaille(),
                 'poids' => $user->getPoids(),
+                'tour_cou' => $user->getTour_cou(),
                 'tour_poitrine' => $user->getTour_poitrine(),
                 'tour_taille' => $user->getTour_taille(),
                 'tour_bassin' => $user->getTour_bassin(),
@@ -68,15 +68,12 @@ class UserRepository extends RepositoryAbstract
         return null;
     }
 
+
     /**
      * @param array $dbUser
      * @return User
      */
-    public function buildFromArray(array $dbUser)
-    {
-        $user = new User();
-
-        public function buildFromArray($dbUser){
+    public function buildFromArray($dbUser){
         $user = new User();
 
         $user
@@ -93,7 +90,7 @@ class UserRepository extends RepositoryAbstract
             ->setSexe($dbUser['sexe'])
             ->setStatut($dbUser['statut'])
         ;
-
+        
         return $user;
     }
 }

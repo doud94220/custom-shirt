@@ -33,12 +33,25 @@ class CustomController extends ControllerAbstract
         (
                 'custom/bouton.html.twig',
                 [
-                    'boutons' => $boutons
+                    'boutons' => $boutons   
                 ]
         );
     }
     
+      public function listCol()
+    {
+        $cols = $this->app['col.repository']->findAllCol();
+        
+        return $this->render
+        (
+                'custom/col.html.twig',
+                [
+                    'cols' => $cols
+                ]
+        );
+    }
     
+
 
     public function fillMeasure_tissu()
     {
@@ -144,9 +157,6 @@ class CustomController extends ControllerAbstract
     } 
 }    
 
-
-
-         
 
 
    // Champs à vide si utilisateur non connecté via un champs hidden
