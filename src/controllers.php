@@ -42,6 +42,7 @@ $app
     ->bind('ajax_api')// nom de la route
 ;
 
+$app
     ->get('/custom', 'custom.controller:listTissu')
     ->bind('etape_1_tissu')
 ;

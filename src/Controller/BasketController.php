@@ -51,7 +51,8 @@ class BasketController extends ControllerAbstract
 
         //Je recupère le basket en session
         $productsAndConfigs = $this->app['basket.manager']->readBasket(); //auto-completion marche pas mais normal
-
+                echo '<pre>'; print_r($productsAndConfigs); echo '</pre><br><br>';
+        
         //Routage vers la bone vue
         if(!empty($productsAndConfigs)) //Si le panier n'est pas vide, on va faire la page 'basket/index.html.twig'
         {
