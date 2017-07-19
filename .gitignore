@@ -1,9 +1,7 @@
 /vendor/
 /nbproject/
 /.idea/
-<<<<<<< HEAD
+/userController/
+/UserController/
 /var/
 var/cache/profiler/index.csv
-=======
-/var/
->>>>>>> master

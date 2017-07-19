@@ -28,37 +28,32 @@ $app
 ;
 
 $app
-    ->post('/ajax_api_panier', 'produit.controller:ajaxApiPanier')
-    ->bind('ajax_api_panier')// nom de la route
-;
-
-  $app
-    ->get('/custom', 'custom.controller:listTissu')
+    ->match('/custom', 'custom.controller:listTissu')
     ->bind('etape_1_tissu')
 ;
 
 $app
+
+   ->match('/custom_bouton', 'custom.controller:listBouton')
+   ->bind('etape_2_bouton')
+;
+
     ->get('/template/{id}', 'index.controller:idAction')
     ->bind('show_product')// nom de la route
 ;
 
 $app
-   ->get('/custom_bouton', 'custom.controller:listBouton')
-   ->bind('etape_2_bouton')
-;
-
-$app
-   ->get('/custom_col', 'custom.controller:listCol')
+   ->match('/custom_col', 'custom.controller:listCol')
    ->bind('etape_3_col')
 ;
 
 $app
-   ->match('/custom_coupe', 'user.controller:listCoupe')
+   ->match('/custom_coupe', 'custom.controller:listCoupe')
    ->bind('etape_4_coupe')
 ;
 
 $app
-   ->match('/custom_recap', 'user.controller:showCustom')
+   ->match('/custom_recap', 'custom.controller:showCustom')
    ->bind('custom_recap')
 ;
 

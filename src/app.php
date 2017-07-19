@@ -2,15 +2,21 @@
 
 use Repository\CustomRepository;
 use Controller\Admin\CommandeController as AdminCommandeController;
+use Controller\BasketController;
+use Controller\CustomController;
 use Controller\CommandeController;
 use Controller\DetailCommandeController;
 use Controller\UserController;
 use Repository\BoutonRepository;
 use Repository\ColRepository;
+use Repository\CoupeRepository;
 use Repository\CommandeRepository;
 use Repository\DetailCommandeRepository;
 use Repository\ProduitRepository;
+use Repository\TissuRepository;
+use Repository\UserRepository;
 use Service\BasketManager;
+use Service\CustomManager;
 use Service\UserManager;
 use Silex\Application;
 use Silex\Provider\AssetServiceProvider;
@@ -159,6 +165,10 @@ $app['col.repository'] = function() use ($app)
     return new ColRepository($app['db']);
 };
 
+$app['coupe.repository'] = function() use ($app)
+{
+    return new CoupeRepository($app['db']);
+};
 
 $app['commande.repository'] = function () use ($app)
 {

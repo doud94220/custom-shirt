@@ -26,6 +26,8 @@ class CustomManager
         $this->init();
         $custom = $this->session->get('custom');
         $custom['tissu'] = $tissu;
+        $this->session->set('custom', $custom);
+        
     }
 
     public function setBouton($bouton)
@@ -33,6 +35,7 @@ class CustomManager
         $this->init();
         $custom = $this->session->get('custom');
         $custom['bouton'] = $bouton;
+        $this->session->set('custom', $custom);
     }
     
      public function setCol($col)
@@ -40,6 +43,7 @@ class CustomManager
         $this->init();
         $custom = $this->session->get('custom');
         $custom['col'] = $col;
+        $this->session->set('custom', $custom);
     }
     
       public function setCoupe($coupe)
@@ -47,8 +51,14 @@ class CustomManager
         $this->init();
         $custom = $this->session->get('custom');
         $custom['coupe'] = $coupe;
+        $this->session->set('custom', $custom);
     }
-
+    
+    public function getCustom()
+    {
+        return $this->session->get('custom');
+    }
+    
 
     
     public function putCustominSession($custom)

@@ -4,7 +4,7 @@
 
 {% block content %}
     <h1> Choix de vos boutons </h1>
-    <form method="post" action="{#{{ path('bouton.html.twig')}}#}">
+    <form name="choix_tissu" method="post">
         <div class="form-group">
            <table class="table">
                <tr>
@@ -18,14 +18,13 @@
                <tr>
                    <td>{{ bouton.titre }} </td>
                    <td>{{ bouton.description }} </td>
-                   <td><img src="{{ bouton.photo }}" alt="" width="200"/> </td>
+                   <td><img src="{{ bouton.photo }}" alt="" width="200" class="select_img" data-id="{{ bouton.id_bouton }}"/> </td>
                    <td>{{ bouton.prix }} € </td>                   
                </tr>
             {% endfor %}   
            </table>
-        </div>
         <button type="submit" class="btn btn-primary" > Etape suivante </button>
-    
+        <input type="hidden" name="custom_product" id="custom_product">
     </form>
 
 {% endblock %}

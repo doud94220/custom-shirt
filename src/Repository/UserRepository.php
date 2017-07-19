@@ -74,7 +74,8 @@ class UserRepository extends RepositoryAbstract
      * @param array $dbUser
      * @return User
      */
-    public function buildFromArray($dbUser){
+    public function buildFromArray(array $dbUser)
+    {
         $user = new User();
 
         $user
