@@ -403,3 +403,17 @@ fa8a80,::1,GET,http://localhost/custom-shirt/web/index_dev.php/deconnexion,15004
 bdc4e8,::1,GET,http://localhost/custom-shirt/web/index_dev.php/inscription,1500472354,,200
 5c0b35,::1,GET,http://localhost/custom-shirt/web/index_dev.php/connexion,1500472366,,200
 6597a4,::1,GET,http://localhost/custom-shirt/web/index_dev.php/profile/modifier,1500472382,,500
+049274,::1,POST,http://localhost/custom-shirt/web/index_dev.php/connexion,1500475314,,200
+3a8876,::1,GET,http://localhost/custom-shirt/web/index_dev.php/inscription,1500475319,,200
+81bafa,::1,POST,http://localhost/custom-shirt/web/index_dev.php/inscription,1500475419,,302
+3866d4,::1,GET,http://localhost/custom-shirt/web/index_dev.php/,1500475420,,500
+d3b8b3,::1,GET,http://localhost/custom-shirt/web/index_dev.php/login,1500475442,,404
+580bc6,::1,GET,http://localhost/custom-shirt/web/index_dev.php/connexion,1500475493,,200
+cb3234,::1,GET,http://localhost/custom-shirt/web/index_dev.php/profile,1500475509,,500
+ae529f,::1,GET,http://localhost/custom-shirt/web/index_dev.php/profile/connexion,1500475679,,404
+39566c,::1,GET,http://localhost/custom-shirt/web/index_dev.php/connexion,1500475690,,200
+461265,::1,POST,http://localhost/custom-shirt/web/index_dev.php/connexion,1500475701,,302
+0f8983,::1,GET,http://localhost/custom-shirt/web/index_dev.php/,1500475702,,500
+5cbfa2,::1,GET,http://localhost/custom-shirt/web/index_dev.php/profile/modifier,1500475800,,200
+f6dec8,::1,GET,http://localhost/custom-shirt/web/index_dev.php/profile,1500476180,,500
+a3fbd5,::1,GET,http://localhost/custom-shirt/web/index_dev.php/inscription,1500476375,,200
