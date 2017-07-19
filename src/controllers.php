@@ -42,6 +42,7 @@ $app
     ->bind('ajax_api')// nom de la route
 ;
 
+$app
     ->get('/custom', 'custom.controller:listTissu')
     ->bind('etape_1_tissu')
 ;
@@ -109,10 +110,14 @@ $app
 ;
 
 $app
-    ->match('/profile/delete_commande', 'commande.controller:deleteAction')
+    ->match('/profile/delete_commande/{id}', 'commande.controller:deleteAction')
     ->bind('delete_commande')
 ;
 
+$app
+    ->match('/profile/return_commande/{id}', 'commande.controller:returnAction')
+    ->bind('return_commande')
+;
 
 
 /********************* ADMIN **************************/
@@ -137,18 +142,19 @@ $app->get('/', function () use ($app) {
 ->bind('homepage')
 ;
 
+// gestion des commandes -------------------------------------- 
 $admin
     ->get('/commandes', 'admin.commande.controller:listAction')
     ->bind('admin_commandes')
 ;
 
 $admin
-    ->match('/commande/edit{id_commande}', 'admin.commande.controller:editAction')
+    ->match('/commande/edit/{id}', 'admin.commande.controller:editAction')
     ->bind('admin_edit_commande')
 ;
 
 $admin
-    ->match('/commande/delete{id_commande}', 'admin.commande.controller:deleteAction')
+    ->match('/commande/delete/{id}', 'admin.commande.controller:deleteAction')
     ->bind('admin_delete_commande')
 ;
 
