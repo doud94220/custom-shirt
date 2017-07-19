@@ -2,6 +2,8 @@
 
 namespace Entity;
 
+use DateTime;
+
 class User 
 {
     /********* INSCRIPTION ***********/
@@ -147,7 +149,12 @@ class User
         return $this->nom;
     }
 
+    /**
+     * 
+     * @return DateTime
+     */
     public function getDate_naissance() {
+        $date_naissance = new DateTime($this->date_naissance);
         return $this->date_naissance;
     }
 
@@ -265,8 +272,8 @@ class User
      * @param DateTime $date_naissance
      * @return User
      */
-    public function setDate_naissance(date $date_naissance) {
-        $this->date_naissance = $date_naissance;
+    public function setDate_naissance(DateTime $date_naissance) {
+        $this->date_naissance = ($date_naissance);
         return $this;
     }
 

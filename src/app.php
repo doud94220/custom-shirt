@@ -110,7 +110,7 @@ $app['produit.repository'] = function () use ($app) {
 /* FRONT */
 $app['commande.controller'] = function () use ($app)
 {
-    return new AdminCommandeController($app);
+    return new CommandeController($app);
 };
 
 $app['detail.commande.controller'] = function () use ($app){

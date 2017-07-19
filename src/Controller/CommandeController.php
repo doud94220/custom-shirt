@@ -40,17 +40,31 @@ class CommandeController extends ControllerAbstract
     /**
      * cette méthode
      */
-    public function followAction(){
+    public function followAction($id_commande){
         
     }
     
-    public function deleteAction(){
+    public function deleteAction($id){
+        $commande = $this->app['commande.repository']->find($id);
         
+        $this->app['commande.repository']->delete($commande);
+        
+        $this->addFlashMessage("La commande est supprimée");
+        
+        return $this->redirectRoute('profile');
     }
     
+    public function returnAction($id){
+        $commande = $this->app['commande.repository']->find($id);
+        
+        return $this->render(
+                'commande/return.html.twig',
+                ['commande' => $commande]
+        );
+    }
     
     /**
-     * Cette fonction sert à déclencher le paiement lorsque l'utilisateur valide son panier
+     * Cette méthode sert à déclencher le paiement lorsque l'utilisateur valide son panier
      * elle prend en paramètre l'id_commande de la commande à payer
      */
     public function pay($id_commande){
@@ -58,7 +72,7 @@ class CommandeController extends ControllerAbstract
     }
     
     /**
-     * Cette fonction sert à envoyer un mail de confirmation lorsque la commande est validée 
+     * Cette méthode sert à envoyer un mail de confirmation lorsque la commande est validée 
      * @param int $id_commande
      */
     public function sendConfirmationMail($id_commande){
@@ -66,7 +80,7 @@ class CommandeController extends ControllerAbstract
     }
     
     /**
-     * Cette fonction permet à l'utilisateur de reproduire une commande passée
+     * Cette méthode permet à l'utilisateur de reproduire une commande passée
      */
     public function cloneCommande($id_commande){
         

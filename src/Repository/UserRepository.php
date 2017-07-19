@@ -2,6 +2,7 @@
 
 namespace Repository;
 
+use DateTime;
 use Entity\User;
 
 class UserRepository extends RepositoryAbstract
@@ -80,6 +81,7 @@ class UserRepository extends RepositoryAbstract
             ->setId_user($dbUser['id_user'])
             ->setNom($dbUser['nom'])
             ->setPrenom($dbUser['prenom'])
+            ->setDate_naissance(new DateTime($dbUser['date_naissance']))
             ->setEmail($dbUser['email'])
             ->setPassword($dbUser['password'])
             ->setAdresse($dbUser['adresse'])

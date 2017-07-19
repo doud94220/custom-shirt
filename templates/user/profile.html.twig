@@ -1,5 +1,7 @@
 {% extends "layout.html.twig" %}
 
+{% block title 'Mon compte' %}
+
 {% block content %}
     {% block commandes %}
         <div class="container">
@@ -9,7 +11,7 @@
                 <tr>
                     <th>Nom</th>
                     <th>Prénom</th>
-                    {#<th>Date de naissance</th>#}
+                    <th>Date de naissance</th>
                     <th>Email</th>
                     <th>Téléphone</th>
                     <th>Adresse</th>
@@ -25,7 +27,7 @@
                 <tr>
                     <td>{{ user.nom }}</td>
                     <td>{{ user.prenom }}</td>
-                    {#<td>{{ user.date_naissance }}</td>#}
+                    <td>{#{{ user.date_naissance|date('d/m/Y') }}#}</td>
                     <td>{{ user.email }}</td>
                     <td>{{ user.tel }}</td>
                     <td>{{ user.adresse }}</td>
@@ -53,7 +55,7 @@
                     <th>Total</th>
                     <th>Date commande</th>
                     <th>Etat</th>
-                    <th width="200px"></th>
+                    <th width="200px">Action</th>
                 </tr>
                 {% for commande in commandes %}
                     <tr>
@@ -63,8 +65,14 @@
                         <td>{{ commande.date_commande|date('d/m/Y') }}</td>
                         <td>{{ commande.etat }}</td>
                         <td>
-                            <a href ="{{ path('suivi_commande', {id: commande.id_commande}) }}" class="btn btn-primary">Suivre ma commande</a>
-                            <a href ="{{ path('delete_commande', {id: commande.id_commande}) }}" class="btn btn-danger">Annuler ma commande</a>
+                            {% if commande.etat != 'livré' %}
+                                <a href ="{#{{ path('suivi_commande', {id: commande.id_commande}) }}#}https://www.laposte.fr/particulier/outils/suivre-vos-envois" class="btn btn-primary"><span class="glyphicon glyphicon-circle-arrow-right"></span> Suivre ma commande</a>
+                            {% endif %}
+                            {% if commande.etat == 'en préparation' or commande.etat == 'expédié' or commande.etat == 'en livraison' %}
+                                <a href ="{{ path('delete_commande', {id: commande.id_commande}) }}" class="btn btn-danger"><span class="glyphicon glyphicon-trash" ></span> Annuler ma commande</a>
+                            {% elseif commande.etat == 'livré' %}
+                                <a href ="{{ path('return_commande', {id: commande.id_commande}) }}" class="btn btn-warning"><span class="glyphicon glyphicon-remove-sign"></span> Retourner ma commande</a>
+                            {% endif %}
                         </td>
                     </tr>
                 {% endfor %}
