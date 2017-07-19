@@ -36,8 +36,8 @@ $(function() {
         })
 
             .done(function (data) {
-                console.log(data);
-                $('.display').html(data);
+                console.log('ok');
+
             })
 
     });

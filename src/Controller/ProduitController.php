@@ -91,7 +91,6 @@ class ProduitController extends ControllerAbstract
         return $this->render('produit/produit_list.html.twig', ['produits' => $produits]);
         //return $this->app->json($results);
 
-
     }
 
     public function ajaxApiPanier()

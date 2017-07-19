@@ -429,3 +429,5 @@ ddd7ac,::1,GET,http://localhost/custom-shirt/web/index_dev.php/ajax_api?nombre=3
 3e343f,::1,GET,http://localhost/custom-shirt/web/index_dev.php/ajax_api?nombre=30&prix=50&range=&sexe=&taille=&tissu=&type=,1500474580,,200
 5e4abc,::1,GET,http://localhost/custom-shirt/web/index_dev.php/ajax_api?nombre=30&prix=100&range=&sexe=&taille=&tissu=&type=,1500474583,,200
 4f2b4a,::1,GET,http://localhost/custom-shirt/web/index_dev.php/ajax_api?nombre=30&prix=150&range=&sexe=&taille=&tissu=&type=,1500474587,,200
+e0af6a,::1,GET,http://localhost/custom-shirt/web/index_dev.php/,1500474797,,200
+a02677,::1,GET,http://localhost/custom-shirt/web/index_dev.php/template/2,1500474799,,200
