@@ -10,7 +10,37 @@ class CustomController extends ControllerAbstract
 {
     // Récupération des choix de configuration de l'utilisateur 
     // On garde cette configuration en base pour pouvoir la partager
+    
+    public function listTissu()
+    {
+       $tissus = $this->app['tissu.repository']->findAllTissu();
+//       var_dump($tissus);
+       return $this->render
+       (
+               'custom/tissu.html.twig',
+               [
+                   'tissus' => $tissus
+               ]
+       );
 
+    }
+    
+    public function listBouton()
+    {
+        $boutons = $this->app['bouton.repository']->findAllBouton();
+        
+        return $this->render
+        (
+                'custom/bouton.html.twig',
+                [
+                    'boutons' => $boutons
+                ]
+        );
+    }
+    
+    
+    
+    
     public function fillMeasure_tissu()
     {
         $custom = new Custom();
@@ -21,10 +51,13 @@ class CustomController extends ControllerAbstract
         {
             $custom->setTissu_id($_GET['tissu_id']);
             $custom = $this->app['custom.repository']->save($custom);
-        
+            
+            $customManager = $this->app('custom.manager');
+            $customManager->setTissu($_GET['tissu_id']);
+            
             return $this->render
             (
-                'custom/bouton.html.twig'
+                'custom/tissu.html.twig'
             );
         }
         else
@@ -45,9 +78,12 @@ class CustomController extends ControllerAbstract
             $custom->setButton_id($_GET['bouton_id']);
             $custom = $this->app['custom.repository']->save($custom);
             
+            $customManager = $this->app('custom.manager');
+            $customManager->setBouton($_GET['bouton_id']);
+            
             return $this->render
             (
-                'custom/bouton.html.twig'
+                'custom/bouton.html.twig' //à modif
             );
         }
         else
@@ -66,6 +102,9 @@ class CustomController extends ControllerAbstract
         {
             $custom->setCol($_GET['col']);
             $custom = $this->app['custom.repository']->save($custom);
+            
+            $customManager = $this->app('custom.manager');
+            $customManager->setCol($_GET['col_id']);
             
             return $this->render
             (
@@ -88,6 +127,10 @@ class CustomController extends ControllerAbstract
         {
             $custom->setCoupe($_GET['coupe']);
             $custom = $this->app['custom.repository']->save($custom);
+            
+            $customManager = $this->app('custom.manager');
+            $customManager->setCoupe($_GET['coupe_id']);
+            
             return $this->render
             (
                 'custom/coupe.html.twig'
