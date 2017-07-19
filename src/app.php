@@ -8,18 +8,15 @@ use Controller\DetailCommandeController;
 use Controller\UserController;
 use Repository\CommandeRepository;
 use Repository\DetailCommandeRepository;
+use Repository\ProduitRepository;
+use Service\BasketManager;
 use Service\UserManager;
 use Silex\Application;
 use Silex\Provider\AssetServiceProvider;
 use Silex\Provider\DoctrineServiceProvider;
 use Silex\Provider\HttpFragmentServiceProvider;
-
 use Controller\IndexController;
-
-
-
-
-
+use Controller\ProduitController;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\SwiftmailerServiceProvider;
@@ -79,6 +76,12 @@ $app['index.controller'] = function () use ($app) {
 
 };
 
+$app['produit.controller'] = function () use ($app) {
+
+    return new ProduitController($app);
+
+};
+
 $app['produit.repository'] = function () use ($app) {
 
     return new ProduitRepository($app['db']);
@@ -123,9 +126,9 @@ $app['basket.controller'] = function() use ($app)
             
 /* Déclaration des repositories en service */
 
-$app['custom.repository'] = function() use ($app)
-{
+$app['custom.repository'] = function() use ($app) {
     return new CustomRepository($app);
+};
 
 $app['commande.repository'] = function () use ($app)
 {

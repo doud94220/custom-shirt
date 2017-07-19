@@ -21,4 +21,12 @@ class IndexController extends ControllerAbstract
 
         return $this->render('index.html.twig', ['produits' => $produits]);
     }
+
+    public function idAction($id)
+    {
+        $produits = $this->app['produit.repository']->findById($id);
+
+        return $this->render('produit/produit.html.twig', ['produits' => $produits]);
+    }
+
 }

@@ -26,8 +26,8 @@ class BasketManager
            $basket = new Basket();
            
            //Y placer un tableau de produit(s) et config(s)
-           $productsAndConfigs[];
-           $basket = $productsAndConfigs[];
+           //$productsAndConfigs[];
+           //$basket = $productsAndConfigs[];
         }
         else //Si y'a un panier
         {
@@ -52,8 +52,8 @@ class BasketManager
           $basket = new Basket();
            
            //Y placer un tableau de produit(s) et config(s)
-          $productsAndConfigs[];
-          $basket = $productsAndConfigs[];
+          //$productsAndConfigs[];
+          //$basket = $productsAndConfigs[];
         }
         else //Si y'a un panier
         {
