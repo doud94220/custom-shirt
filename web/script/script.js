@@ -1,55 +1,47 @@
 $(function() {
 
-    // var produitId = 0;
-
-    $('.request').change(function () {
-
-        $.ajax({
-            url: ajaxApiUrl,
-            method: "GET",
-            data: {
-                categorie: $("#categorie").val(),
-                type: $("#type").val(),
-                couleur: $("#couleur").val(),
-                taille: $("#taille").val(),
-                sexe: $("#sexe").val(),
-                prix: $("#prix").val(),
-                range: $("#range").val(),
-                nb_resultat: $('.nb_resultat').val()
-            }
-        })
-
-
-            .done(function (data) {
-                console.log(data);
-                $('.display').html(data);
+        $('.request').change(function (e) {
+            e.preventDefault();
+            $.ajax({
+                url: ajaxApiUrl,
+                method: "GET",
+                data: {
+                    categorie: $("#categorie").val(),
+                    type: $("#type").val(),
+                    couleur: $("#couleur").val(),
+                    taille: $("#taille").val(),
+                    sexe: $("#sexe").val(),
+                    prix: $("#prix").val(),
+                    tissu: $("#tissu").val(),
+                    range: $("#range").val(),
+                    nombre: $('#nombre').val()
+                }
             })
 
-    });
+                .done(function (data) {
+                    console.log(data);
+                    $('.display').html(data);
+                })
 
-    $('.nb_resultat').click(function () {
+        });
 
+    $('.ajout_panier').click(function (e) {
+        e.preventDefault();
         $.ajax({
-            url: ajaxApiUrl,
-            method: "GET",
+            url: ajaxApiUrlPanier,
+            method: "POST",
             data: {
-                categorie: $("#categorie").val(),
-                type: $("#type").val(),
-                couleur: $("#couleur").val(),
-                taille: $("#taille").val(),
-                sexe: $("#sexe").val(),
-                prix: $("#prix").val(),
-                range: $("#range").val(),
-                nb_resultat: $('.nb_resultat').val()
+                id: $(".title h1").attr('id')
             }
         })
 
             .done(function (data) {
-                console.log(data);
-                $('.display').html(data);
+                console.log('ok');
+
             })
 
     });
+
 })
 
 /********STOCKAGE INFORMATIONS DANS BALISE HIDDEN************/
@@ -189,15 +181,4 @@ $('.select_img').click(function(){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+});

@@ -11,6 +11,7 @@ class __TwigTemplate_2e35ab8f07b117618e5cea1eea3f197f5345b04a4403c768200dacde510
         $this->parent = $this->loadTemplate("layout.html.twig", "produit/produit.html.twig", 1);
         $this->blocks = array(
             'content' => array($this, 'block_content'),
+            'javascripts' => array($this, 'block_javascripts'),
         );
     }
 
@@ -21,29 +22,29 @@ class __TwigTemplate_2e35ab8f07b117618e5cea1eea3f197f5345b04a4403c768200dacde510
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_9c87f5add0580a700971257a962606ca1129d390931c1e90adb7d49a6f6bfb9d = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_9c87f5add0580a700971257a962606ca1129d390931c1e90adb7d49a6f6bfb9d->enter($__internal_9c87f5add0580a700971257a962606ca1129d390931c1e90adb7d49a6f6bfb9d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "produit/produit.html.twig"));
+        $__internal_1bc97fe7534cf77eddb751500d675010b64b16e0216cb52cac15fcae5f0f4c08 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_1bc97fe7534cf77eddb751500d675010b64b16e0216cb52cac15fcae5f0f4c08->enter($__internal_1bc97fe7534cf77eddb751500d675010b64b16e0216cb52cac15fcae5f0f4c08_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "produit/produit.html.twig"));
 
-        $__internal_1da5599f8e6f9250fbcbbb15574244933b9ec949d44e9777f00da291f8b4d227 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_1da5599f8e6f9250fbcbbb15574244933b9ec949d44e9777f00da291f8b4d227->enter($__internal_1da5599f8e6f9250fbcbbb15574244933b9ec949d44e9777f00da291f8b4d227_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "produit/produit.html.twig"));
+        $__internal_7a6d9ca4aee9f14bded9567ffa0916f876056c81aad615be85529bd6c8c7d67a = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_7a6d9ca4aee9f14bded9567ffa0916f876056c81aad615be85529bd6c8c7d67a->enter($__internal_7a6d9ca4aee9f14bded9567ffa0916f876056c81aad615be85529bd6c8c7d67a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "produit/produit.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_9c87f5add0580a700971257a962606ca1129d390931c1e90adb7d49a6f6bfb9d->leave($__internal_9c87f5add0580a700971257a962606ca1129d390931c1e90adb7d49a6f6bfb9d_prof);
+        $__internal_1bc97fe7534cf77eddb751500d675010b64b16e0216cb52cac15fcae5f0f4c08->leave($__internal_1bc97fe7534cf77eddb751500d675010b64b16e0216cb52cac15fcae5f0f4c08_prof);
 
         
-        $__internal_1da5599f8e6f9250fbcbbb15574244933b9ec949d44e9777f00da291f8b4d227->leave($__internal_1da5599f8e6f9250fbcbbb15574244933b9ec949d44e9777f00da291f8b4d227_prof);
+        $__internal_7a6d9ca4aee9f14bded9567ffa0916f876056c81aad615be85529bd6c8c7d67a->leave($__internal_7a6d9ca4aee9f14bded9567ffa0916f876056c81aad615be85529bd6c8c7d67a_prof);
 
     }
 
     // line 3
     public function block_content($context, array $blocks = array())
     {
-        $__internal_a4f7fcfd4b7274e3b7c2ed4cba7c18cf578a0f59d06e8041bd61a5a39c4b86e4 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_a4f7fcfd4b7274e3b7c2ed4cba7c18cf578a0f59d06e8041bd61a5a39c4b86e4->enter($__internal_a4f7fcfd4b7274e3b7c2ed4cba7c18cf578a0f59d06e8041bd61a5a39c4b86e4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "content"));
+        $__internal_4e5d42b93cbb47e34edd8a1a3f0257bb1995e6f508055eb298b4f46039c9b598 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_4e5d42b93cbb47e34edd8a1a3f0257bb1995e6f508055eb298b4f46039c9b598->enter($__internal_4e5d42b93cbb47e34edd8a1a3f0257bb1995e6f508055eb298b4f46039c9b598_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "content"));
 
-        $__internal_1fa8b3f54b8a6a66e2023351ef3f91173f3f2e5e2276edbd1193b0ba8f12fff8 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_1fa8b3f54b8a6a66e2023351ef3f91173f3f2e5e2276edbd1193b0ba8f12fff8->enter($__internal_1fa8b3f54b8a6a66e2023351ef3f91173f3f2e5e2276edbd1193b0ba8f12fff8_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "content"));
+        $__internal_0eec81770bc5ba83687646434d0bd49ea79f76a639cad11d3587f54b55aaed6d = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_0eec81770bc5ba83687646434d0bd49ea79f76a639cad11d3587f54b55aaed6d->enter($__internal_0eec81770bc5ba83687646434d0bd49ea79f76a639cad11d3587f54b55aaed6d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "content"));
 
         // line 4
         echo "
@@ -77,7 +78,7 @@ class __TwigTemplate_2e35ab8f07b117618e5cea1eea3f197f5345b04a4403c768200dacde510
         echo "</p>
                     </div>
                     <div class=\"col-sm-12 button\">
-                        <button class=\"btn btn-default\">Ajouter au panier</button>
+                        <button class=\"btn btn-default ajout_panier\">Ajouter au panier</button>
                     </div>
                 </div>
             </div>
@@ -85,12 +86,49 @@ class __TwigTemplate_2e35ab8f07b117618e5cea1eea3f197f5345b04a4403c768200dacde510
         </div>
     </div>
 
+    ";
+        // line 29
+        $this->displayBlock('javascripts', $context, $blocks);
+        // line 36
+        echo "
 ";
         
-        $__internal_1fa8b3f54b8a6a66e2023351ef3f91173f3f2e5e2276edbd1193b0ba8f12fff8->leave($__internal_1fa8b3f54b8a6a66e2023351ef3f91173f3f2e5e2276edbd1193b0ba8f12fff8_prof);
+        $__internal_0eec81770bc5ba83687646434d0bd49ea79f76a639cad11d3587f54b55aaed6d->leave($__internal_0eec81770bc5ba83687646434d0bd49ea79f76a639cad11d3587f54b55aaed6d_prof);
 
         
-        $__internal_a4f7fcfd4b7274e3b7c2ed4cba7c18cf578a0f59d06e8041bd61a5a39c4b86e4->leave($__internal_a4f7fcfd4b7274e3b7c2ed4cba7c18cf578a0f59d06e8041bd61a5a39c4b86e4_prof);
+        $__internal_4e5d42b93cbb47e34edd8a1a3f0257bb1995e6f508055eb298b4f46039c9b598->leave($__internal_4e5d42b93cbb47e34edd8a1a3f0257bb1995e6f508055eb298b4f46039c9b598_prof);
+
+    }
+
+    // line 29
+    public function block_javascripts($context, array $blocks = array())
+    {
+        $__internal_8bc05bd37e08632a2653e4ac00d6e1795b1ee79711b0a9d48e40831166522b8c = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_8bc05bd37e08632a2653e4ac00d6e1795b1ee79711b0a9d48e40831166522b8c->enter($__internal_8bc05bd37e08632a2653e4ac00d6e1795b1ee79711b0a9d48e40831166522b8c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+
+        $__internal_a904cb11fa3240f4acfa2d428a4bd97bd9b80c90706339d68c1f320d8d169c80 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_a904cb11fa3240f4acfa2d428a4bd97bd9b80c90706339d68c1f320d8d169c80->enter($__internal_a904cb11fa3240f4acfa2d428a4bd97bd9b80c90706339d68c1f320d8d169c80_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+
+        // line 30
+        echo "        ";
+        $this->displayParentBlock("javascripts", $context, $blocks);
+        echo "
+        <script>
+            var ajaxApiUrlPanier = \"";
+        // line 32
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("ajax_api_panier");
+        echo "\";
+        </script>
+        <script src=\"";
+        // line 34
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("script/script.js"), "html", null, true);
+        echo "\"></script>
+    ";
+        
+        $__internal_a904cb11fa3240f4acfa2d428a4bd97bd9b80c90706339d68c1f320d8d169c80->leave($__internal_a904cb11fa3240f4acfa2d428a4bd97bd9b80c90706339d68c1f320d8d169c80_prof);
+
+        
+        $__internal_8bc05bd37e08632a2653e4ac00d6e1795b1ee79711b0a9d48e40831166522b8c->leave($__internal_8bc05bd37e08632a2653e4ac00d6e1795b1ee79711b0a9d48e40831166522b8c_prof);
 
     }
 
@@ -106,7 +144,7 @@ class __TwigTemplate_2e35ab8f07b117618e5cea1eea3f197f5345b04a4403c768200dacde510
 
     public function getDebugInfo()
     {
-        return array (  76 => 18,  70 => 15,  64 => 14,  56 => 9,  49 => 4,  40 => 3,  11 => 1,);
+        return array (  124 => 34,  119 => 32,  113 => 30,  104 => 29,  93 => 36,  91 => 29,  77 => 18,  71 => 15,  65 => 14,  57 => 9,  50 => 4,  41 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -139,13 +177,21 @@ class __TwigTemplate_2e35ab8f07b117618e5cea1eea3f197f5345b04a4403c768200dacde510
                         <p>{{ produits.description }}</p>
                     </div>
                     <div class=\"col-sm-12 button\">
-                        <button class=\"btn btn-default\">Ajouter au panier</button>
+                        <button class=\"btn btn-default ajout_panier\">Ajouter au panier</button>
                     </div>
                 </div>
             </div>
 
         </div>
     </div>
+
+    {% block javascripts %}
+        {{ parent() }}
+        <script>
+            var ajaxApiUrlPanier = \"{{ path('ajax_api_panier') }}\";
+        </script>
+        <script src=\"{{ asset('script/script.js') }}\"></script>
+    {% endblock %}
 
 {% endblock %}", "produit/produit.html.twig", "C:\\wamp64\\www\\custom-shirt\\templates\\produit\\produit.html.twig");
     }

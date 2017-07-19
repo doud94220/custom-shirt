@@ -2,6 +2,7 @@
 
 namespace Repository;
 
+use DateTime;
 use Entity\User;
 
 class UserRepository extends RepositoryAbstract
@@ -76,10 +77,12 @@ class UserRepository extends RepositoryAbstract
     public function buildFromArray(array $dbUser)
     {
         $user = new User();
+
         $user
             ->setId_user($dbUser['id_user'])
             ->setNom($dbUser['nom'])
             ->setPrenom($dbUser['prenom'])
+            ->setDate_naissance(new DateTime($dbUser['date_naissance']))
             ->setEmail($dbUser['email'])
             ->setPassword($dbUser['password'])
             ->setAdresse($dbUser['adresse'])
@@ -90,7 +93,7 @@ class UserRepository extends RepositoryAbstract
             ->setSexe($dbUser['sexe'])
             ->setStatut($dbUser['statut'])
         ;
-
+        
         return $user;
     }
 }

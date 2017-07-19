@@ -38,7 +38,7 @@ class Commande
     /**
      * @var string
      */
-    private $etat;
+    private $etat = 'en préparation';
     
     /**
      * @return int

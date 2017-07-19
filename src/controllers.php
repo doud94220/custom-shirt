@@ -12,22 +12,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 // Route du panier (basket en UK) en front
 $app
-       ->match('/basket', 'basket.controller:consultAction')
-       ->bind('basket_consult');
-
-$app
-       ->match('/basket/incrementBasket/{idProduitEnSession}', 'basket.controller:incrementAction')
-       //->value('idProduitEnSession')
-       ->bind('basket_increment');
-
-$app
-       ->match('/basket/decrementBasket/{idProduitEnSession}', 'basket.controller:decrementAction')
-       ->bind('basket_decrement');
-
-$app
-       ->match('/basket/delete/{idProduitEnSession}', 'basket.controller:deleteAction')
-       ->bind('basket_delete');
-
+    ->match('/basket', 'basket.controller:consultAction')
+    ->bind('basket');
 
 /*HOMEPAGE*/
 
@@ -37,18 +23,23 @@ $app
 ;
 
 $app
-
-    ->get('/ajax_api', 'index.controller:ajaxApi')
+    ->get('/ajax_api', 'produit.controller:ajaxApi')
     ->bind('ajax_api')// nom de la route
 ;
+
 $app
     ->match('/custom', 'custom.controller:listTissu')
     ->bind('etape_1_tissu')
 ;
 
 $app
+
    ->match('/custom_bouton', 'custom.controller:listBouton')
    ->bind('etape_2_bouton')
+;
+
+    ->get('/template/{id}', 'index.controller:idAction')
+    ->bind('show_product')// nom de la route
 ;
 
 $app
@@ -68,7 +59,7 @@ $app
 
 $app
    ->match('/custom_poidstaille', 'user.controller:fillMeasureWeightHeight')
-   ->bind('etape_5_poidtaille')
+   ->bind('etape_5_poidstaille')
 ;
 
 $app
@@ -83,7 +74,7 @@ $app
 
 $app
    ->match('/custom_carrure', 'user.controller:fillMeasureCarrure')
-   ->bind('etape_4_carrure')
+   ->bind('etape_5_carrure')
 ;
 
 /* UTILISATEUR */
@@ -119,10 +110,14 @@ $app
 ;
 
 $app
-    ->match('/profile/delete_commande', 'commande.controller:deleteAction')
+    ->match('/profile/delete_commande/{id}', 'commande.controller:deleteAction')
     ->bind('delete_commande')
 ;
 
+$app
+    ->match('/profile/return_commande/{id}', 'commande.controller:returnAction')
+    ->bind('return_commande')
+;
 
 
 /********************* ADMIN **************************/
@@ -147,18 +142,19 @@ $app->get('/', function () use ($app) {
 ->bind('homepage')
 ;
 
+// gestion des commandes -------------------------------------- 
 $admin
     ->get('/commandes', 'admin.commande.controller:listAction')
     ->bind('admin_commandes')
 ;
 
 $admin
-    ->match('/commande/edit{id_commande}', 'admin.commande.controller:editAction')
+    ->match('/commande/edit/{id}', 'admin.commande.controller:editAction')
     ->bind('admin_edit_commande')
 ;
 
 $admin
-    ->match('/commande/delete{id_commande}', 'admin.commande.controller:deleteAction')
+    ->match('/commande/delete/{id}', 'admin.commande.controller:deleteAction')
     ->bind('admin_delete_commande')
 ;
 
@@ -168,7 +164,7 @@ $admin
 ;
 
 //-------------------------------------------------------------------------//
-$app->error(function (Exception $e, Request $request, $code) use ($app) {
+$app->error(function (\Exception $e, Request $request, $code) use ($app) {
     if ($app['debug']) {
         return;
     }
