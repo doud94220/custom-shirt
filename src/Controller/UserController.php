@@ -1,8 +1,8 @@
 <?php
 namespace Controller;
-
 use Entity\User;
 use Service\UserManager;
+use DateTime;
 
 class UserController extends ControllerAbstract
 {
@@ -14,7 +14,15 @@ class UserController extends ControllerAbstract
             $user
                 ->setNom($_POST['nom'])
                 ->setPrenom($_POST['prenom'])
+                ->setDate_naissance(new DateTime($_POST['date_naissance']))
                 ->setEmail($_POST['email'])
+                ->setPassword($_POST['password'])
+                ->setAdresse($_POST['adresse'])
+                ->setComplement_adresse($_POST['complement_adresse'])
+                ->setCode_postal($_POST['code_postal'])
+                ->setVille($_POST['ville'])
+                ->setTel($_POST['tel'])
+                ->setSexe($_POST['sexe'])
             ;
             
             if(empty($_POST['nom'])){
@@ -23,6 +31,10 @@ class UserController extends ControllerAbstract
             
             if(empty($_POST['prenom'])){
                 $errors['prenom'] = 'Le prénom est obligatoire';
+            }
+            
+            if (empty($_POST['date_naissance'])) {
+                $errors['date_naissance'] = 'La date de naissance est obligatoire';
             }
             
             if(empty($_POST['email'])){
@@ -116,10 +128,14 @@ class UserController extends ControllerAbstract
     
     public function showProfile(){
         $user = $this->app['user.manager']->getUser();
+        $commandes = $this->app['commande.repository']->findAllByUser($user);
         
         return $this->render(
             'user/profile.html.twig',
-            ['user' => $user] 
+            [
+                'user' => $user,
+                'commandes' => $commandes
+                ] 
         );
     }
 }

@@ -1,6 +1,8 @@
 <?php
+
 namespace Repository;
 
+use DateTime;
 use Entity\User;
 
 class UserRepository extends RepositoryAbstract
@@ -37,9 +39,9 @@ class UserRepository extends RepositoryAbstract
     {
         $data=[
                 'id_user' => $user->getUser(),
-                'tour_cou' => $user->getTour_cou(),
                 'taille' => $user->getTaille(),
                 'poids' => $user->getPoids(),
+                'tour_cou' => $user->getTour_cou(),
                 'tour_poitrine' => $user->getTour_poitrine(),
                 'tour_taille' => $user->getTour_taille(),
                 'tour_bassin' => $user->getTour_bassin(),
@@ -59,26 +61,27 @@ class UserRepository extends RepositoryAbstract
             'SELECT * FROM user WHERE email = :email',
             [':email' => $email]
         );
-        
-        if(!empty($dbUser)){
+
+        if (!empty($dbUser)) {
             return $this->buildFromArray($dbUser);
         }
-        
+
         return null;
     }
-    
-    
-    
-    
-    
-    // Hydratation de l'objet User
+
+
+    /**
+     * @param array $dbUser
+     * @return User
+     */
     public function buildFromArray($dbUser){
         $user = new User();
-        
+
         $user
             ->setId_user($dbUser['id_user'])
             ->setNom($dbUser['nom'])
             ->setPrenom($dbUser['prenom'])
+            ->setDate_naissance(new DateTime($dbUser['date_naissance']))
             ->setEmail($dbUser['email'])
             ->setPassword($dbUser['password'])
             ->setAdresse($dbUser['adresse'])

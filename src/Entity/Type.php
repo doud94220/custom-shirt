@@ -18,7 +18,7 @@ class Type
     private $id;
 
     /**
-     * @var type
+     * @var string
      */
     private $categorie;
 
@@ -77,7 +77,7 @@ class Type
     public function setType($type)
     {
         $this->type = $type;
-
+      
         return $this;
     }
 

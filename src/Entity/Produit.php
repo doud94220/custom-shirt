@@ -51,6 +51,8 @@ class Produit
      */
     private $prix;
 
+    private $quantite;
+
     /**
      * @return int
      */

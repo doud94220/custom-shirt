@@ -67,6 +67,7 @@ class Basket
 
 
 
+
 //    SPECIFICATION BASKET/PANIER :
 //			0) Creer 3 fichiers : 
 //				- Entity\Basket.php 'attribys et Getters/Setters'

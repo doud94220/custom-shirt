@@ -1,6 +1,7 @@
 <?php
 
 use Controller\CustomController;
+use Controller\UserController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -31,22 +32,57 @@ $app
     ->bind('ajax_api_panier')// nom de la route
 ;
 
+  $app
+    ->get('/custom', 'custom.controller:listTissu')
+    ->bind('etape_1_tissu')
+;
+
 $app
     ->get('/template/{id}', 'index.controller:idAction')
     ->bind('show_product')// nom de la route
 ;
 
 $app
-    ->get('/custom', 'custom.controller:indexAction')
-    ->bind('custom')
-    ;
+   ->get('/custom_bouton', 'custom.controller:listBouton')
+   ->bind('etape_2_bouton')
+;
 
+$app
+   ->get('/custom_col', 'custom.controller:listCol')
+   ->bind('etape_3_col')
+;
 
+$app
+   ->match('/custom_coupe', 'user.controller:listCoupe')
+   ->bind('etape_4_coupe')
+;
 
+$app
+   ->match('/custom_recap', 'user.controller:showCustom')
+   ->bind('custom_recap')
+;
 
+$app
+   ->match('/custom_poidstaille', 'user.controller:fillMeasureWeightHeight')
+   ->bind('etape_5_poidstaille')
+;
+
+$app
+   ->match('/custom_tronc', 'user.controller:fillMeasureTronc')
+   ->bind('etape_5_tronc')
+;
+
+$app
+   ->match('/custom_bras', 'user.controller:fillMeasureBras')
+   ->bind('etape_5_bras')
+;
+
+$app
+   ->match('/custom_carrure', 'user.controller:fillMeasureCarrure')
+   ->bind('etape_5_carrure')
+;
 
 /* UTILISATEUR */
-
 
 $app
     ->match('/inscription', 'user.controller:registerAction')
@@ -68,7 +104,25 @@ $app
     ->bind('profile')
 ;
 
+$app
+    ->get('/profile', 'commande.controller:showAction')
+    ->bind('profile_commandes')
+;
 
+$app
+    ->get('/profile/suivi_commandes', 'commande.controller:followAction')
+    ->bind('suivi_commande')
+;
+
+$app
+    ->match('/profile/delete_commande/{id}', 'commande.controller:deleteAction')
+    ->bind('delete_commande')
+;
+
+$app
+    ->match('/profile/return_commande/{id}', 'commande.controller:returnAction')
+    ->bind('return_commande')
+;
 
 
 /********************* ADMIN **************************/
@@ -87,12 +141,32 @@ $admin->before(function () use ($app){
 // auront le préfixe /admin
 $app->mount('/admin', $admin);
 
+$app->get('/', function () use ($app) {
+    return $app['twig']->render('index.html.twig', array());
+})
+->bind('homepage')
+;
+
+// gestion des commandes -------------------------------------- 
 $admin
-    ->match('/commande/edit{id_commande}', 'admin.commande.controller:editAction')
-    ->value('id', null) // id est optionnel et vaut null par défaut
+    ->get('/commandes', 'admin.commande.controller:listAction')
+    ->bind('admin_commandes')
+;
+
+$admin
+    ->match('/commande/edit/{id}', 'admin.commande.controller:editAction')
     ->bind('admin_edit_commande')
 ;
 
+$admin
+    ->match('/commande/delete/{id}', 'admin.commande.controller:deleteAction')
+    ->bind('admin_delete_commande')
+;
+
+$admin
+    ->get('/commande/details{id_commande}', 'admin.details_commande.controller:listAction')
+    ->bind('admin_details_commande')
+;
 
 //-------------------------------------------------------------------------//
 $app->error(function (\Exception $e, Request $request, $code) use ($app) {

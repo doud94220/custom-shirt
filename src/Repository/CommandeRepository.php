@@ -1,11 +1,12 @@
 <?php
 namespace Repository;
 
-use Silex\Provider\SessionServiceProvider;
-use Service\UserManager;
+use DateTime;
 use Entity\Commande;
 use Entity\User;
-use DateTime;
+use Service\UserManager;
+use Silex\Provider\SessionServiceProvider;
+
 /**
  * Description of CommandeRepository
  *
@@ -18,7 +19,7 @@ class CommandeRepository extends RepositoryAbstract
     }
     
     /**
-     * cette fonction sert à chercher en base l'ensemble des commandes réalisées par un utilisateur
+     * cette méthode sert à chercher en base l'ensemble des commandes réalisées par un utilisateur
      * @return Commande
      */
     public function findAllByUser(User $user){ 
@@ -32,7 +33,7 @@ EOS;
         
         $dbCommandes = $this->db->fetchAll(
             $query,
-            [':id_user' => $id_user]
+            [':id_user' => $user->getId_user()]
         );
         $commandes = []; // le tableau dans lequel vont être stockées les entités Article
         
@@ -47,8 +48,9 @@ EOS;
     
     public function findAll(){
         $query = <<<EOS
-SELECT *
-FROM commande
+SELECT c.*
+FROM commande c
+JOIN user u ON c.user_id = u.id_user 
 ORDER BY id_commande DESC
 EOS;
         
@@ -58,14 +60,57 @@ EOS;
         foreach($dbCommandes as $dbCommande){
             $commande = $this->buildFromArray($dbCommande);
             
-            $sommandes[] = $commande;
+            $commandes[] = $commande;
         }
         
         return $commandes;
     }
     
-    public function save(){
+    /**
+     * 
+     * @param int $id_commande
+     * @return Commande
+     */
+    public function find($id_commande){
+        $dbCommande = $this->db->fetchAssoc(
+            'SELECT * FROM commande WHERE id_commande = :id_commande',
+            [':id_commande' => $id_commande]
+        );
         
+        if(!empty($dbCommande)){
+            return $this->buildFromArray($dbCommande);
+        }
+    }
+    
+    public function save(Commande $commande){
+        $data = [
+            'user_id' => $commande->getUser_id(),
+            'prix_livraison' => $commande->getPrix_livraison(),
+            'total' => $commande->getTotal(),
+            'date_commande' => $commande->getDate_commande(),
+            'etat' => $commande->getEtat()
+        ];
+        
+        $this->persist($data);
+    }
+    
+    public function edit(Commande $commande){
+        $data = [
+            'etat' => $commande->getEtat()
+        ];
+        
+        $where = !empty($commande->getId_commande())
+            ? [
+                'id_commande' => $commande->getId_commande()
+              ]// modification
+            : null // création
+        ;
+        
+        $this->persist($data, $where);
+    }
+    
+    public function delete(Commande $commande){
+        $this->db->delete('commande', ['id_commande' => $commande->getId_commande()]);
     }
     
     /**

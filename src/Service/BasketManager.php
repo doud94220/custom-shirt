@@ -15,7 +15,6 @@ Vue de la session avec le basket dedans :
 class BasketManager
 {
     private $session;
-    
 
     //Constructeur qui initialise la session
     public function __construct(Session $session)
@@ -23,6 +22,7 @@ class BasketManager
         $this->session = $session;
     }
     
+  
     //Méthode putProductToBasket($produit) qui met en session les infos du PRODUIT choisi
     public function putProductToBasket($produit)
     {
@@ -33,15 +33,10 @@ class BasketManager
            $basket = new Basket();
            
            //Y placer un tableau de produit(s) et config(s)
-<<<<<<< HEAD
-           //$productsAndConfigs[];
-           //$basket = $productsAndConfigs[];
-=======
+
 
            $productsAndConfigs = [];
            $basket = $productsAndConfigs;
-
->>>>>>> 2583389a7db3a67007d1905a9b6e592cfeed0f18
         }
         else //Si y'a un panier
         {
@@ -56,7 +51,7 @@ class BasketManager
         
     }//Fin putProductToBasket()
   
-    
+  
     //Méthode putConfigToBasket($config) qui met en session les infos de la CONFIG choisi
     public function putConfigToBasket($config)
     {
@@ -67,16 +62,10 @@ class BasketManager
           $basket = new Basket();
            
            //Y placer un tableau de produit(s) et config(s)
-<<<<<<< HEAD
-          //$productsAndConfigs[];
-          //$basket = $productsAndConfigs[];
-=======
 
           $productsAndConfigs = array();
 
           $basket = $productsAndConfigs;
-
->>>>>>> 2583389a7db3a67007d1905a9b6e592cfeed0f18
         }
         else //Si y'a un panier
         {
@@ -91,13 +80,12 @@ class BasketManager
         
     }//Fin putConfigToBasket()
     
-    
+
     //Méthode readBasket() qui retourne le contenu du panier
     public function readBasket()
     {
 
         if(!$this->session->has('basket')) //Si y'a pas de panier
-
         {
             return null;
         }

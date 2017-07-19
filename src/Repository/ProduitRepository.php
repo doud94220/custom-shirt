@@ -2,10 +2,10 @@
 
 namespace Repository;
 
-use Entity\Couleur;
 use Entity\Produit;
 use Entity\Categorie;
 use Entity\Type;
+se Entity\Tissu;
 
 /**
  * Created by PhpStorm.
@@ -14,15 +14,6 @@ use Entity\Type;
  * Time: 11:11
  */
 
-
-<<<<<<< HEAD
-use Entity\Categorie;
-use Entity\Tissu;
-use Entity\Produit;
-use Entity\Type;
-=======
-
->>>>>>> 2583389a7db3a67007d1905a9b6e592cfeed0f18
 
 class ProduitRepository extends RepositoryAbstract
 {
@@ -38,19 +29,11 @@ class ProduitRepository extends RepositoryAbstract
     public function findAll()
     {
         $query = <<<EOS
-<<<<<<< HEAD
 SELECT p.*, t.type, ti.nom, ti.desc, ti.composition, ti.grammage, ti.tirage, t.categorie_id, cat.categorie 
 FROM produit p
 JOIN type t ON p.type_id=t.id
 JOIN categorie cat ON cat.id=t.categorie_id
 JOIN tissu ti ON p.tissu_id=ti.id
-=======
-SELECT p.*, t.type, c.couleur, t.categorie_id, cat.categorie 
-FROM produit p
-JOIN type t ON p.type_id=t.id
-JOIN categorie cat ON cat.id=t.categorie_id
-JOIN couleur c ON p.couleur_id=c.id
->>>>>>> 2583389a7db3a67007d1905a9b6e592cfeed0f18
 EOS;
 
         $dbProduits = $this->db->fetchAll($query);
@@ -69,19 +52,11 @@ EOS;
     public function findById($id)
     {
         $query = <<<EOS
-<<<<<<< HEAD
 SELECT p.*, t.type, ti.nom, ti.desc, ti.composition, ti.grammage, ti.tirage, t.categorie_id, cat.categorie 
 FROM produit p
 JOIN type t ON p.type_id=t.id
 JOIN categorie cat ON cat.id=t.categorie_id
 JOIN tissu ti ON p.tissu_id=ti.id
-=======
-SELECT p.*, t.type, c.couleur, t.categorie_id, cat.categorie 
-FROM produit p
-JOIN type t ON p.type_id=t.id
-JOIN categorie cat ON cat.id=t.categorie_id
-JOIN couleur c ON p.couleur_id=c.id
->>>>>>> 2583389a7db3a67007d1905a9b6e592cfeed0f18
 WHERE p.id = :id
 EOS;
 
@@ -108,10 +83,9 @@ EOS;
 
         $type = new Type;
 
-<<<<<<< HEAD
+
         $tissu = new Tissu;
-=======
-        $couleur = new Couleur;
+
 
         $category = new Categorie;
 
@@ -120,11 +94,11 @@ EOS;
             ->setCategorie($category)
             ->setType($dbProduit['type'])
         ;
->>>>>>> 2583389a7db3a67007d1905a9b6e592cfeed0f18
+
 
         $category = new Categorie;
 
-<<<<<<< HEAD
+
         $type
             ->setId($dbProduit['type_id'])
             ->setCategorie($category)
@@ -140,8 +114,6 @@ EOS;
             ->setTirage($dbProduit['tirage'])
         ;
 
-=======
->>>>>>> 2583389a7db3a67007d1905a9b6e592cfeed0f18
         $category
             ->setId($dbProduit['categorie_id'])
             ->setTitle($dbProduit['categorie'])
@@ -149,13 +121,11 @@ EOS;
 
         $produit
             ->setId($dbProduit['id'])
+
             ->setTitre($dbProduit['titre'])
             ->setType($type)
-<<<<<<< HEAD
             ->setTissu($tissu)
-=======
-            ->setCouleur($couleur)
->>>>>>> 2583389a7db3a67007d1905a9b6e592cfeed0f18
+
             ->setDescription($dbProduit['description'])
             ->setReference($dbProduit['reference'])
             ->setPhoto($dbProduit['photo'])

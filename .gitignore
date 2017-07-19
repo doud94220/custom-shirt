@@ -1,3 +1,9 @@
 /vendor/
 /nbproject/
 /.idea/
+<<<<<<< HEAD
+/var/
+var/cache/profiler/index.csv
+=======
+/var/
+>>>>>>> master
