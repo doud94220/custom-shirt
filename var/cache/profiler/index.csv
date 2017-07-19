@@ -417,3 +417,7 @@ ae529f,::1,GET,http://localhost/custom-shirt/web/index_dev.php/profile/connexion
 5cbfa2,::1,GET,http://localhost/custom-shirt/web/index_dev.php/profile/modifier,1500475800,,200
 f6dec8,::1,GET,http://localhost/custom-shirt/web/index_dev.php/profile,1500476180,,500
 a3fbd5,::1,GET,http://localhost/custom-shirt/web/index_dev.php/inscription,1500476375,,200
+a5c0fe,::1,POST,http://localhost/custom-shirt/web/index_dev.php/inscription,1500477144,,200
+30bb6d,::1,POST,http://localhost/custom-shirt/web/index_dev.php/inscription,1500477175,,500
+76a1c3,::1,POST,http://localhost/custom-shirt/web/index_dev.php/inscription,1500477224,,302
+69904d,::1,GET,http://localhost/custom-shirt/web/index_dev.php/,1500477224,,500
