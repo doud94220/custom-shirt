@@ -12,6 +12,7 @@ class Custom
     private $col;
     private $coupe;
     private $prix;
+    private $quantite;
     
     /**********GETTERS****************/
     
@@ -38,8 +39,12 @@ class Custom
     function getPrix() {
         return $this->prix;
     }
+    
+    public function getQuantite() {
+        return $this->quantite;
+    }
 
-    /**********SETTERS****************/
+        /**********SETTERS****************/
     
     function setId_config($id_config) {
         $this->id_config = $id_config;
@@ -65,6 +70,8 @@ class Custom
         $this->prix = $prix;
     }
 
-
+    public function setQuantite($quantite) {
+        $this->quantite = $quantite;
+    }
 }
 
