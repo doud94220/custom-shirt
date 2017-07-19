@@ -40,7 +40,7 @@ $app
     ->get('/ajax_api', 'index.controller:ajaxApi')
     ->bind('ajax_api')// nom de la route
 ;
-
+$app
     ->get('/custom', 'custom.controller:listTissu')
     ->bind('etape_1_tissu')
 ;
@@ -72,12 +72,12 @@ $app
     ->match('/profile', 'user.controller:showProfile')
     ->bind('profile')
 ;
-
+/*
 $app
     ->get('/profile', 'commande.controller:showAction')
     ->bind('profile_commandes')
 ;
-
+*/
 $app
     ->get('/profile/suivi_commandes', 'commande.controller:followAction')
     ->bind('suivi_commande')
@@ -89,9 +89,11 @@ $app
 ;
 
 // A CONFIRMER dans dossier templates/user/modif.html.twig
+
 $app
-    ->match('modif', 'user.modif: ')
-    ->bind ('modif')
+    ->match('/profile/modifier', 'user.controller:modifAction')
+    ->bind('profile_edit')
+;
 
 
 

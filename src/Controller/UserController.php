@@ -25,7 +25,7 @@ class UserController extends ControllerAbstract
             $user
                 ->setPrenom($_POST['prenom'])
                 ->setNom($_POST['nom'])
-                ->setDate_naissance($_POST['date_naissance'])
+                ->setDate_naissance(new \DateTime($_POST['date_naissance']))
                 ->setEmail($_POST['email'])
                 ->setPassword($_POST['password'])
                 ->setAdresse($_POST['adresse'])
@@ -46,9 +46,9 @@ class UserController extends ControllerAbstract
                 $errors['nom'] = 'Le prénom est obligatoire';
             }
 
-            if (empty($_POST['date_naissance'])) {
+         /*   if (empty($_POST['date_naissance'])) {
                 $errors['date_naissance'] = 'La date de naissance est obligatoire';
-            }
+            } */
 
             
 
@@ -156,6 +156,30 @@ class UserController extends ControllerAbstract
     }
 
 
+    public function modifAction()
+    {
+        $user = $this->app['user.manager']->getUser();
 
+        return $this->render(
+            'user/modif.html.twig',
+            [
+                'user' => $user
+            ]
+        );
+    }
+
+
+    public function showProfile(){
+        $user = $this->app['user.manager']->getUser();
+        $commandes = $this->app['commande.repository']->findAllByUser($user);
+
+        return $this->render(
+            'user/profile.html.twig',
+            [
+                'user' => $user,
+                'commandes' => $commandes
+            ]
+        );
+    }
 
 }

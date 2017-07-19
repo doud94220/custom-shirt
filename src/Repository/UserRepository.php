@@ -14,7 +14,7 @@ class UserRepository extends RepositoryAbstract
         $data = [
             'prenom' => $user->getPrenom(),
             'nom' => $user->getNom(),
-            'date_naissance'=> $user->getDate_naissance(),
+            'date_naissance'=> $user->getDate_naissance()->format('Y-m-d'),
             'email' => $user->getEmail(),
             'password' => $user->getPassword(),
             'adresse' => $user->getAdresse(),
@@ -72,9 +72,7 @@ class UserRepository extends RepositoryAbstract
      * @param array $dbUser
      * @return User
      */
-    public function buildFromArray(array $dbUser)
-    {
-        $user = new User();
+
 
         public function buildFromArray($dbUser){
         $user = new User();

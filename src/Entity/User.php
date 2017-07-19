@@ -265,7 +265,7 @@ class User
      * @param DateTime $date_naissance
      * @return User
      */
-    public function setDate_naissance(date $date_naissance) {
+    public function setDate_naissance(\DateTime $date_naissance) {
         $this->date_naissance = $date_naissance;
         return $this;
     }
