@@ -42,23 +42,28 @@ $app
     ->bind('ajax_api')// nom de la route
 ;
 $app
-    ->get('/custom', 'custom.controller:listTissu')
+    ->match('/custom', 'custom.controller:listTissu')
     ->bind('etape_1_tissu')
 ;
 
 $app
-   ->get('/custom_bouton', 'custom.controller:listBouton')
+   ->match('/custom_bouton', 'custom.controller:listBouton')
    ->bind('etape_2_bouton')
 ;
 
 $app
-   ->get('/custom_col', 'custom.controller:listCol')
+   ->match('/custom_col', 'custom.controller:listCol')
    ->bind('etape_3_col')
 ;
 
 $app
-   ->get('/custom_coupe', 'custom.controller:listCoupe')
+   ->match('/custom_coupe', 'custom.controller:listCoupe')
    ->bind('etape_4_coupe')
+;
+
+$app
+   ->match('/custom_recap', 'custom.controller:showCustom')
+   ->bind('custom_recap')
 ;
 
 $app

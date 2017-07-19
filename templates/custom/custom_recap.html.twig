@@ -1,0 +1,26 @@
+{% extends "layout.html.twig" %} 
+{% block title 'Customisation' %}
+{% block content %}
+    <h1> Résumé de votre configuration </h1>
+     <form name="choix_tissu" method="post">
+         <div class="form-group">
+           <table class="table">
+               <tr>
+                   <th>Titre</th>
+                   <th>Description</th>
+                   <th>Photo</th>
+                   <th>Prix</th> 
+                   <th width="200px"></th>
+               </tr>
+            {% for recap in recaps %}
+               <tr>
+                   <td>{{ recap.titre }} </td>
+                   <td>{{ recap.description }} </td>
+                   <td><img src="{{ recap.photo }}" alt="" width="200"/> </td>
+                   <td>{{ recap.prix }} € </td>      
+               </tr>              
+            {% endfor %}
+           </table>      
+        <button type="submit" class="btn btn-primary" > Passez au prise de mesures </button>
+     </form>
+{% endblock %}

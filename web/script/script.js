@@ -51,6 +51,27 @@ $(function() {
 
     });
 })
+
+/********STOCKAGE INFORMATIONS DANS BALISE HIDDEN************/
+
+$('.select_img').click(function(){
+    var id = $(this).data('id');
+    console.log(id);
+    $('#custom_product').val(id);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
             var content = '';
 

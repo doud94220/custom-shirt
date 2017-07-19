@@ -22,53 +22,51 @@ class __TwigTemplate_9394d18f69aa954daa4d175b59f376ef11071f9ec11bc97c6ed399ecefa
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_9e3fd5755bb76179945f8a22f943f1b3f252eb58ca239e20d268a4e3f07b3e27 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_9e3fd5755bb76179945f8a22f943f1b3f252eb58ca239e20d268a4e3f07b3e27->enter($__internal_9e3fd5755bb76179945f8a22f943f1b3f252eb58ca239e20d268a4e3f07b3e27_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "custom/tissu.html.twig"));
+        $__internal_4b24fbd61ce646d61537bdf17f2940633972e71ee118ca5c7179caa3088ceab8 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_4b24fbd61ce646d61537bdf17f2940633972e71ee118ca5c7179caa3088ceab8->enter($__internal_4b24fbd61ce646d61537bdf17f2940633972e71ee118ca5c7179caa3088ceab8_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "custom/tissu.html.twig"));
 
-        $__internal_8fb9abd546458992a0e8e1d1f46b6b70652df63dda2d528037009da6855752ed = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_8fb9abd546458992a0e8e1d1f46b6b70652df63dda2d528037009da6855752ed->enter($__internal_8fb9abd546458992a0e8e1d1f46b6b70652df63dda2d528037009da6855752ed_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "custom/tissu.html.twig"));
+        $__internal_fdd0f26279784e092fabc9c8f223729f8fa63cd513be320fa73e26e7c64fb0be = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_fdd0f26279784e092fabc9c8f223729f8fa63cd513be320fa73e26e7c64fb0be->enter($__internal_fdd0f26279784e092fabc9c8f223729f8fa63cd513be320fa73e26e7c64fb0be_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "custom/tissu.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_9e3fd5755bb76179945f8a22f943f1b3f252eb58ca239e20d268a4e3f07b3e27->leave($__internal_9e3fd5755bb76179945f8a22f943f1b3f252eb58ca239e20d268a4e3f07b3e27_prof);
+        $__internal_4b24fbd61ce646d61537bdf17f2940633972e71ee118ca5c7179caa3088ceab8->leave($__internal_4b24fbd61ce646d61537bdf17f2940633972e71ee118ca5c7179caa3088ceab8_prof);
 
         
-        $__internal_8fb9abd546458992a0e8e1d1f46b6b70652df63dda2d528037009da6855752ed->leave($__internal_8fb9abd546458992a0e8e1d1f46b6b70652df63dda2d528037009da6855752ed_prof);
+        $__internal_fdd0f26279784e092fabc9c8f223729f8fa63cd513be320fa73e26e7c64fb0be->leave($__internal_fdd0f26279784e092fabc9c8f223729f8fa63cd513be320fa73e26e7c64fb0be_prof);
 
     }
 
     // line 2
     public function block_title($context, array $blocks = array())
     {
-        $__internal_8155953cbc648678a5b0301183661645f394f047a3399468391e754eef1ef4cb = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_8155953cbc648678a5b0301183661645f394f047a3399468391e754eef1ef4cb->enter($__internal_8155953cbc648678a5b0301183661645f394f047a3399468391e754eef1ef4cb_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_f5141e975ff8ff4cf55392df0b9ae62d45e84aa5d0c02c42d6abbe33c72582ee = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_f5141e975ff8ff4cf55392df0b9ae62d45e84aa5d0c02c42d6abbe33c72582ee->enter($__internal_f5141e975ff8ff4cf55392df0b9ae62d45e84aa5d0c02c42d6abbe33c72582ee_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
-        $__internal_39e667756ef74fabb7ca1bfc0130c5e6a64224ee5e9f57ba4661672cf3f9176d = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_39e667756ef74fabb7ca1bfc0130c5e6a64224ee5e9f57ba4661672cf3f9176d->enter($__internal_39e667756ef74fabb7ca1bfc0130c5e6a64224ee5e9f57ba4661672cf3f9176d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_874347c67367a0b985314f47d8639d794e583136f32365b4e1dbde25fe78344b = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_874347c67367a0b985314f47d8639d794e583136f32365b4e1dbde25fe78344b->enter($__internal_874347c67367a0b985314f47d8639d794e583136f32365b4e1dbde25fe78344b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
         echo "Customisation";
         
-        $__internal_39e667756ef74fabb7ca1bfc0130c5e6a64224ee5e9f57ba4661672cf3f9176d->leave($__internal_39e667756ef74fabb7ca1bfc0130c5e6a64224ee5e9f57ba4661672cf3f9176d_prof);
+        $__internal_874347c67367a0b985314f47d8639d794e583136f32365b4e1dbde25fe78344b->leave($__internal_874347c67367a0b985314f47d8639d794e583136f32365b4e1dbde25fe78344b_prof);
 
         
-        $__internal_8155953cbc648678a5b0301183661645f394f047a3399468391e754eef1ef4cb->leave($__internal_8155953cbc648678a5b0301183661645f394f047a3399468391e754eef1ef4cb_prof);
+        $__internal_f5141e975ff8ff4cf55392df0b9ae62d45e84aa5d0c02c42d6abbe33c72582ee->leave($__internal_f5141e975ff8ff4cf55392df0b9ae62d45e84aa5d0c02c42d6abbe33c72582ee_prof);
 
     }
 
     // line 5
     public function block_content($context, array $blocks = array())
     {
-        $__internal_ffaec57abc8617bd59aefa5d857b1160b4458f760ea94daffd6f56ee4426a5ca = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_ffaec57abc8617bd59aefa5d857b1160b4458f760ea94daffd6f56ee4426a5ca->enter($__internal_ffaec57abc8617bd59aefa5d857b1160b4458f760ea94daffd6f56ee4426a5ca_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "content"));
+        $__internal_c903379ce649250f256bdb4a9239ae7a3cce2ff5379b1318d15fa276372e01a2 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_c903379ce649250f256bdb4a9239ae7a3cce2ff5379b1318d15fa276372e01a2->enter($__internal_c903379ce649250f256bdb4a9239ae7a3cce2ff5379b1318d15fa276372e01a2_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "content"));
 
-        $__internal_e4d4ad905b45244674ef51ecc091ec9c4d4a4a77a9b533cced4a61f813de2f39 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_e4d4ad905b45244674ef51ecc091ec9c4d4a4a77a9b533cced4a61f813de2f39->enter($__internal_e4d4ad905b45244674ef51ecc091ec9c4d4a4a77a9b533cced4a61f813de2f39_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "content"));
+        $__internal_886554e887316788321b282d5e587acf3e5430941f36faa1d66b02d2a8ec4672 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_886554e887316788321b282d5e587acf3e5430941f36faa1d66b02d2a8ec4672->enter($__internal_886554e887316788321b282d5e587acf3e5430941f36faa1d66b02d2a8ec4672_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "content"));
 
         // line 6
         echo "    <h1> Choix de votre tissu </h1>
-    <form method=\"post\" action=\"";
-        // line 7
-        echo "\">
+    <form name=\"choix_tissu\" method=\"post\">
         <div class=\"form-group\">
            <table class=\"table\">
                <tr>
@@ -91,7 +89,9 @@ class __TwigTemplate_9394d18f69aa954daa4d175b59f376ef11071f9ec11bc97c6ed399ecefa
                    <td><img src=\"";
             // line 19
             echo twig_escape_filter($this->env, $this->getAttribute($context["tissu"], "photo", array()), "html", null, true);
-            echo "\" alt=\"\" width=\"200\"/> </td>
+            echo "\" alt=\"\" width=\"200\" class=\"select_img\" data-id=\"";
+            echo twig_escape_filter($this->env, $this->getAttribute($context["tissu"], "id_tissu", array()), "html", null, true);
+            echo "\"/> </td>
                    <td>";
             // line 20
             echo twig_escape_filter($this->env, $this->getAttribute($context["tissu"], "prix", array()), "html", null, true);
@@ -106,16 +106,17 @@ class __TwigTemplate_9394d18f69aa954daa4d175b59f376ef11071f9ec11bc97c6ed399ecefa
         echo "   
            </table>
         </div>
-        <button type=\"submit\" class=\"btn btn-primary\" > Etape suivante </button>
+        <button type=\"submit\" class=\"btn btn-primary\">Etape suivante</button>
+        <input type=\"hidden\" name=\"custom_product\" id=\"custom_product\">
     
     </form>
 
 ";
         
-        $__internal_e4d4ad905b45244674ef51ecc091ec9c4d4a4a77a9b533cced4a61f813de2f39->leave($__internal_e4d4ad905b45244674ef51ecc091ec9c4d4a4a77a9b533cced4a61f813de2f39_prof);
+        $__internal_886554e887316788321b282d5e587acf3e5430941f36faa1d66b02d2a8ec4672->leave($__internal_886554e887316788321b282d5e587acf3e5430941f36faa1d66b02d2a8ec4672_prof);
 
         
-        $__internal_ffaec57abc8617bd59aefa5d857b1160b4458f760ea94daffd6f56ee4426a5ca->leave($__internal_ffaec57abc8617bd59aefa5d857b1160b4458f760ea94daffd6f56ee4426a5ca_prof);
+        $__internal_c903379ce649250f256bdb4a9239ae7a3cce2ff5379b1318d15fa276372e01a2->leave($__internal_c903379ce649250f256bdb4a9239ae7a3cce2ff5379b1318d15fa276372e01a2_prof);
 
     }
 
@@ -131,7 +132,7 @@ class __TwigTemplate_9394d18f69aa954daa4d175b59f376ef11071f9ec11bc97c6ed399ecefa
 
     public function getDebugInfo()
     {
-        return array (  106 => 22,  97 => 20,  93 => 19,  89 => 18,  86 => 17,  82 => 16,  71 => 7,  68 => 6,  59 => 5,  41 => 2,  11 => 1,);
+        return array (  106 => 22,  97 => 20,  91 => 19,  87 => 18,  84 => 17,  80 => 16,  68 => 6,  59 => 5,  41 => 2,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -150,7 +151,7 @@ class __TwigTemplate_9394d18f69aa954daa4d175b59f376ef11071f9ec11bc97c6ed399ecefa
 
 {% block content %}
     <h1> Choix de votre tissu </h1>
-    <form method=\"post\" action=\"{#{{ path('bouton.html.twig')}}#}\">
+    <form name=\"choix_tissu\" method=\"post\">
         <div class=\"form-group\">
            <table class=\"table\">
                <tr>
@@ -162,13 +163,14 @@ class __TwigTemplate_9394d18f69aa954daa4d175b59f376ef11071f9ec11bc97c6ed399ecefa
             {% for tissu in tissus %}
                <tr>
                    <td>{{ tissu.description }} </td>
-                   <td><img src=\"{{ tissu.photo }}\" alt=\"\" width=\"200\"/> </td>
+                   <td><img src=\"{{ tissu.photo }}\" alt=\"\" width=\"200\" class=\"select_img\" data-id=\"{{ tissu.id_tissu }}\"/> </td>
                    <td>{{ tissu.prix }} € </td>                   
                </tr>
             {% endfor %}   
            </table>
         </div>
-        <button type=\"submit\" class=\"btn btn-primary\" > Etape suivante </button>
+        <button type=\"submit\" class=\"btn btn-primary\">Etape suivante</button>
+        <input type=\"hidden\" name=\"custom_product\" id=\"custom_product\">
     
     </form>
 

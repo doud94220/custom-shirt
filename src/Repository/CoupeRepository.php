@@ -39,8 +39,8 @@ EOS;
         $coupes
                ->setId_coupe($dbCoupe['id_coupe'])
                ->setTitre($dbCoupe['titre'])
-               ->setDescription($dbCol['description'])
-               ->setPhoto($dbCol['photo'])
+               ->setDescription($dbCoupe['description'])
+               ->setPhoto($dbCoupe['photo'])
         ;
         return $coupes;
     }

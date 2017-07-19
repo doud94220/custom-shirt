@@ -7,67 +7,48 @@ namespace Entity;
 class Coupe 
 {
 
-    private $id_config;
+    private $id_coupe;
     
-    private $tissu_id;
-    private $button_id;
-    private $col;
-    private $coupe;
-    private $prix;
-
-    public function getId_config() {
-        return $this->id_config;
+    private $description;
+    private $photo;
+    private $titre;
+    
+    public function getId_coupe() {
+        return $this->id_coupe;
     }
 
-    public function getTissu_id() {
-        return $this->tissu_id;
+    public function getDescription() {
+        return $this->description;
     }
 
-    public function getButton_id() {
-        return $this->button_id;
+    public function getPhoto() {
+        return $this->photo;
     }
 
-    public function getCol() {
-        return $this->col;
+    public function getTitre() {
+        return $this->titre;
     }
 
-    public function getCoupe() {
-        return $this->coupe;
-    }
-
-    public function getPrix() {
-        return $this->prix;
-    }
-
-    public function setId_config($id_config) {
-        $this->id_config = $id_config;
+    public function setId_coupe($id_coupe) {
+        $this->id_coupe = $id_coupe;
         return $this;
     }
 
-    public function setTissu_id($tissu_id) {
-        $this->tissu_id = $tissu_id;
+    public function setDescription($description) {
+        $this->description = $description;
         return $this;
     }
 
-    public function setButton_id($button_id) {
-        $this->button_id = $button_id;
+    public function setPhoto($photo) {
+        $this->photo = $photo;
         return $this;
     }
 
-    public function setCol($col) {
-        $this->col = $col;
+    public function setTitre($titre) {
+        $this->titre = $titre;
         return $this;
     }
 
-    public function setCoupe($coupe) {
-        $this->coupe = $coupe;
-        return $this;
-    }
-
-    public function setPrix($prix) {
-        $this->prix = $prix;
-        return $this;
-    }
 
 
     
