@@ -15,11 +15,11 @@ class __TwigTemplate_c588ecaaeb41e032ed81307a3beb2de2f7dae4e4d482880df69447c350b
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_dc8b706dc5bee1d5e9edcaf93e092b5f3a5e3ff7787d84750b2a212e294fbfb3 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_dc8b706dc5bee1d5e9edcaf93e092b5f3a5e3ff7787d84750b2a212e294fbfb3->enter($__internal_dc8b706dc5bee1d5e9edcaf93e092b5f3a5e3ff7787d84750b2a212e294fbfb3_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "produit/produit_list.html.twig"));
+        $__internal_692db9a7abb4d2fafda558c514200a2e57318a6092bbf5c4c0a04b57ee3f60e4 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_692db9a7abb4d2fafda558c514200a2e57318a6092bbf5c4c0a04b57ee3f60e4->enter($__internal_692db9a7abb4d2fafda558c514200a2e57318a6092bbf5c4c0a04b57ee3f60e4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "produit/produit_list.html.twig"));
 
-        $__internal_5fe494fa227da245f722efeb1582f761e855efb18bdc7d5b48b4b835c8a78a4c = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_5fe494fa227da245f722efeb1582f761e855efb18bdc7d5b48b4b835c8a78a4c->enter($__internal_5fe494fa227da245f722efeb1582f761e855efb18bdc7d5b48b4b835c8a78a4c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "produit/produit_list.html.twig"));
+        $__internal_903ce52ff59f837a5893b3de36fc2d4fe77d9e1156293d89229898325e44dc99 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_903ce52ff59f837a5893b3de36fc2d4fe77d9e1156293d89229898325e44dc99->enter($__internal_903ce52ff59f837a5893b3de36fc2d4fe77d9e1156293d89229898325e44dc99_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "produit/produit_list.html.twig"));
 
         // line 1
         $context["produitId"] = 0;
@@ -50,7 +50,7 @@ class __TwigTemplate_c588ecaaeb41e032ed81307a3beb2de2f7dae4e4d482880df69447c350b
                     // line 11
                     echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("show_product", array("id" => $this->getAttribute($this->getAttribute((isset($context["produits"]) ? $context["produits"] : $this->getContext($context, "produits")), (isset($context["produitId"]) ? $context["produitId"] : $this->getContext($context, "produitId")), array(), "array"), "id", array()))), "html", null, true);
                     echo "\"><img src=\"";
-                    echo twig_escape_filter($this->env, ("http://localhost/test/img/" . $this->getAttribute($this->getAttribute((isset($context["produits"]) ? $context["produits"] : $this->getContext($context, "produits")), (isset($context["produitId"]) ? $context["produitId"] : $this->getContext($context, "produitId")), array(), "array"), "photo", array())), "html", null, true);
+                    echo twig_escape_filter($this->env, ("http://localhost/custom-shirt/web/img/" . $this->getAttribute($this->getAttribute((isset($context["produits"]) ? $context["produits"] : $this->getContext($context, "produits")), (isset($context["produitId"]) ? $context["produitId"] : $this->getContext($context, "produitId")), array(), "array"), "photo", array())), "html", null, true);
                     echo "\" alt=\"chemise\"></a>
                     <hr>
                     <div class=\"desc\">
@@ -90,10 +90,10 @@ class __TwigTemplate_c588ecaaeb41e032ed81307a3beb2de2f7dae4e4d482880df69447c350b
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['i'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
         
-        $__internal_dc8b706dc5bee1d5e9edcaf93e092b5f3a5e3ff7787d84750b2a212e294fbfb3->leave($__internal_dc8b706dc5bee1d5e9edcaf93e092b5f3a5e3ff7787d84750b2a212e294fbfb3_prof);
+        $__internal_692db9a7abb4d2fafda558c514200a2e57318a6092bbf5c4c0a04b57ee3f60e4->leave($__internal_692db9a7abb4d2fafda558c514200a2e57318a6092bbf5c4c0a04b57ee3f60e4_prof);
 
         
-        $__internal_5fe494fa227da245f722efeb1582f761e855efb18bdc7d5b48b4b835c8a78a4c->leave($__internal_5fe494fa227da245f722efeb1582f761e855efb18bdc7d5b48b4b835c8a78a4c_prof);
+        $__internal_903ce52ff59f837a5893b3de36fc2d4fe77d9e1156293d89229898325e44dc99->leave($__internal_903ce52ff59f837a5893b3de36fc2d4fe77d9e1156293d89229898325e44dc99_prof);
 
     }
 
@@ -132,7 +132,7 @@ class __TwigTemplate_c588ecaaeb41e032ed81307a3beb2de2f7dae4e4d482880df69447c350b
         {% for j in 0..2 %}
             {% if produits[produitId] is defined %}
                 <div class=\"col-sm-4 chemise\">
-                    <a href=\"{{ path('show_product', {\"id\":  produits[produitId].id}) }}\"><img src=\"{{ 'http://localhost/test/img/' ~ produits[produitId].photo }}\" alt=\"chemise\"></a>
+                    <a href=\"{{ path('show_product', {\"id\":  produits[produitId].id}) }}\"><img src=\"{{ 'http://localhost/custom-shirt/web/img/' ~ produits[produitId].photo }}\" alt=\"chemise\"></a>
                     <hr>
                     <div class=\"desc\">
                         <p class=\"title\"><a href=\"{{ path('show_product', {\"id\":  produits[produitId].id}) }}\">{{ produits[produitId].titre }}</a></p>

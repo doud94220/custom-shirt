@@ -1,27 +1,23 @@
 <?php
 
+use Repository\CustomRepository;
 use Controller\Admin\CommandeController as AdminCommandeController;
-use Controller\BasketController;
 use Controller\CommandeController;
-use Controller\CustomController;
 use Controller\DetailCommandeController;
-use Controller\IndexController;
 use Controller\UserController;
 use Repository\BoutonRepository;
 use Repository\ColRepository;
 use Repository\CommandeRepository;
-use Repository\CustomRepository;
 use Repository\DetailCommandeRepository;
 use Repository\ProduitRepository;
-use Repository\TissuRepository;
-use Service\CustomManager;
-use Repository\UserRepository;
 use Service\BasketManager;
 use Service\UserManager;
 use Silex\Application;
 use Silex\Provider\AssetServiceProvider;
 use Silex\Provider\DoctrineServiceProvider;
 use Silex\Provider\HttpFragmentServiceProvider;
+use Controller\IndexController;
+use Controller\ProduitController;
 use Silex\Provider\ServiceControllerServiceProvider;
 use Silex\Provider\SessionServiceProvider;
 use Silex\Provider\SwiftmailerServiceProvider;
@@ -68,10 +64,6 @@ $app['user.manager'] = function () use ($app)
     return new UserManager($app['session']);
 };
 
-$app['custom.manager'] = function () use ($app)
-{
-    return new CustomManager($app['session']);
-};
 
 $app['basket.manager'] = function() use ($app)
 {
@@ -85,6 +77,10 @@ $app['index.controller'] = function () use ($app) {
 
 };
 
+
+$app['produit.controller'] = function () use ($app) {
+
+    return new ProduitController($app);
 
 
 $app['basket.manager'] = function() use ($app)
@@ -130,6 +126,7 @@ $app['detail.commande.controller'] = function () use ($app){
     return new DetailCommandeController($app);
 };
 
+
 $app['user.controller'] = function () use ($app){
     return new UserController($app);
 };
@@ -137,7 +134,7 @@ $app['user.controller'] = function () use ($app){
 /* ADMIN */
 $app['admin.commande.controller'] = function () use ($app)
 {
-    return new AdminCommandeController($app);
+    return new CommandeController($app);
 };
 
 $app['custom.controller'] = function() use ($app)
@@ -148,15 +145,9 @@ $app['custom.controller'] = function() use ($app)
             
 /* Déclaration des repositories en service */
 
-$app['custom.repository'] = function() use ($app)
-{
-    return new CustomRepository($app['db']);
-};
 
-$app['bouton.repository'] = function() use ($app)
-{
-    return new BoutonRepository($app['db']);
-};
+$app['custom.repository'] = function() use ($app) {
+    return new CustomRepository($app);
 
 $app['tissu.repository'] = function() use ($app)
 {

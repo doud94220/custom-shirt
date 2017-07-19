@@ -19,7 +19,7 @@ class Produit
     /**
      * @var type
      */
-    private $couleur;
+    private $tissu;
 
     /**
      * @var string
@@ -51,9 +51,6 @@ class Produit
      */
     private $prix;
 
-    /*
-     * $var int //RAJOUTE PAR EDOUARD
-     */
     private $quantite;
 
     /**
@@ -95,17 +92,17 @@ class Produit
     /**
      * @return type
      */
-    public function getCouleur()
+    public function getTissu()
     {
-        return $this->couleur;
+        return $this->tissu;
     }
 
     /**
      * @param type $couleur
      */
-    public function setCouleur(Couleur $couleur)
+    public function setTissu(Tissu $tissu)
     {
-        $this->couleur = $couleur;
+        $this->tissu = $tissu;
 
         return $this;
     }
@@ -218,12 +215,4 @@ class Produit
         return $this;
     }
 
-    public function getQuantite() {
-        return $this->quantite;
-    }
-
-    public function setQuantite($quantite) {
-        $this->quantite = $quantite;
-    }
-    
 }

@@ -12,22 +12,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 // Route du panier (basket en UK) en front
 $app
-       ->match('/basket', 'basket.controller:consultAction')
-       ->bind('basket_consult');
-
-$app
-       ->match('/basket/incrementBasket/{idProduitEnSession}', 'basket.controller:incrementAction')
-       //->value('idProduitEnSession')
-       ->bind('basket_increment');
-
-$app
-       ->match('/basket/decrementBasket/{idProduitEnSession}', 'basket.controller:decrementAction')
-       ->bind('basket_decrement');
-
-$app
-       ->match('/basket/delete/{idProduitEnSession}', 'basket.controller:deleteAction')
-       ->bind('basket_delete');
-
+    ->match('/basket', 'basket.controller:consultAction')
+    ->bind('basket');
 
 /*HOMEPAGE*/
 
@@ -37,14 +23,23 @@ $app
 ;
 
 $app
-
-    ->get('/ajax_api', 'index.controller:ajaxApi')
+    ->get('/ajax_api', 'produit.controller:ajaxApi')
     ->bind('ajax_api')// nom de la route
 ;
 
 $app
+    ->post('/ajax_api_panier', 'produit.controller:ajaxApiPanier')
+    ->bind('ajax_api_panier')// nom de la route
+;
+
+  $app
     ->get('/custom', 'custom.controller:listTissu')
     ->bind('etape_1_tissu')
+;
+
+$app
+    ->get('/template/{id}', 'index.controller:idAction')
+    ->bind('show_product')// nom de la route
 ;
 
 $app
@@ -58,23 +53,33 @@ $app
 ;
 
 $app
+   ->match('/custom_coupe', 'user.controller:listCoupe')
+   ->bind('etape_4_coupe')
+;
+
+$app
+   ->match('/custom_recap', 'user.controller:showCustom')
+   ->bind('custom_recap')
+;
+
+$app
    ->match('/custom_poidstaille', 'user.controller:fillMeasureWeightHeight')
-   ->bind('etape_4_poidtaille')
+   ->bind('etape_5_poidstaille')
 ;
 
 $app
    ->match('/custom_tronc', 'user.controller:fillMeasureTronc')
-   ->bind('etape_4_tronc')
+   ->bind('etape_5_tronc')
 ;
 
 $app
    ->match('/custom_bras', 'user.controller:fillMeasureBras')
-   ->bind('etape_4_bras')
+   ->bind('etape_5_bras')
 ;
 
 $app
    ->match('/custom_carrure', 'user.controller:fillMeasureCarrure')
-   ->bind('etape_4_carrure')
+   ->bind('etape_5_carrure')
 ;
 
 /* UTILISATEUR */
@@ -164,7 +169,7 @@ $admin
 ;
 
 //-------------------------------------------------------------------------//
-$app->error(function (Exception $e, Request $request, $code) use ($app) {
+$app->error(function (\Exception $e, Request $request, $code) use ($app) {
     if ($app['debug']) {
         return;
     }

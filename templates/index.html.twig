@@ -1,10 +1,7 @@
 {% extends "layout.html.twig" %}
 
-{% block title 'Accueil' %}
-    {# équivaut à 
-    {%block title %} Accueil {% endblock %}#}
-    
 {% block content %}
+
 
  <h1>Accueil</h1>
     {# {% include 'custom/tissu.html.twig' %} #}
@@ -16,20 +13,11 @@
     {% else %}
     <h1>Hello visiteur</h1>
     {% endif %}
-    
+
     <div class="container">
         <div class="row">
             <div class="col-sm-2">
                 <form action="">
-                    <div class="form-group">
-                        <label for="categorie">Categorie</label>
-                        <select name="categorie" id="categorie" class="form-control request">
-                            <option value="">Coisissez une catégorie</option>
-                            <option value="chemise-pret-a-porter">Chemise prêt-à-porter</option>
-                            <option value="chemise-sur-mesure">Chemises sur-mesure</option>
-                            <option value="accessoire">Accessoires</option>
-                        </select>
-                    </div>
 
                     <div class="form-group">
                         <label for="type">Type</label>
@@ -43,14 +31,18 @@
 
 
                     <div class="form-group">
-                        <label for="couleur">Couleur</label>
-                        <select name="couleur" id="couleur" class="form-control request">
-                            <option value="">Coisissez une couleur</option>
-                            <option value="noir">Noir</option>
-                            <option value="blanc">Blanc</option>
-                            <option value="vert">Vert</option>
-                            <option value="gris">Gris</option>
-                            <option value="bleu">Bleu</option>
+                        <label for="tissu">Tissu</label>
+                        <select name="tissu" id="tissu" class="form-control request">
+                            <option value="">Coisissez un tissu</option>
+                            <option value="POPELINE CARREAUX VERT">POPELINE CARREAUX VERT</option>
+                            <option value="POPELINE RAYÉ BLEU">POPELINE RAYÉ BLEU</option>
+                            <option value="POPELINE CARREAUX BLEU">POPELINE CARREAUX BLEU</option>
+                            <option value="POPELINE CARREAUX BLEU ET MARRON">POPELINE CARREAUX BLEU ET MARRON</option>
+                            <option value="POPELINE RAYÉ ROSE">POPELINE RAYÉ ROSE</option>
+                            <option value="POPELINE UNI NOIR">POPELINE UNI NOIR</option>
+                            <option value="TWILL CARREAUX BLEU">TWILL CARREAUX BLEU</option>
+                            <option value="PIN-POINT UNI BLANC">PIN-POINT UNI BLANC</option>
+                            <option value="CHAMBRAY UNI BLEU">CHAMBRAY UNI BLEU</option>
                         </select>
                     </div>
 
@@ -100,9 +92,9 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-sm-4 col-sm-offset-5">
+                        <div class="col-sm-3 col-sm-offset-6">
                             <div class="form-group">
-                                <select name="nombre" id="nombre" class="form-control request nombre">
+                                <select name="nombre" id="nombre" class="form-control request">
                                     <option value="">Résultats par page</option>
                                     <option value="10">10</option>
                                     <option value="30">30</option>

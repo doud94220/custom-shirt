@@ -1,75 +1,203 @@
 <?php
-
+/**
+ * Created by PhpStorm.
+ * User: Etudiant
+ * Date: 19/07/2017
+ * Time: 12:00
+ */
 
 namespace Entity;
 
-class Tissu 
+
+class Tissu
 {
-    private $id_tissu;
-    
+    /**
+     * @var int
+     */
+    private $id;
+
+    /**
+     * @var string
+     */
     private $titre;
-    private $stock;
+
+    /**
+     * @var string
+     */
     private $description;
+
+    /**
+     * @var string
+     */
     private $photo;
+
+    /**
+     * @var int
+     */
     private $prix;
-    
-    public function getTitre() {
+
+    /**
+     * @var string
+     */
+    private $composition;
+
+    /**
+     * @var string
+     */
+    private $grammage;
+
+    /**
+     * @var string
+     */
+    private $tirage;
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     * @return Tissu
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitre()
+    {
         return $this->titre;
     }
 
-    public function getId_tissu() {
-        return $this->id_tissu;
-    }
-
-    public function getStock() {
-        return $this->stock;
-    }
-
-    public function getDescription() {
-        return $this->description;
-    }
-
-    public function getPhoto() {
-        return $this->photo;
-    }
-
-    public function getPrix() {
-        return $this->prix;
-    }
-
-    public function setTitre($titre) {
+    /**
+     * @param string $titre
+     * @return Tissu
+     */
+    public function setTitre($titre)
+    {
         $this->titre = $titre;
         return $this;
     }
-    
-    
-    public function setId_tissu($id_tissu) {
-        $this->id_tissu = $id_tissu;
-        return $this;
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 
-    public function setStock($stock) {
-        $this->stock = $stock;
-        return $this;
-    }
-
-    public function setDescription($description) {
+    /**
+     * @param string $description
+     * @return Tissu
+     */
+    public function setDescription($description)
+    {
         $this->description = $description;
         return $this;
     }
 
-    public function setPhoto($photo) {
+    /**
+     * @return string
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
+
+    /**
+     * @param string $photo
+     * @return Tissu
+     */
+    public function setPhoto($photo)
+    {
         $this->photo = $photo;
         return $this;
     }
 
-    public function setPrix($prix) {
+    /**
+     * @return int
+     */
+    public function getPrix()
+    {
+        return $this->prix;
+    }
+
+    /**
+     * @param int $prix
+     * @return Tissu
+     */
+    public function setPrix($prix)
+    {
         $this->prix = $prix;
         return $this;
     }
 
+    /**
+     * @return string
+     */
+    public function getComposition()
+    {
+        return $this->composition;
+    }
 
-    
-            
-    
+    /**
+     * @param string $composition
+     * @return Tissu
+     */
+    public function setComposition($composition)
+    {
+        $this->composition = $composition;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getGrammage()
+    {
+        return $this->grammage;
+    }
+
+    /**
+     * @param string $grammage
+     * @return Tissu
+     */
+    public function setGrammage($grammage)
+    {
+        $this->grammage = $grammage;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTirage()
+    {
+        return $this->tirage;
+    }
+
+    /**
+     * @param string $tirage
+     * @return Tissu
+     */
+    public function setTirage($tirage)
+    {
+        $this->tirage = $tirage;
+        return $this;
+    }
+
+
+
+
+
+
 }

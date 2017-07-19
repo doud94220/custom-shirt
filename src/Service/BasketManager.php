@@ -34,6 +34,7 @@ class BasketManager
            
            //Y placer un tableau de produit(s) et config(s)
 
+
            $productsAndConfigs = [];
            $basket = $productsAndConfigs;
         }

@@ -18,12 +18,20 @@
                         <p>{{ produits.description }}</p>
                     </div>
                     <div class="col-sm-12 button">
-                        <button class="btn btn-default">Ajouter au panier</button>
+                        <button class="btn btn-default ajout_panier">Ajouter au panier</button>
                     </div>
                 </div>
             </div>
 
         </div>
     </div>
+
+    {% block javascripts %}
+        {{ parent() }}
+        <script>
+            var ajaxApiUrlPanier = "{{ path('ajax_api_panier') }}";
+        </script>
+        <script src="{{ asset('script/script.js') }}"></script>
+    {% endblock %}
 
 {% endblock %}
